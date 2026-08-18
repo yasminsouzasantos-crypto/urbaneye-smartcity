@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
-import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS } from '@/types/urban';
+import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_DOTS, STATUS_LABELS } from '@/types/urban';
 
 function UserMarker({ position }: { position: [number, number] }) {
   const map = useMap();
@@ -53,6 +53,9 @@ function ReportMarker({ report, onClick }: { report: UrbanReport; onClick: (r: U
               style={{ backgroundColor: color }}
             />
             <span>{SEVERITY_LABELS[report.severity]}</span>
+            <span className="font-medium">
+              {STATUS_DOTS[report.status]} {STATUS_LABELS[report.status]}
+            </span>
             <span className="text-muted-foreground">
               {report.timestamp.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
             </span>
