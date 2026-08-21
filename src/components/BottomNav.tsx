@@ -1,24 +1,34 @@
-import { Map, ClipboardList, BarChart3 } from 'lucide-react';
+import { Map, ClipboardList, BarChart3, User } from 'lucide-react';
 
-export type TabKey = 'map' | 'mine' | 'admin';
+export type TabKey = 'map' | 'mine' | 'admin' | 'profile';
 
-const TABS: { key: TabKey; label: string; icon: typeof Map }[] = [
+const CITIZEN_TABS: { key: TabKey; label: string; icon: typeof Map }[] = [
   { key: 'map', label: 'Mapa', icon: Map },
   { key: 'mine', label: 'Meus chamados', icon: ClipboardList },
+  { key: 'profile', label: 'Perfil', icon: User },
+];
+
+const ADMIN_TABS: { key: TabKey; label: string; icon: typeof Map }[] = [
+  { key: 'map', label: 'Mapa', icon: Map },
+  { key: 'mine', label: 'Chamados', icon: ClipboardList },
   { key: 'admin', label: 'Gestão', icon: BarChart3 },
+  { key: 'profile', label: 'Perfil', icon: User },
 ];
 
 export default function BottomNav({
   active,
   onChange,
+  isAdmin,
 }: {
   active: TabKey;
   onChange: (t: TabKey) => void;
+  isAdmin: boolean;
 }) {
+  const tabs = isAdmin ? ADMIN_TABS : CITIZEN_TABS;
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-[700] urban-glass border-t border-border pb-[env(safe-area-inset-bottom)]">
       <div className="mx-auto flex max-w-md">
-        {TABS.map((tab) => {
+        {tabs.map((tab) => {
           const isActive = active === tab.key;
           return (
             <button

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+import MapAutoSize from '@/components/map/MapAutoSize';
 import { UrbanReport, PROBLEM_SHORT, STATUS_COLORS, DEFAULT_LOCATION } from '@/types/urban';
 
 /** Grid-based heat aggregation (no extra dependency needed). */
@@ -26,10 +27,12 @@ export default function AdminMap({
   reports,
   heat,
   onSelect,
+  active = true,
 }: {
   reports: UrbanReport[];
   heat: boolean;
   onSelect: (r: UrbanReport) => void;
+  active?: boolean;
 }) {
   const cells = useMemo(() => heatCells(reports), [reports]);
   const max = Math.max(1, ...cells.map((c) => c.count));
@@ -42,7 +45,12 @@ export default function AdminMap({
       zoomControl={false}
       attributionControl={false}
     >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+      <MapAutoSize active={active} />
+      <TileLayer
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        subdomains={['a', 'b', 'c', 'd']}
+        maxZoom={19}
+      />
       {heat
         ? cells.map((c) => {
             const t = c.count / max;
