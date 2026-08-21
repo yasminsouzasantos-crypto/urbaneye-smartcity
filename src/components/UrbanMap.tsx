@@ -1,11 +1,17 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
+import { LocateFixed } from 'lucide-react';
+import MapAutoSize from '@/components/map/MapAutoSize';
 import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_DOTS, STATUS_LABELS } from '@/types/urban';
 
 function UserMarker({ position }: { position: [number, number] }) {
   const map = useMap();
+  const centered = useRef(false);
+
   useEffect(() => {
-    map.setView(position, map.getZoom(), { animate: true });
+    if (centered.current) return;
+    centered.current = true;
+    map.setView(position, map.getZoom(), { animate: false });
   }, [position, map]);
 
   return (
@@ -26,6 +32,19 @@ function UserMarker({ position }: { position: [number, number] }) {
         </Popup>
       </CircleMarker>
     </>
+  );
+}
+
+function RecenterButton({ position }: { position: [number, number] }) {
+  const map = useMap();
+  return (
+    <button
+      onClick={() => map.setView(position, 15, { animate: true })}
+      className="absolute right-3 top-20 z-[500] w-11 h-11 rounded-xl bg-card text-foreground urban-shadow flex items-center justify-center active:scale-[0.94] transition-transform"
+      aria-label="Centralizar no meu local"
+    >
+      <LocateFixed className="w-5 h-5 text-primary" />
+    </button>
   );
 }
 
@@ -73,9 +92,10 @@ interface UrbanMapProps {
   position: [number, number];
   reports: UrbanReport[];
   onReportClick: (report: UrbanReport) => void;
+  active?: boolean;
 }
 
-export default function UrbanMap({ position, reports, onReportClick }: UrbanMapProps) {
+export default function UrbanMap({ position, reports, onReportClick, active = true }: UrbanMapProps) {
   const markers = useMemo(
     () => reports.map(r => <ReportMarker key={r.id} report={r} onClick={onReportClick} />),
     [reports, onReportClick]
@@ -89,8 +109,14 @@ export default function UrbanMap({ position, reports, onReportClick }: UrbanMapP
       zoomControl={false}
       attributionControl={false}
     >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />
+      <MapAutoSize active={active} />
+      <TileLayer
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        subdomains={['a', 'b', 'c', 'd']}
+        maxZoom={19}
+      />
       <UserMarker position={position} />
+      <RecenterButton position={position} />
       {markers}
     </MapContainer>
   );
