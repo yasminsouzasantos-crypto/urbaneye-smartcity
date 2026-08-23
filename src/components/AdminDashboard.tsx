@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   Clock,
   Flame,
+  ImageIcon,
   Layers,
   MapPin,
   Search,
@@ -305,7 +306,41 @@ export default function AdminDashboard({
         </ul>
       </section>
 
+      {/* Chamados recentes */}
+      <section className="urban-glass urban-shadow rounded-2xl p-4">
+        <h3 className="text-sm font-bold mb-3">Chamados recentes</h3>
+        <ul className="space-y-2">
+          {recent.map((r) => (
+            <li key={r.id}>
+              <button
+                onClick={() => onSelect(r)}
+                className="w-full text-left flex items-center gap-3 rounded-xl p-2 hover:bg-secondary active:scale-[0.99] transition-all"
+              >
+                {r.photo ? (
+                  <img src={r.photo} alt="" className="w-11 h-11 rounded-lg object-cover shrink-0" />
+                ) : (
+                  <span className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+                    <ImageIcon className="w-4 h-4 text-muted-foreground" />
+                  </span>
+                )}
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-medium truncate">{PROBLEM_SHORT[r.type]}</span>
+                  <span className="block text-[11px] text-muted-foreground truncate">
+                    {r.address ?? r.region ?? 'Local registrado'}
+                  </span>
+                </span>
+                <span
+                  className="w-2.5 h-2.5 rounded-full shrink-0"
+                  style={{ background: STATUS_COLORS[r.status] }}
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Mapa */}
+
       <section className="urban-glass urban-shadow rounded-2xl p-4">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-bold flex items-center gap-2">
