@@ -1,4 +1,5 @@
-import { X, MapPin, CalendarClock, CheckCircle2, Timer, Radio } from 'lucide-react';
+import { useState } from 'react';
+import { X, MapPin, CalendarClock, CheckCircle2, Timer, Radio, Maximize2 } from 'lucide-react';
 import {
   PROBLEM_LABELS,
   ReportStatus,
@@ -15,18 +16,47 @@ interface Props {
   report: UrbanReport | null;
   onClose: () => void;
   canManage?: boolean;
+  /** citizens only see photos of their own reports */
+  canViewPhoto?: boolean;
   onStatusChange?: (id: string, status: ReportStatus) => void;
 }
 
-export default function ReportDetail({ report, onClose, canManage, onStatusChange }: Props) {
+export default function ReportDetail({
+  report,
+  onClose,
+  canManage,
+  canViewPhoto = true,
+  onStatusChange,
+}: Props) {
+  const [zoom, setZoom] = useState(false);
   if (!report) return null;
+
+  const photo = canViewPhoto ? report.photo : undefined;
 
   return (
     <div className="fixed inset-0 z-[1100] flex items-end sm:items-center justify-center">
       <div className="absolute inset-0 bg-[hsl(var(--urban-overlay))]/60" onClick={onClose} />
       <div className="relative w-full max-w-md urban-glass rounded-t-2xl sm:rounded-2xl urban-shadow-lg animate-slide-up-fade z-10 max-h-[92dvh] overflow-y-auto">
-        {report.photo && (
-          <img src={report.photo} alt="Foto do chamado" className="w-full h-48 object-cover sm:rounded-t-2xl rounded-t-2xl" />
+        {photo ? (
+          <button
+            type="button"
+            onClick={() => setZoom(true)}
+            className="relative block w-full rounded-t-2xl overflow-hidden bg-secondary"
+            aria-label="Ampliar foto do chamado"
+          >
+            <img
+              src={photo}
+              alt={`Foto do chamado: ${PROBLEM_LABELS[report.type]}`}
+              className="w-full h-56 object-contain bg-secondary"
+            />
+            <span className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-background/85 flex items-center justify-center urban-shadow">
+              <Maximize2 className="w-4 h-4 text-foreground" />
+            </span>
+          </button>
+        ) : (
+          <div className="rounded-t-2xl bg-secondary/70 py-6 text-center text-sm text-muted-foreground font-medium">
+            📷 Nenhuma foto foi adicionada
+          </div>
         )}
         <div className="p-5">
           <div className="flex items-start justify-between gap-3 mb-3">
@@ -119,6 +149,26 @@ export default function ReportDetail({ report, onClose, canManage, onStatusChang
           )}
         </div>
       </div>
+
+      {zoom && photo && (
+        <div
+          className="fixed inset-0 z-[1200] bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setZoom(false)}
+        >
+          <img
+            src={photo}
+            alt={`Foto ampliada do chamado: ${PROBLEM_LABELS[report.type]}`}
+            className="max-w-full max-h-[90dvh] object-contain rounded-xl"
+          />
+          <button
+            onClick={() => setZoom(false)}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center"
+            aria-label="Fechar foto"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

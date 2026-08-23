@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import MapAutoSize from '@/components/map/MapAutoSize';
 import { UrbanReport, PROBLEM_SHORT, STATUS_COLORS, DEFAULT_LOCATION } from '@/types/urban';
+import { WORLD_BOUNDS } from '@/lib/mapConfig';
 
 /** Grid-based heat aggregation (no extra dependency needed). */
 function heatCells(reports: UrbanReport[]) {
@@ -44,12 +45,19 @@ export default function AdminMap({
       className="h-full w-full"
       zoomControl={false}
       attributionControl={false}
+      minZoom={3}
+      maxZoom={19}
+      worldCopyJump={false}
+      maxBounds={WORLD_BOUNDS}
+      maxBoundsViscosity={1}
     >
       <MapAutoSize active={active} />
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         subdomains={['a', 'b', 'c', 'd']}
         maxZoom={19}
+        noWrap
+        bounds={WORLD_BOUNDS}
       />
       {heat
         ? cells.map((c) => {

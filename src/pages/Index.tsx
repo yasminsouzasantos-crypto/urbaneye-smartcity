@@ -157,6 +157,7 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
         report={selectedLive}
         onClose={() => setSelected(null)}
         canManage={isAdmin}
+        canViewPhoto={isAdmin || !!selectedLive?.mine}
         onStatusChange={handleStatusChange}
       />
     </div>

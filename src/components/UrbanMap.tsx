@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaf
 import { LocateFixed } from 'lucide-react';
 import MapAutoSize from '@/components/map/MapAutoSize';
 import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_DOTS, STATUS_LABELS } from '@/types/urban';
+import { WORLD_BOUNDS } from '@/lib/mapConfig';
 
 function UserMarker({ position }: { position: [number, number] }) {
   const map = useMap();
@@ -108,12 +109,19 @@ export default function UrbanMap({ position, reports, onReportClick, active = tr
       className="h-full w-full"
       zoomControl={false}
       attributionControl={false}
+      minZoom={3}
+      maxZoom={19}
+      worldCopyJump={false}
+      maxBounds={WORLD_BOUNDS}
+      maxBoundsViscosity={1}
     >
       <MapAutoSize active={active} />
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         subdomains={['a', 'b', 'c', 'd']}
         maxZoom={19}
+        noWrap
+        bounds={WORLD_BOUNDS}
       />
       <UserMarker position={position} />
       <RecenterButton position={position} />
