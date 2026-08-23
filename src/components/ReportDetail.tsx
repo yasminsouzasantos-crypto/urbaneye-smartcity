@@ -149,6 +149,26 @@ export default function ReportDetail({
           )}
         </div>
       </div>
+
+      {zoom && photo && (
+        <div
+          className="fixed inset-0 z-[1200] bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setZoom(false)}
+        >
+          <img
+            src={photo}
+            alt={`Foto ampliada do chamado: ${PROBLEM_LABELS[report.type]}`}
+            className="max-w-full max-h-[90dvh] object-contain rounded-xl"
+          />
+          <button
+            onClick={() => setZoom(false)}
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center"
+            aria-label="Fechar foto"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
