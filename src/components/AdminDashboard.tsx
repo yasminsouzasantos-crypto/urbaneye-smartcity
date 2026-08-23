@@ -154,6 +154,11 @@ export default function AdminDashboard({
 
   const pieColors = ['#3b82f6', '#f59e0b', '#a855f7', '#22c55e'];
 
+  const recent = useMemo(
+    () => [...reports].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime()).slice(0, 8),
+    [reports]
+  );
+
   return (
     <div className="h-full overflow-y-auto px-4 pt-20 pb-28 space-y-4">
       <div>
