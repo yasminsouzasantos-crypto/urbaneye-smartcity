@@ -16,12 +16,14 @@ export default function Profile({ myCount, total }: { myCount: number; total: nu
             <User className="w-6 h-6 text-primary-foreground" />
           )}
         </div>
-        <div>
-          <p className="font-semibold">{user?.name}</p>
+        <div className="min-w-0">
+          <p className="font-semibold truncate">{user?.name}</p>
+          {user?.email && <p className="text-xs text-muted-foreground truncate">{user.email}</p>}
           <p className="text-xs text-muted-foreground">
             {isAdmin ? 'Administrador · Gestão urbana' : 'Cidadão · Monitoramento'}
           </p>
         </div>
+
       </section>
 
       <div className="grid grid-cols-2 gap-3 mb-4">
