@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import { LocateFixed } from 'lucide-react';
 import MapAutoSize from '@/components/map/MapAutoSize';
-import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_DOTS, STATUS_LABELS } from '@/types/urban';
+import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_COLORS, STATUS_LABELS, PRIORITY_LABELS } from '@/types/urban';
 import { WORLD_BOUNDS } from '@/lib/mapConfig';
 
 function UserMarker({ position }: { position: [number, number] }) {
