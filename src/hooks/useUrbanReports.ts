@@ -3,13 +3,14 @@ import {
   UrbanReport,
   ProblemType,
   Severity,
+  Priority,
   ReportStatus,
   DEFAULT_LOCATION,
   REGIONS,
 } from '@/types/urban';
 import { regionFor } from '@/lib/urban';
 
-const STORAGE_KEY = 'urbaneye.reports.v1';
+const STORAGE_KEY = 'urbaneye.reports.v2';
 const HOUR = 3600000;
 
 const DESCRIPTIONS: Record<Exclude<ProblemType, 'sensor'>, string[]> = {
@@ -23,6 +24,11 @@ const TYPES: Exclude<ProblemType, 'sensor'>[] = ['acidente', 'obra', 'iluminacao
 
 export function severityFor(type: ProblemType): Severity {
   return type === 'acidente' ? 'severe' : type === 'obra' || type === 'transito' ? 'warning' : 'normal';
+}
+
+/** prioridade inicial sugerida — o administrador pode alterar depois */
+export function defaultPriorityFor(severity: Severity): Priority {
+  return severity === 'severe' ? 'alta' : severity === 'warning' ? 'media' : 'baixa';
 }
 
 function randomNear(center: [number, number], range = 0.015): [number, number] {
@@ -45,16 +51,30 @@ function buildSeed(): UrbanReport[] {
       roll < 0.42 ? 'resolvido' : roll < 0.6 ? 'atendimento' : roll < 0.78 ? 'analise' : 'aberto';
     const resolvedAt =
       status === 'resolvido' ? new Date(openedAt + (2 + Math.random() * 60) * HOUR) : undefined;
+    const severity = severityFor(type);
+    const pRoll = Math.random();
+    const priority: Priority =
+      severity === 'severe' && pRoll < 0.45 ? 'critica' : defaultPriorityFor(severity);
+    const cRoll = Math.random();
     out.push({
       id: `seed-${i}`,
       type,
       description: DESCRIPTIONS[type][Math.floor(Math.random() * DESCRIPTIONS[type].length)],
-      severity: severityFor(type),
+      severity,
+      priority,
       lat,
       lng,
       timestamp: new Date(openedAt),
       status,
       resolvedAt,
+      confirmation: resolvedAt
+        ? cRoll < 0.5
+          ? 'confirmado'
+          : cRoll < 0.85
+            ? 'pendente'
+            : 'contestado'
+        : undefined,
+      resolutionMsRecorded: resolvedAt ? resolvedAt.getTime() - openedAt : undefined,
       region: region.name,
       address: `${region.name}, Sorocaba`,
     });
@@ -83,6 +103,7 @@ function load(): UrbanReport[] {
     if (!Array.isArray(parsed) || !parsed.length) return buildSeed();
     return parsed.map((r) => ({
       ...r,
+      priority: r.priority ?? defaultPriorityFor(r.severity),
       timestamp: new Date(r.timestamp),
       resolvedAt: r.resolvedAt ? new Date(r.resolvedAt) : undefined,
     }));
@@ -124,11 +145,13 @@ export function useUrbanReports(userPosition: [number, number]) {
 
   const addReport = useCallback((input: NewReportInput) => {
     const { type, description, position, photo, address } = input;
+    const severity = severityFor(type);
     const newReport: UrbanReport = {
       id: `r-${Date.now()}`,
       type,
       description,
-      severity: severityFor(type),
+      severity,
+      priority: defaultPriorityFor(severity),
       lat: position[0],
       lng: position[1],
       timestamp: new Date(),
@@ -144,13 +167,37 @@ export function useUrbanReports(userPosition: [number, number]) {
 
   const updateStatus = useCallback((id: string, status: ReportStatus) => {
     setReports((prev) =>
+      prev.map((r) => {
+        if (r.id !== id) return r;
+        if (status === 'resolvido') {
+          const resolvedAt = r.resolvedAt ?? new Date();
+          return {
+            ...r,
+            status,
+            resolvedAt,
+            resolutionMsRecorded:
+              r.resolutionMsRecorded ?? resolvedAt.getTime() - r.timestamp.getTime(),
+            confirmation: 'pendente',
+          };
+        }
+        return { ...r, status, resolvedAt: undefined, confirmation: undefined };
+      })
+    );
+  }, []);
+
+  /** administrador define a prioridade técnica */
+  const updatePriority = useCallback((id: string, priority: Priority) => {
+    setReports((prev) => prev.map((r) => (r.id === id ? { ...r, priority } : r)));
+  }, []);
+
+  /** cidadão confirma (ou contesta) a resolução — histórico é preservado */
+  const confirmResolution = useCallback((id: string, solved: boolean) => {
+    setReports((prev) =>
       prev.map((r) =>
         r.id === id
-          ? {
-              ...r,
-              status,
-              resolvedAt: status === 'resolvido' ? r.resolvedAt ?? new Date() : undefined,
-            }
+          ? solved
+            ? { ...r, confirmation: 'confirmado', status: 'resolvido' }
+            : { ...r, confirmation: 'contestado', status: 'atendimento', reopened: true }
           : r
       )
     );
@@ -171,6 +218,7 @@ export function useUrbanReports(userPosition: [number, number]) {
         type: sensor.type,
         description: sensor.desc,
         severity: sensor.severity,
+        priority: defaultPriorityFor(sensor.severity),
         lat,
         lng,
         timestamp: new Date(),
@@ -193,7 +241,13 @@ export function useUrbanReports(userPosition: [number, number]) {
     analise: reports.filter((r) => r.status === 'analise').length,
     atendimento: reports.filter((r) => r.status === 'atendimento').length,
     resolvido: reports.filter((r) => r.status === 'resolvido').length,
+    critica: reports.filter((r) => r.priority === 'critica').length,
+    alta: reports.filter((r) => r.priority === 'alta').length,
+    media: reports.filter((r) => r.priority === 'media').length,
+    baixa: reports.filter((r) => r.priority === 'baixa').length,
+    aguardandoConfirmacao: reports.filter((r) => r.confirmation === 'pendente').length,
+    contestados: reports.filter((r) => r.confirmation === 'contestado').length,
   };
 
-  return { reports, addReport, updateStatus, patchReport, stats };
+  return { reports, addReport, updateStatus, updatePriority, confirmResolution, patchReport, stats };
 }
