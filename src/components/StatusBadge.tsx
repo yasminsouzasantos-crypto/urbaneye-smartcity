@@ -1,4 +1,4 @@
-import { ReportStatus, STATUS_COLORS, STATUS_DOTS, STATUS_LABELS } from '@/types/urban';
+import { ReportStatus, STATUS_COLORS, STATUS_LABELS } from '@/types/urban';
 
 export default function StatusBadge({
   status,
@@ -15,7 +15,11 @@ export default function StatusBadge({
       }`}
       style={{ backgroundColor: `${color}1f`, color }}
     >
-      <span aria-hidden>{STATUS_DOTS[status]}</span>
+      <span
+        aria-hidden
+        className={size === 'md' ? 'w-2 h-2 rounded-full' : 'w-1.5 h-1.5 rounded-full'}
+        style={{ backgroundColor: color }}
+      />
       {STATUS_LABELS[status]}
     </span>
   );

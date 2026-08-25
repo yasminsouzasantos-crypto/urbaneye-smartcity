@@ -40,6 +40,9 @@ export function timeInfo(report: UrbanReport, now = Date.now()): string {
   if (report.status === 'resolvido' && report.resolvedAt) {
     return `Resolvido em ${formatDuration(report.resolvedAt.getTime() - report.timestamp.getTime())}`;
   }
+  if (report.reopened && report.resolutionMsRecorded) {
+    return `Reaberto pelo cidadão · atendimento anterior levou ${formatDuration(report.resolutionMsRecorded)}`;
+  }
   return `Aberto há ${formatDuration(now - report.timestamp.getTime())}`;
 }
 
@@ -47,8 +50,9 @@ export function resolutionMs(r: UrbanReport): number | null {
   if (r.status === 'resolvido' && r.resolvedAt) {
     return r.resolvedAt.getTime() - r.timestamp.getTime();
   }
-  return null;
+  return r.resolutionMsRecorded ?? null;
 }
+
 
 /** Reverse geocode via OpenStreetMap; fails silently. */
 export async function reverseGeocode(lat: number, lng: number): Promise<string | undefined> {

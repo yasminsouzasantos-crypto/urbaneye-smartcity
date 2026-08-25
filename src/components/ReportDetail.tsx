@@ -1,7 +1,26 @@
 import { useState } from 'react';
-import { X, MapPin, CalendarClock, CheckCircle2, Timer, Radio, Maximize2 } from 'lucide-react';
+import {
+  X,
+  MapPin,
+  CalendarClock,
+  CheckCircle2,
+  Timer,
+  Radio,
+  Maximize2,
+  ImageOff,
+  AlertTriangle,
+  FileText,
+  Tag,
+  ThumbsUp,
+  ThumbsDown,
+  RotateCcw,
+} from 'lucide-react';
 import {
   PROBLEM_LABELS,
+  Priority,
+  PRIORITY_COLORS,
+  PRIORITY_LABELS,
+  PRIORITY_ORDER,
   ReportStatus,
   SEVERITY_COLORS,
   SEVERITY_LABELS,
@@ -11,6 +30,7 @@ import {
 } from '@/types/urban';
 import { formatDateTime, formatDuration, timeInfo } from '@/lib/urban';
 import StatusBadge from './StatusBadge';
+import PriorityBadge from './PriorityBadge';
 
 interface Props {
   report: UrbanReport | null;
@@ -19,6 +39,30 @@ interface Props {
   /** citizens only see photos of their own reports */
   canViewPhoto?: boolean;
   onStatusChange?: (id: string, status: ReportStatus) => void;
+  onPriorityChange?: (id: string, priority: Priority) => void;
+  onConfirmResolution?: (id: string, solved: boolean) => void;
+}
+
+function InfoRow({
+  icon: Icon,
+  label,
+  children,
+}: {
+  icon: typeof MapPin;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-start gap-2.5 text-sm">
+      <Icon className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+      <div className="min-w-0">
+        <span className="block text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
+          {label}
+        </span>
+        <span className="block">{children}</span>
+      </div>
+    </div>
+  );
 }
 
 export default function ReportDetail({
@@ -27,11 +71,18 @@ export default function ReportDetail({
   canManage,
   canViewPhoto = true,
   onStatusChange,
+  onPriorityChange,
+  onConfirmResolution,
 }: Props) {
   const [zoom, setZoom] = useState(false);
   if (!report) return null;
 
   const photo = canViewPhoto ? report.photo : undefined;
+  const isOwner = !!report.mine;
+  const awaitingCitizen = report.status === 'resolvido' && report.confirmation === 'pendente';
+  const totalMs =
+    report.resolutionMsRecorded ??
+    (report.resolvedAt ? report.resolvedAt.getTime() - report.timestamp.getTime() : null);
 
   return (
     <div className="fixed inset-0 z-[1100] flex items-end sm:items-center justify-center">
@@ -54,8 +105,9 @@ export default function ReportDetail({
             </span>
           </button>
         ) : (
-          <div className="rounded-t-2xl bg-secondary/70 py-6 text-center text-sm text-muted-foreground font-medium">
-            📷 Nenhuma foto foi adicionada
+          <div className="rounded-t-2xl bg-secondary/70 py-6 flex items-center justify-center gap-2 text-sm text-muted-foreground font-medium">
+            <ImageOff className="w-4 h-4" />
+            Nenhuma foto foi adicionada
           </div>
         )}
         <div className="p-5">
@@ -75,6 +127,7 @@ export default function ReportDetail({
 
           <div className="flex items-center gap-2 mb-4 flex-wrap">
             <StatusBadge status={report.status} size="md" />
+            <PriorityBadge priority={report.priority} size="md" />
             <span
               className="inline-flex items-center gap-1.5 rounded-full text-[11px] px-2.5 py-1 font-semibold"
               style={{
@@ -91,39 +144,113 @@ export default function ReportDetail({
             )}
           </div>
 
-          <div className="rounded-xl bg-secondary/70 p-3.5 space-y-2.5 mb-4">
-            <div className="flex items-start gap-2 text-sm">
-              <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-              <span>
-                {report.address ?? report.region ?? 'Endereço aproximado indisponível'}
-                <span className="block text-xs text-muted-foreground tabular-nums">
-                  {report.lat.toFixed(5)}, {report.lng.toFixed(5)}
-                </span>
-              </span>
+          {report.confirmation === 'contestado' && (
+            <div className="rounded-xl bg-destructive/10 text-destructive p-3 mb-4 flex items-start gap-2 text-sm font-medium">
+              <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
+              Cidadão informou que o problema ainda não foi resolvido. Chamado retornou para atendimento.
             </div>
-            <div className="flex items-start gap-2 text-sm">
-              <CalendarClock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-              <span>
-                Aberto: <span className="tabular-nums">{formatDateTime(report.timestamp)}</span>
-              </span>
+          )}
+          {report.confirmation === 'confirmado' && (
+            <div className="rounded-xl bg-[hsl(var(--urban-ok))]/12 text-[hsl(var(--urban-ok))] p-3 mb-4 flex items-start gap-2 text-sm font-medium">
+              <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0" />
+              Resolução confirmada pelo cidadão.
             </div>
+          )}
+          {awaitingCitizen && (
+            <div className="rounded-xl bg-secondary p-3 mb-4 flex items-start gap-2 text-sm font-medium text-muted-foreground">
+              <Timer className="w-4 h-4 mt-0.5 shrink-0" />
+              Aguardando confirmação do cidadão.
+            </div>
+          )}
+
+          <div className="rounded-xl bg-secondary/70 p-3.5 space-y-3 mb-4">
+            <InfoRow icon={Tag} label="Tipo">
+              {PROBLEM_LABELS[report.type]}
+            </InfoRow>
+            <InfoRow icon={MapPin} label="Local">
+              {report.address ?? report.region ?? 'Endereço aproximado indisponível'}
+              <span className="block text-xs text-muted-foreground tabular-nums">
+                {report.lat.toFixed(5)}, {report.lng.toFixed(5)}
+              </span>
+            </InfoRow>
+            <InfoRow icon={CalendarClock} label="Data e horário de abertura">
+              <span className="tabular-nums">{formatDateTime(report.timestamp)}</span>
+            </InfoRow>
+            <InfoRow icon={FileText} label="Descrição">
+              {report.description}
+            </InfoRow>
             {report.resolvedAt && (
-              <div className="flex items-start gap-2 text-sm">
-                <CheckCircle2 className="w-4 h-4 mt-0.5 text-[hsl(var(--urban-ok))] shrink-0" />
-                <span>
-                  Resolvido: <span className="tabular-nums">{formatDateTime(report.resolvedAt)}</span>
+              <InfoRow icon={CheckCircle2} label="Resolução registrada">
+                <span className="tabular-nums">{formatDateTime(report.resolvedAt)}</span>
+                {totalMs !== null && (
                   <span className="block text-xs text-muted-foreground">
-                    Tempo de resolução:{' '}
-                    {formatDuration(report.resolvedAt.getTime() - report.timestamp.getTime())}
+                    Tempo total: {formatDuration(totalMs)}
                   </span>
-                </span>
-              </div>
+                )}
+              </InfoRow>
             )}
-            <div className="flex items-center gap-2 text-sm font-semibold">
+            {report.reopened && (
+              <InfoRow icon={RotateCcw} label="Reabertura">
+                Chamado retornou para atendimento após contestação do cidadão.
+              </InfoRow>
+            )}
+            <div className="flex items-center gap-2.5 text-sm font-semibold">
               <Timer className="w-4 h-4 text-primary shrink-0" />
               <span>{timeInfo(report)}</span>
             </div>
           </div>
+
+          {/* Confirmação do cidadão */}
+          {!canManage && isOwner && awaitingCitizen && onConfirmResolution && (
+            <div className="rounded-xl border border-border p-3.5 mb-4">
+              <p className="text-sm font-semibold mb-3">O problema foi resolvido?</p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => onConfirmResolution(report.id, true)}
+                  className="flex items-center justify-center gap-2 p-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold active:scale-[0.97] transition-all"
+                >
+                  <ThumbsUp className="w-4 h-4" /> Sim, foi resolvido
+                </button>
+                <button
+                  onClick={() => onConfirmResolution(report.id, false)}
+                  className="flex items-center justify-center gap-2 p-3 rounded-xl border-2 border-border text-sm font-semibold active:scale-[0.97] transition-all"
+                >
+                  <ThumbsDown className="w-4 h-4" /> Não, ainda não
+                </button>
+              </div>
+            </div>
+          )}
+
+          {canManage && onPriorityChange && (
+            <>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                Prioridade (avaliação técnica)
+              </p>
+              <div className="grid grid-cols-4 gap-2 mb-4">
+                {PRIORITY_ORDER.map((p) => {
+                  const activeP = report.priority === p;
+                  return (
+                    <button
+                      key={p}
+                      onClick={() => onPriorityChange(report.id, p)}
+                      className="p-2.5 rounded-xl border-2 text-xs font-semibold transition-all active:scale-[0.97]"
+                      style={
+                        activeP
+                          ? {
+                              borderColor: PRIORITY_COLORS[p],
+                              color: PRIORITY_COLORS[p],
+                              backgroundColor: `${PRIORITY_COLORS[p]}14`,
+                            }
+                          : undefined
+                      }
+                    >
+                      {PRIORITY_LABELS[p]}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          )}
 
           {canManage && onStatusChange && (
             <>
@@ -145,6 +272,14 @@ export default function ReportDetail({
                   </button>
                 ))}
               </div>
+              {report.status !== 'resolvido' && (
+                <button
+                  onClick={() => onStatusChange(report.id, 'resolvido')}
+                  className="mt-3 w-full flex items-center justify-center gap-2 rounded-xl p-4 font-semibold text-primary-foreground bg-[hsl(var(--urban-ok))] active:scale-[0.97] transition-all"
+                >
+                  <CheckCircle2 className="w-4 h-4" /> Marcar como resolvido
+                </button>
+              )}
             </>
           )}
         </div>
@@ -152,7 +287,7 @@ export default function ReportDetail({
 
       {zoom && photo && (
         <div
-          className="fixed inset-0 z-[1200] bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[1200] bg-[hsl(var(--urban-overlay))]/95 flex items-center justify-center p-4"
           onClick={() => setZoom(false)}
         >
           <img
