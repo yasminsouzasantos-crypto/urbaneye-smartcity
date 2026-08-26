@@ -73,13 +73,14 @@ function ReportMarker({ report, onClick }: { report: UrbanReport; onClick: (r: U
               style={{ backgroundColor: color }}
             />
             <span>{SEVERITY_LABELS[report.severity]}</span>
-            <span className="font-medium">
-              {STATUS_DOTS[report.status]} {STATUS_LABELS[report.status]}
+            <span className="font-medium" style={{ color: STATUS_COLORS[report.status] }}>
+              {STATUS_LABELS[report.status]}
             </span>
             <span className="text-muted-foreground">
               {report.timestamp.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
             </span>
           </div>
+
           {report.isSensor && (
             <span className="text-[10px] text-muted-foreground mt-1 block">📡 Detectado por sensor</span>
           )}
