@@ -1,7 +1,8 @@
-import { ClipboardList, ImageIcon, MapPin } from 'lucide-react';
+import { ClipboardList, ImageIcon, MapPin, Timer } from 'lucide-react';
 import { PROBLEM_SHORT, UrbanReport } from '@/types/urban';
 import { formatDateTime, timeInfo } from '@/lib/urban';
 import StatusBadge from './StatusBadge';
+import PriorityBadge from './PriorityBadge';
 
 interface Props {
   reports: UrbanReport[];
