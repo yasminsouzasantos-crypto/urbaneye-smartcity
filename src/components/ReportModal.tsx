@@ -80,7 +80,7 @@ export default function ReportModal({
     setPhoto(undefined);
     setType('acidente');
     onClose();
-    toast.success('✅ Chamado aberto com sucesso!');
+    toast.success('Chamado aberto com sucesso');
   };
 
   return (

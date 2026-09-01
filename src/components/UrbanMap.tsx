@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import { LocateFixed } from 'lucide-react';
 import MapAutoSize from '@/components/map/MapAutoSize';
-import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_COLORS, STATUS_LABELS, PRIORITY_LABELS } from '@/types/urban';
+import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_COLORS, STATUS_LABELS, PRIORITY_LABELS, PRIORITY_COLORS } from '@/types/urban';
 import { WORLD_BOUNDS } from '@/lib/mapConfig';
 
 function UserMarker({ position }: { position: [number, number] }) {
@@ -29,7 +29,7 @@ function UserMarker({ position }: { position: [number, number] }) {
         pathOptions={{ color: '#fff', weight: 3, fillColor: '#3b82f6', fillOpacity: 1 }}
       >
         <Popup>
-          <span className="text-sm font-medium">📍 Você está aqui</span>
+          <span className="text-sm font-medium">Você está aqui</span>
         </Popup>
       </CircleMarker>
     </>
@@ -80,9 +80,12 @@ function ReportMarker({ report, onClick }: { report: UrbanReport; onClick: (r: U
               {report.timestamp.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
             </span>
           </div>
+          <div className="mt-1 text-[11px] font-medium" style={{ color: PRIORITY_COLORS[report.priority] }}>
+            Prioridade {PRIORITY_LABELS[report.priority]}
+          </div>
 
           {report.isSensor && (
-            <span className="text-[10px] text-muted-foreground mt-1 block">📡 Detectado por sensor</span>
+            <span className="text-[10px] text-muted-foreground mt-1 block">Detectado por sensor</span>
           )}
         </div>
       </Popup>

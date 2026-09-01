@@ -1,7 +1,8 @@
-import { ClipboardList, ImageIcon, MapPin } from 'lucide-react';
+import { ClipboardList, ImageIcon, MapPin, Timer } from 'lucide-react';
 import { PROBLEM_SHORT, UrbanReport } from '@/types/urban';
 import { formatDateTime, timeInfo } from '@/lib/urban';
 import StatusBadge from './StatusBadge';
+import PriorityBadge from './PriorityBadge';
 
 interface Props {
   reports: UrbanReport[];
@@ -60,7 +61,14 @@ export default function MyReports({ reports, onSelect, onCreate }: Props) {
               <p className="text-[11px] text-muted-foreground tabular-nums mt-0.5">
                 {formatDateTime(r.timestamp)}
               </p>
-              <p className="text-[11px] font-medium mt-0.5">⏱️ {timeInfo(r)}</p>
+              <p className="text-[11px] font-medium mt-0.5 flex items-center gap-1">
+                <Timer className="w-3 h-3 shrink-0 text-primary" />
+                {timeInfo(r)}
+              </p>
+              <div className="mt-1.5">
+                <PriorityBadge priority={r.priority} withLabel={false} />
+              </div>
+
             </div>
           </button>
         ))}

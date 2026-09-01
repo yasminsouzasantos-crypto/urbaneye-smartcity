@@ -11,13 +11,14 @@ import MyReports from '@/components/MyReports';
 import AdminDashboard from '@/components/AdminDashboard';
 import Profile from '@/components/Profile';
 import BottomNav, { TabKey } from '@/components/BottomNav';
-import { ProblemType, ReportStatus, UrbanReport } from '@/types/urban';
+import { Priority, ProblemType, ReportStatus, UrbanReport } from '@/types/urban';
 import { reverseGeocode } from '@/lib/urban';
 import { toast } from 'sonner';
 
 export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
   const { position, hasPermission, loading } = useGeolocation();
-  const { reports, addReport, updateStatus, stats } = useUrbanReports(position);
+  const { reports, addReport, updateStatus, updatePriority, confirmResolution, stats } =
+    useUrbanReports(position);
   const { isAdmin } = useAuth();
   const [tab, setTab] = useState<TabKey>(initialTab);
   const [modalOpen, setModalOpen] = useState(false);
@@ -67,6 +68,24 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
       toast.success('Status atualizado');
     },
     [updateStatus]
+  );
+
+  const handlePriorityChange = useCallback(
+    (id: string, priority: Priority) => {
+      updatePriority(id, priority);
+      toast.success('Prioridade atualizada');
+    },
+    [updatePriority]
+  );
+
+  const handleConfirmResolution = useCallback(
+    (id: string, solved: boolean) => {
+      confirmResolution(id, solved);
+      toast.success(
+        solved ? 'Obrigado por confirmar a resolução' : 'Chamado reaberto para novo atendimento'
+      );
+    },
+    [confirmResolution]
   );
 
   // keep selected report fresh after updates
@@ -159,6 +178,8 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
         canManage={isAdmin}
         canViewPhoto={isAdmin || !!selectedLive?.mine}
         onStatusChange={handleStatusChange}
+        onPriorityChange={isAdmin ? handlePriorityChange : undefined}
+        onConfirmResolution={handleConfirmResolution}
       />
     </div>
   );

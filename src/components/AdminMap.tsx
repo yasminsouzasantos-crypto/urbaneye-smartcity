@@ -1,7 +1,14 @@
 import { useMemo } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import MapAutoSize from '@/components/map/MapAutoSize';
-import { UrbanReport, PROBLEM_SHORT, STATUS_COLORS, DEFAULT_LOCATION } from '@/types/urban';
+import {
+  UrbanReport,
+  PROBLEM_SHORT,
+  STATUS_COLORS,
+  PRIORITY_COLORS,
+  PRIORITY_LABELS,
+  DEFAULT_LOCATION,
+} from '@/types/urban';
 import { WORLD_BOUNDS } from '@/lib/mapConfig';
 
 /** Grid-based heat aggregation (no extra dependency needed). */
@@ -80,12 +87,23 @@ export default function AdminMap({
             <CircleMarker
               key={r.id}
               center={[r.lat, r.lng]}
-              radius={7}
-              pathOptions={{ color: '#fff', weight: 2, fillColor: STATUS_COLORS[r.status], fillOpacity: 0.9 }}
+              radius={r.priority === 'critica' ? 9 : r.priority === 'alta' ? 8 : 7}
+              pathOptions={{
+                color: PRIORITY_COLORS[r.priority],
+                weight: r.priority === 'critica' || r.priority === 'alta' ? 3 : 2,
+                fillColor: STATUS_COLORS[r.status],
+                fillOpacity: 0.9,
+              }}
               eventHandlers={{ click: () => onSelect(r) }}
             >
               <Popup>
-                <span className="text-sm font-medium">{PROBLEM_SHORT[r.type]}</span>
+                <span className="text-sm font-medium block">{PROBLEM_SHORT[r.type]}</span>
+                <span
+                  className="text-[11px] font-semibold"
+                  style={{ color: PRIORITY_COLORS[r.priority] }}
+                >
+                  Prioridade {PRIORITY_LABELS[r.priority]}
+                </span>
               </Popup>
             </CircleMarker>
           ))}

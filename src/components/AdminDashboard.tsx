@@ -9,6 +9,8 @@ import {
   Layers,
   MapPin,
   Search,
+  ShieldAlert,
+  Timer,
   Wrench,
 } from 'lucide-react';
 import {
@@ -28,6 +30,10 @@ import {
 import {
   PROBLEM_SHORT,
   ProblemType,
+  PRIORITY_COLORS,
+  PRIORITY_LABELS,
+  PRIORITY_ORDER,
+  Priority,
   SEVERITY_COLORS,
   SEVERITY_LABELS,
   Severity,
@@ -47,6 +53,7 @@ export default function AdminDashboard({
   onSelect: (r: UrbanReport) => void;
 }) {
   const [heat, setHeat] = useState(true);
+  const [priorityFilter, setPriorityFilter] = useState<Priority | 'todas'>('todas');
 
   const data = useMemo(() => {
     const now = Date.now();
@@ -58,6 +65,21 @@ export default function AdminDashboard({
       resolvido: reports.filter((r) => r.status === 'resolvido').length,
       criticos: reports.filter((r) => r.severity === 'severe' && r.status !== 'resolvido').length,
     };
+
+    const priorities = PRIORITY_ORDER.map((p) => ({
+      key: p,
+      name: PRIORITY_LABELS[p],
+      value: reports.filter((r) => r.priority === p).length,
+      color: PRIORITY_COLORS[p],
+    }));
+    const criticasAbertas = reports.filter(
+      (r) => r.priority === 'critica' && r.status !== 'resolvido'
+    ).length;
+    const altasAbertas = reports.filter(
+      (r) => r.priority === 'alta' && r.status !== 'resolvido'
+    ).length;
+    const aguardando = reports.filter((r) => r.confirmation === 'pendente').length;
+    const contestados = reports.filter((r) => r.confirmation === 'contestado').length;
 
     const resolved = reports.map(resolutionMs).filter((v): v is number => v !== null);
     const avgMs = resolved.length ? resolved.reduce((a, b) => a + b, 0) / resolved.length : 0;
@@ -121,7 +143,21 @@ export default function AdminDashboard({
 
     const recurring = [...byType].sort((a, b) => b.value - a.value);
 
-    return { counts, avgMs, trendPct, byType, bySeverity, byDay, regions, recurring };
+    return {
+      counts,
+      avgMs,
+      trendPct,
+      byType,
+      bySeverity,
+      byDay,
+      regions,
+      recurring,
+      priorities,
+      criticasAbertas,
+      altasAbertas,
+      aguardando,
+      contestados,
+    };
   }, [reports]);
 
   const kpis = [
@@ -133,30 +169,56 @@ export default function AdminDashboard({
     { label: 'Críticos', value: data.counts.criticos, icon: Flame, color: 'text-destructive' },
   ];
 
-  const alerts: { text: string; tone: 'danger' | 'warn' }[] = [];
+  const alerts: { text: string; tone: 'danger' | 'warn'; icon: typeof AlertTriangle }[] = [];
+  if (data.criticasAbertas > 0)
+    alerts.push({
+      text: `${data.criticasAbertas} chamados de prioridade crítica em aberto`,
+      tone: 'danger',
+      icon: ShieldAlert,
+    });
   if (data.counts.criticos > 0)
     alerts.push({
-      text: `⚠️ ${data.counts.criticos} chamados críticos aguardando atendimento`,
+      text: `${data.counts.criticos} chamados graves aguardando atendimento`,
       tone: 'danger',
+      icon: AlertTriangle,
+    });
+  if (data.contestados > 0)
+    alerts.push({
+      text: `${data.contestados} chamados contestados pelo cidadão`,
+      tone: 'danger',
+      icon: AlertTriangle,
+    });
+  if (data.aguardando > 0)
+    alerts.push({
+      text: `${data.aguardando} chamados aguardando confirmação do cidadão`,
+      tone: 'warn',
+      icon: Timer,
     });
   if (data.regions[0])
     alerts.push({
-      text: `🔴 Região ${data.regions[0].name} possui a maior concentração de problemas (${data.regions[0].total})`,
+      text: `Região ${data.regions[0].name} concentra o maior volume de problemas (${data.regions[0].total})`,
       tone: 'warn',
+      icon: MapPin,
     });
   if (data.trendPct !== 0)
     alerts.push({
-      text: `⏱️ Tempo médio de resolução ${data.trendPct > 0 ? 'aumentou' : 'reduziu'} ${Math.abs(
+      text: `Tempo médio de resolução ${data.trendPct > 0 ? 'aumentou' : 'reduziu'} ${Math.abs(
         data.trendPct
       )}% esta semana`,
       tone: data.trendPct > 0 ? 'danger' : 'warn',
+      icon: Clock,
     });
 
-  const pieColors = ['#3b82f6', '#f59e0b', '#a855f7', '#22c55e'];
+  // paleta funcional: azul (ação), amarelo (atenção), vermelho (crítico), verde (ok)
+  const pieColors = ['#3b82f6', '#f59e0b', '#ef4444', '#22c55e'];
 
   const recent = useMemo(
-    () => [...reports].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime()).slice(0, 8),
-    [reports]
+    () =>
+      [...reports]
+        .filter((r) => priorityFilter === 'todas' || r.priority === priorityFilter)
+        .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+        .slice(0, 8),
+    [reports, priorityFilter]
   );
 
   return (
@@ -177,7 +239,10 @@ export default function AdminDashboard({
                 : 'bg-[hsl(var(--urban-warning))]/12 text-[hsl(var(--urban-warning))]'
             }`}
           >
-            {a.text}
+            <span className="flex items-start gap-2">
+              <a.icon className="w-4 h-4 mt-0.5 shrink-0" />
+              {a.text}
+            </span>
           </div>
         ))}
       </div>
@@ -194,6 +259,53 @@ export default function AdminDashboard({
           </div>
         ))}
       </div>
+
+      {/* Prioridades */}
+      <section className="urban-glass urban-shadow rounded-2xl p-4">
+        <h3 className="text-sm font-bold mb-3">Chamados por prioridade</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+          {data.priorities.map((p) => (
+            <div
+              key={p.key}
+              className="rounded-xl p-3 flex flex-col gap-1"
+              style={{ backgroundColor: `${p.color}14` }}
+            >
+              <span className="flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: p.color }}>
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: p.color }} />
+                {p.name}
+              </span>
+              <span className="text-lg font-bold tabular-nums">{p.value}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex h-2 rounded-full overflow-hidden bg-secondary">
+          {data.priorities.map((p) => (
+            <span
+              key={p.key}
+              style={{
+                width: `${data.counts.total ? (p.value / data.counts.total) * 100 : 0}%`,
+                backgroundColor: p.color,
+              }}
+            />
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-2 mt-3 text-[11px] font-medium">
+          <div className="rounded-xl bg-secondary p-2.5">
+            Críticos em aberto:{' '}
+            <span className="font-bold tabular-nums">{data.criticasAbertas}</span>
+          </div>
+          <div className="rounded-xl bg-secondary p-2.5">
+            Alta em aberto: <span className="font-bold tabular-nums">{data.altasAbertas}</span>
+          </div>
+          <div className="rounded-xl bg-secondary p-2.5">
+            Aguardando confirmação:{' '}
+            <span className="font-bold tabular-nums">{data.aguardando}</span>
+          </div>
+          <div className="rounded-xl bg-secondary p-2.5">
+            Contestados: <span className="font-bold tabular-nums">{data.contestados}</span>
+          </div>
+        </div>
+      </section>
 
       <div className="urban-glass urban-shadow rounded-2xl p-4 flex items-center gap-3">
         <Clock className="w-5 h-5 text-primary" />
@@ -314,6 +426,30 @@ export default function AdminDashboard({
       {/* Chamados recentes */}
       <section className="urban-glass urban-shadow rounded-2xl p-4">
         <h3 className="text-sm font-bold mb-3">Chamados recentes</h3>
+        <div className="flex flex-wrap gap-2 mb-3">
+          {(['todas', ...PRIORITY_ORDER] as const).map((p) => {
+            const activeF = priorityFilter === p;
+            const color = p === 'todas' ? undefined : PRIORITY_COLORS[p as Priority];
+            return (
+              <button
+                key={p}
+                onClick={() => setPriorityFilter(p as Priority | 'todas')}
+                className={`min-h-11 px-3 rounded-xl text-xs font-semibold border-2 transition-all active:scale-[0.97] ${
+                  activeF && p === 'todas'
+                    ? 'border-primary text-primary bg-[hsl(var(--urban-blue-light))]'
+                    : 'border-border text-muted-foreground'
+                }`}
+                style={
+                  activeF && color
+                    ? { borderColor: color, color, backgroundColor: `${color}14` }
+                    : undefined
+                }
+              >
+                {p === 'todas' ? 'Todas' : PRIORITY_LABELS[p as Priority]}
+              </button>
+            );
+          })}
+        </div>
         <ul className="space-y-2">
           {recent.map((r) => (
             <li key={r.id}>
@@ -334,10 +470,18 @@ export default function AdminDashboard({
                     {r.address ?? r.region ?? 'Local registrado'}
                   </span>
                 </span>
-                <span
-                  className="w-2.5 h-2.5 rounded-full shrink-0"
-                  style={{ background: STATUS_COLORS[r.status] }}
-                />
+                <span className="flex items-center gap-1.5 shrink-0">
+                  <span
+                    className="text-[10px] font-semibold"
+                    style={{ color: PRIORITY_COLORS[r.priority] }}
+                  >
+                    {PRIORITY_LABELS[r.priority]}
+                  </span>
+                  <span
+                    className="w-2.5 h-2.5 rounded-full"
+                    style={{ background: STATUS_COLORS[r.status] }}
+                  />
+                </span>
               </button>
             </li>
           ))}
