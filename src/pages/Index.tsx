@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, lazy, Suspense } from 'react';
 import { Plus, MapPin, Wifi } from 'lucide-react';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useUrbanReports } from '@/hooks/useUrbanReports';
@@ -8,18 +8,19 @@ import Dashboard from '@/components/Dashboard';
 import ReportModal from '@/components/ReportModal';
 import ReportDetail from '@/components/ReportDetail';
 import MyReports from '@/components/MyReports';
-import AdminDashboard from '@/components/AdminDashboard';
 import Profile from '@/components/Profile';
 import BottomNav, { TabKey } from '@/components/BottomNav';
-import { Priority, ProblemType, ReportStatus, UrbanReport } from '@/types/urban';
+import { Priority, ProblemType, ReportStatus, UrbanImageAnalysis, UrbanReport } from '@/types/urban';
 import { reverseGeocode } from '@/lib/urban';
 import { toast } from 'sonner';
 
+const AdminDashboard = lazy(() => import('@/components/AdminDashboard'));
+
 export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
   const { position, hasPermission, loading } = useGeolocation();
-  const { reports, addReport, updateStatus, updatePriority, confirmResolution, stats } =
-    useUrbanReports(position);
-  const { isAdmin } = useAuth();
+  const { isAdmin, user } = useAuth();
+  const { reports, addReport, updateStatus, updatePriority, confirmResolution, stats, storageError } =
+    useUrbanReports(position, { userId: user.id, isAdmin });
   const [tab, setTab] = useState<TabKey>(initialTab);
   const [modalOpen, setModalOpen] = useState(false);
   const [selected, setSelected] = useState<UrbanReport | null>(null);
@@ -34,9 +35,11 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
   // keep the approximate address in sync with the user position
   useEffect(() => {
     let cancelled = false;
+    const controller = new AbortController();
+    setAddress(undefined);
     setAddressLoading(true);
     const t = setTimeout(async () => {
-      const found = await reverseGeocode(position[0], position[1]);
+      const found = await reverseGeocode(position[0], position[1], controller.signal);
       if (!cancelled) {
         setAddress(found);
         setAddressLoading(false);
@@ -45,13 +48,19 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
     return () => {
       cancelled = true;
       clearTimeout(t);
+      controller.abort();
     };
   }, [position]);
 
   const handleReportClick = useCallback((report: UrbanReport) => setSelected(report), []);
 
   const handleSubmitReport = useCallback(
-    (data: { type: ProblemType; description: string; photo?: string }) => {
+    (data: {
+      type: ProblemType;
+      description: string;
+      photo?: string;
+      aiAnalysis?: UrbanImageAnalysis;
+    }) => {
       addReport({ ...data, position, address });
     },
     [addReport, position, address]
@@ -59,37 +68,38 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
 
   const handleStatusChange = useCallback(
     (id: string, status: ReportStatus) => {
-      updateStatus(id, status);
-      setSelected((prev) =>
-        prev && prev.id === id
-          ? { ...prev, status, resolvedAt: status === 'resolvido' ? prev.resolvedAt ?? new Date() : undefined }
-          : prev
-      );
-      toast.success('Status atualizado');
+      try {
+        updateStatus(id, status);
+        toast.success('Status atualizado');
+      } catch (error) { toast.error((error as Error).message); }
     },
     [updateStatus]
   );
 
   const handlePriorityChange = useCallback(
     (id: string, priority: Priority) => {
-      updatePriority(id, priority);
-      toast.success('Prioridade atualizada');
+      try {
+        updatePriority(id, priority);
+        toast.success('Prioridade atualizada');
+      } catch (error) { toast.error((error as Error).message); }
     },
     [updatePriority]
   );
 
   const handleConfirmResolution = useCallback(
     (id: string, solved: boolean) => {
-      confirmResolution(id, solved);
-      toast.success(
-        solved ? 'Obrigado por confirmar a resolução' : 'Chamado reaberto para novo atendimento'
-      );
+      try {
+        confirmResolution(id, solved);
+        toast.success(
+          solved ? 'Obrigado por confirmar a resolução' : 'Chamado reaberto para novo atendimento'
+        );
+      } catch (error) { toast.error((error as Error).message); }
     },
     [confirmResolution]
   );
 
   // keep selected report fresh after updates
-  const selectedLive = selected ? reports.find((r) => r.id === selected.id) ?? selected : null;
+  const selectedLive = selected ? reports.find((r) => r.id === selected.id) ?? null : null;
   const mineCount = reports.filter((r) => r.mine).length;
 
   return (
@@ -117,6 +127,12 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
         </div>
       </header>
 
+      {storageError && (
+        <div role="alert" className="absolute top-20 inset-x-4 z-[600] rounded-xl bg-destructive p-3 text-sm text-destructive-foreground">
+          {storageError}
+        </div>
+      )}
+
       {/* Map stays mounted so Leaflet never repaints blank on tab change */}
       <div className={`absolute inset-0 ${tab === 'map' ? '' : 'invisible pointer-events-none'}`}>
         <UrbanMap
@@ -124,6 +140,7 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
           reports={reports}
           onReportClick={handleReportClick}
           active={tab === 'map'}
+          hasPermission={hasPermission}
         />
       </div>
       {tab === 'map' && (
@@ -140,7 +157,9 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
 
       {tab === 'admin' && isAdmin && (
         <div className="absolute inset-0 bg-background">
-          <AdminDashboard reports={reports} onSelect={setSelected} />
+          <Suspense fallback={<p role="status" className="pt-20 px-4">Carregando gestão urbana...</p>}>
+            <AdminDashboard reports={reports} onSelect={setSelected} />
+          </Suspense>
         </div>
       )}
 
@@ -164,6 +183,7 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
       <BottomNav active={tab} onChange={setTab} isAdmin={isAdmin} />
 
       <ReportModal
+        key={user.id}
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         onSubmit={handleSubmitReport}
@@ -173,6 +193,7 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
       />
 
       <ReportDetail
+        key={selectedLive?.id ?? 'closed'}
         report={selectedLive}
         onClose={() => setSelected(null)}
         canManage={isAdmin}

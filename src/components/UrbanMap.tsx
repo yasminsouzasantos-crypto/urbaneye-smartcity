@@ -1,19 +1,19 @@
-import { useEffect, useMemo, useRef } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
+import { memo, useEffect, useMemo, useRef } from 'react';
+import { AttributionControl, MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
 import { LocateFixed } from 'lucide-react';
 import MapAutoSize from '@/components/map/MapAutoSize';
 import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_COLORS, STATUS_LABELS, PRIORITY_LABELS, PRIORITY_COLORS } from '@/types/urban';
-import { WORLD_BOUNDS } from '@/lib/mapConfig';
+import { MAP_ATTRIBUTION, WORLD_BOUNDS } from '@/lib/mapConfig';
 
-function UserMarker({ position }: { position: [number, number] }) {
+function UserMarker({ position, hasPermission }: { position: [number, number]; hasPermission: boolean }) {
   const map = useMap();
   const centered = useRef(false);
 
   useEffect(() => {
-    if (centered.current) return;
+    if (centered.current || !hasPermission) return;
     centered.current = true;
     map.setView(position, map.getZoom(), { animate: false });
-  }, [position, map]);
+  }, [position, hasPermission, map]);
 
   return (
     <>
@@ -49,7 +49,7 @@ function RecenterButton({ position }: { position: [number, number] }) {
   );
 }
 
-function ReportMarker({ report, onClick }: { report: UrbanReport; onClick: (r: UrbanReport) => void }) {
+const ReportMarker = memo(function ReportMarker({ report, onClick }: { report: UrbanReport; onClick: (r: UrbanReport) => void }) {
   const color = SEVERITY_COLORS[report.severity];
   return (
     <CircleMarker
@@ -91,16 +91,17 @@ function ReportMarker({ report, onClick }: { report: UrbanReport; onClick: (r: U
       </Popup>
     </CircleMarker>
   );
-}
+});
 
 interface UrbanMapProps {
   position: [number, number];
   reports: UrbanReport[];
   onReportClick: (report: UrbanReport) => void;
   active?: boolean;
+  hasPermission?: boolean;
 }
 
-export default function UrbanMap({ position, reports, onReportClick, active = true }: UrbanMapProps) {
+export default function UrbanMap({ position, reports, onReportClick, active = true, hasPermission = false }: UrbanMapProps) {
   const markers = useMemo(
     () => reports.map(r => <ReportMarker key={r.id} report={r} onClick={onReportClick} />),
     [reports, onReportClick]
@@ -110,7 +111,7 @@ export default function UrbanMap({ position, reports, onReportClick, active = tr
     <MapContainer
       center={position}
       zoom={14}
-      className="h-full w-full"
+      className="h-full w-full urban-main-map"
       zoomControl={false}
       attributionControl={false}
       minZoom={3}
@@ -120,14 +121,16 @@ export default function UrbanMap({ position, reports, onReportClick, active = tr
       maxBoundsViscosity={1}
     >
       <MapAutoSize active={active} />
+      <AttributionControl position="topleft" prefix={false} />
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         subdomains={['a', 'b', 'c', 'd']}
         maxZoom={19}
         noWrap
         bounds={WORLD_BOUNDS}
+        attribution={MAP_ATTRIBUTION}
       />
-      <UserMarker position={position} />
+      <UserMarker position={position} hasPermission={hasPermission} />
       <RecenterButton position={position} />
       {markers}
     </MapContainer>

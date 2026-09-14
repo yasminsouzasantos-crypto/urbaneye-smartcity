@@ -14,8 +14,11 @@ import {
   ThumbsUp,
   ThumbsDown,
   RotateCcw,
+  Sparkles,
 } from 'lucide-react';
 import {
+  AI_RISK_LABELS,
+  AI_SEVERITY_LABELS,
   PROBLEM_LABELS,
   Priority,
   PRIORITY_COLORS,
@@ -81,13 +84,12 @@ export default function ReportDetail({
   const isOwner = !!report.mine;
   const awaitingCitizen = report.status === 'resolvido' && report.confirmation === 'pendente';
   const totalMs =
-    report.resolutionMsRecorded ??
-    (report.resolvedAt ? report.resolvedAt.getTime() - report.timestamp.getTime() : null);
+    report.resolvedAt ? report.resolvedAt.getTime() - report.timestamp.getTime() : report.resolutionMsRecorded ?? null;
 
   return (
     <div className="fixed inset-0 z-[1100] flex items-end sm:items-center justify-center">
       <div className="absolute inset-0 bg-[hsl(var(--urban-overlay))]/60" onClick={onClose} />
-      <div className="relative w-full max-w-md urban-glass rounded-t-2xl sm:rounded-2xl urban-shadow-lg animate-slide-up-fade z-10 max-h-[92dvh] overflow-y-auto">
+      <div role="dialog" aria-modal="true" aria-label="Detalhes do chamado" className="relative w-full max-w-md urban-glass rounded-t-2xl sm:rounded-2xl urban-shadow-lg animate-slide-up-fade z-10 max-h-[92dvh] overflow-y-auto">
         {photo ? (
           <button
             type="button"
@@ -161,6 +163,58 @@ export default function ReportDetail({
               <Timer className="w-4 h-4 mt-0.5 shrink-0" />
               Aguardando confirmação do cidadão.
             </div>
+          )}
+
+          {report.aiAnalysis && (canManage || isOwner) && (
+            <section className="rounded-xl border border-primary/20 bg-[hsl(var(--urban-blue-light))] p-3.5 mb-4">
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider">Triagem por IA</p>
+                    <p className="text-sm font-semibold mt-0.5">{report.aiAnalysis.title}</p>
+                  </div>
+                </div>
+                <span className="rounded-full bg-background/80 px-2 py-1 text-[10px] font-bold tabular-nums shrink-0">
+                  {Math.round(report.aiAnalysis.confidence * 100)}%
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                Sugestão:{' '}
+                <span className="font-semibold text-foreground">
+                  {report.aiAnalysis.suggestedType === 'indeterminado'
+                    ? 'Indeterminada'
+                    : PROBLEM_LABELS[report.aiAnalysis.suggestedType]}
+                  {' · '}
+                  {AI_SEVERITY_LABELS[report.aiAnalysis.suggestedSeverity]}
+                </span>
+              </p>
+              {!!report.aiAnalysis.visibleEvidence.length && (
+                <ul className="mt-2 space-y-1 text-xs text-muted-foreground list-disc pl-4">
+                  {report.aiAnalysis.visibleEvidence.map((evidence) => (
+                    <li key={evidence}>{evidence}</li>
+                  ))}
+                </ul>
+              )}
+              {!!report.aiAnalysis.riskFlags.length && (
+                <p className="mt-2 rounded-lg bg-destructive/10 p-2 text-xs font-semibold text-destructive">
+                  Riscos sinalizados: {report.aiAnalysis.riskFlags.map((flag) => AI_RISK_LABELS[flag]).join(' · ')}
+                </p>
+              )}
+              <p className="text-[10px] text-muted-foreground mt-2">
+                {report.aiAnalysis.userDecision === 'accepted'
+                  ? 'Sugestão aceita pelo cidadão.'
+                  : report.aiAnalysis.userDecision === 'edited'
+                    ? 'Sugestão revisada pelo cidadão.'
+                    : 'Sugestão não aplicada pelo cidadão.'}
+                {report.aiAnalysis.needsHumanReview ? ' Revisão da equipe recomendada.' : ''}
+              </p>
+              {canManage && (
+                <p className="text-[10px] text-muted-foreground mt-1">
+                  Modelo: {report.aiAnalysis.model} · Prompt: {report.aiAnalysis.promptVersion}
+                </p>
+              )}
+            </section>
           )}
 
           <div className="rounded-xl bg-secondary/70 p-3.5 space-y-3 mb-4">

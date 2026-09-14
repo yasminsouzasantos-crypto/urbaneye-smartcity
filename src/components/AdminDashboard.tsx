@@ -85,10 +85,10 @@ export default function AdminDashboard({
     const avgMs = resolved.length ? resolved.reduce((a, b) => a + b, 0) / resolved.length : 0;
 
     // avg resolution this week vs previous week
-    const week = reports.filter((r) => r.resolvedAt && now - r.resolvedAt.getTime() <= 7 * DAY);
+    const week = reports.filter((r) => r.status === 'resolvido' && r.resolvedAt && r.resolvedAt.getTime() <= now && now - r.resolvedAt.getTime() <= 7 * DAY);
     const prevWeek = reports.filter(
       (r) =>
-        r.resolvedAt &&
+        r.status === 'resolvido' && r.resolvedAt &&
         now - r.resolvedAt.getTime() > 7 * DAY &&
         now - r.resolvedAt.getTime() <= 14 * DAY
     );
@@ -98,7 +98,7 @@ export default function AdminDashboard({
     };
     const weekAvg = avgOf(week);
     const prevAvg = avgOf(prevWeek);
-    const trendPct = prevAvg ? Math.round(((weekAvg - prevAvg) / prevAvg) * 100) : 0;
+    const trendPct = prevAvg && week.length ? Math.round(((weekAvg - prevAvg) / prevAvg) * 100) : 0;
 
     const byType = (['acidente', 'obra', 'iluminacao', 'transito'] as ProblemType[]).map((t) => ({
       name: PROBLEM_SHORT[t],
@@ -111,12 +111,15 @@ export default function AdminDashboard({
       color: SEVERITY_COLORS[s],
     }));
 
+    const dailyCounts = new Map<string, number>();
+    for (const report of reports) {
+      const day = report.timestamp.toDateString();
+      dailyCounts.set(day, (dailyCounts.get(day) ?? 0) + 1);
+    }
     const byDay = Array.from({ length: 14 }, (_, i) => {
       const day = new Date(now - (13 - i) * DAY);
       const label = day.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
-      const count = reports.filter(
-        (r) => r.timestamp.toDateString() === day.toDateString()
-      ).length;
+      const count = dailyCounts.get(day.toDateString()) ?? 0;
       return { name: label, chamados: count };
     });
 

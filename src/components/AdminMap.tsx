@@ -9,7 +9,7 @@ import {
   PRIORITY_LABELS,
   DEFAULT_LOCATION,
 } from '@/types/urban';
-import { WORLD_BOUNDS } from '@/lib/mapConfig';
+import { MAP_ATTRIBUTION, WORLD_BOUNDS } from '@/lib/mapConfig';
 
 /** Grid-based heat aggregation (no extra dependency needed). */
 function heatCells(reports: UrbanReport[]) {
@@ -51,7 +51,7 @@ export default function AdminMap({
       zoom={12}
       className="h-full w-full"
       zoomControl={false}
-      attributionControl={false}
+      attributionControl
       minZoom={3}
       maxZoom={19}
       worldCopyJump={false}
@@ -65,6 +65,7 @@ export default function AdminMap({
         maxZoom={19}
         noWrap
         bounds={WORLD_BOUNDS}
+        attribution={MAP_ATTRIBUTION}
       />
       {heat
         ? cells.map((c) => {
