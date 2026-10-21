@@ -1,16 +1,17 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import {
   UrbanReport,
   ProblemType,
   Severity,
   Priority,
   ReportStatus,
-  DEFAULT_LOCATION,
+  UrbanImageAnalysis,
   REGIONS,
 } from '@/types/urban';
 import { regionFor } from '@/lib/urban';
+import { parseReports, REPORTS_STORAGE_KEY, retainReports, serializeReports, storageErrorMessage } from '@/lib/reportStorage';
 
-const STORAGE_KEY = 'urbaneye.reports.v2';
+const STORAGE_KEY = REPORTS_STORAGE_KEY;
 const HOUR = 3600000;
 
 const DESCRIPTIONS: Record<Exclude<ProblemType, 'sensor'>, string[]> = {
@@ -50,7 +51,7 @@ function buildSeed(): UrbanReport[] {
     const status: ReportStatus =
       roll < 0.42 ? 'resolvido' : roll < 0.6 ? 'atendimento' : roll < 0.78 ? 'analise' : 'aberto';
     const resolvedAt =
-      status === 'resolvido' ? new Date(openedAt + (2 + Math.random() * 60) * HOUR) : undefined;
+      status === 'resolvido' ? new Date(Math.min(now, openedAt + (2 + Math.random() * 60) * HOUR)) : undefined;
     const severity = severityFor(type);
     const pRoll = Math.random();
     const priority: Priority =
@@ -82,33 +83,12 @@ function buildSeed(): UrbanReport[] {
   return out.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 }
 
-function serialize(reports: UrbanReport[]) {
-  return JSON.stringify(
-    reports.map((r) => ({
-      ...r,
-      timestamp: r.timestamp.toISOString(),
-      resolvedAt: r.resolvedAt ? r.resolvedAt.toISOString() : undefined,
-    }))
-  );
-}
-
-function load(): UrbanReport[] {
+function load(): { reports: UrbanReport[]; raw?: string | null; error?: string } {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return buildSeed();
-    const parsed = JSON.parse(raw) as (Omit<UrbanReport, 'timestamp' | 'resolvedAt'> & {
-      timestamp: string;
-      resolvedAt?: string;
-    })[];
-    if (!Array.isArray(parsed) || !parsed.length) return buildSeed();
-    return parsed.map((r) => ({
-      ...r,
-      priority: r.priority ?? defaultPriorityFor(r.severity),
-      timestamp: new Date(r.timestamp),
-      resolvedAt: r.resolvedAt ? new Date(r.resolvedAt) : undefined,
-    }));
-  } catch {
-    return buildSeed();
+    return { reports: raw === null ? buildSeed() : parseReports(raw), raw };
+  } catch (error) {
+    return { reports: [], error: storageErrorMessage(error) };
   }
 }
 
@@ -124,30 +104,72 @@ interface NewReportInput {
   position: [number, number];
   photo?: string;
   address?: string;
+  aiAnalysis?: UrbanImageAnalysis;
 }
 
-export function useUrbanReports(userPosition: [number, number]) {
-  const [reports, setReports] = useState<UrbanReport[]>(() => load());
+export function useUrbanReports(userPosition: [number, number], account: { userId: string; isAdmin: boolean }) {
+  const [initial] = useState(load);
+  const [storedReports, setReports] = useState(initial.reports);
+  const [storageError, setStorageError] = useState(initial.error);
+  const reportsRef = useRef(storedReports);
+  const lastRawRef = useRef(initial.raw);
   const idCounter = useRef(1000);
+  const { userId, isAdmin } = account;
+  const [latitude, longitude] = userPosition;
+  const reports = useMemo(() => storedReports.map((report) => {
+    const mine = report.ownerId ? report.ownerId === userId : !!report.mine;
+    return !!report.mine === mine ? report : { ...report, mine };
+  }), [storedReports, userId]);
+
+  // Persist before reporting success. Reading the latest snapshot also preserves
+  // changes made in another tab between this render and a user action.
+  const commit = useCallback((change: (current: UrbanReport[]) => UrbanReport[]) => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const current = raw === lastRawRef.current ? reportsRef.current : raw === null ? [] : parseReports(raw);
+      const next = change(current);
+      if (next !== current || raw === null) {
+        const serialized = serializeReports(next);
+        localStorage.setItem(STORAGE_KEY, serialized);
+        lastRawRef.current = serialized;
+      } else { lastRawRef.current = raw; }
+      reportsRef.current = next;
+      setReports(next);
+      setStorageError(undefined);
+      return next;
+    } catch (error) {
+      const message = storageErrorMessage(error);
+      setStorageError(message);
+      throw new Error(message);
+    }
+  }, []);
 
   useEffect(() => {
-    try {
-      // photos are kept, but drop them if we blow the quota
-      localStorage.setItem(STORAGE_KEY, serialize(reports));
-    } catch {
+    if (!initial.error) {
       try {
-        localStorage.setItem(STORAGE_KEY, serialize(reports.map((r) => ({ ...r, photo: undefined }))));
-      } catch {
-        /* ignore */
-      }
+        commit((current) => current);
+      } catch { /* storageError is displayed by the page */ }
     }
-  }, [reports]);
+    const sync = (event: StorageEvent) => {
+      if (event.key !== STORAGE_KEY && event.key !== null) return;
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const next = raw === null ? [] : parseReports(raw);
+        lastRawRef.current = raw;
+        reportsRef.current = next;
+        setReports(next);
+        setStorageError(undefined);
+      } catch (error) { setStorageError(storageErrorMessage(error)); }
+    };
+    window.addEventListener('storage', sync);
+    return () => window.removeEventListener('storage', sync);
+  }, [commit, initial.error]);
 
   const addReport = useCallback((input: NewReportInput) => {
-    const { type, description, position, photo, address } = input;
+    const { type, description, position, photo, address, aiAnalysis } = input;
     const severity = severityFor(type);
     const newReport: UrbanReport = {
-      id: `r-${Date.now()}`,
+      id: `r-${crypto.randomUUID()}`,
       type,
       description,
       severity,
@@ -158,19 +180,22 @@ export function useUrbanReports(userPosition: [number, number]) {
       status: 'aberto',
       photo,
       address,
+      aiAnalysis,
       region: regionFor(position[0], position[1]),
       mine: true,
+      ownerId: userId,
     };
-    setReports((prev) => [newReport, ...prev]);
+    commit((prev) => [newReport, ...prev]);
     return newReport;
-  }, []);
+  }, [commit, userId]);
 
   const updateStatus = useCallback((id: string, status: ReportStatus) => {
-    setReports((prev) =>
+    if (!isAdmin) return;
+    commit((prev) =>
       prev.map((r) => {
-        if (r.id !== id) return r;
+        if (r.id !== id || r.status === status) return r;
         if (status === 'resolvido') {
-          const resolvedAt = r.resolvedAt ?? new Date();
+          const resolvedAt = new Date();
           return {
             ...r,
             status,
@@ -183,33 +208,35 @@ export function useUrbanReports(userPosition: [number, number]) {
         return { ...r, status, resolvedAt: undefined, confirmation: undefined };
       })
     );
-  }, []);
+  }, [commit, isAdmin]);
 
   /** administrador define a prioridade técnica */
   const updatePriority = useCallback((id: string, priority: Priority) => {
-    setReports((prev) => prev.map((r) => (r.id === id ? { ...r, priority } : r)));
-  }, []);
+    if (!isAdmin) return;
+    commit((prev) => prev.map((r) => (r.id === id ? { ...r, priority } : r)));
+  }, [commit, isAdmin]);
 
   /** cidadão confirma (ou contesta) a resolução — histórico é preservado */
   const confirmResolution = useCallback((id: string, solved: boolean) => {
-    setReports((prev) =>
+    commit((prev) =>
       prev.map((r) =>
-        r.id === id
+        r.id === id && (r.ownerId ? r.ownerId === userId : r.mine) && r.status === 'resolvido' && r.confirmation === 'pendente'
           ? solved
             ? { ...r, confirmation: 'confirmado', status: 'resolvido' }
-            : { ...r, confirmation: 'contestado', status: 'atendimento', reopened: true }
+            : { ...r, confirmation: 'contestado', status: 'atendimento', reopened: true, resolvedAt: undefined }
           : r
       )
     );
-  }, []);
+  }, [commit, userId]);
 
   const patchReport = useCallback((id: string, patch: Partial<UrbanReport>) => {
-    setReports((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
-  }, []);
+    if (!isAdmin) return;
+    commit((prev) => parseReports(serializeReports(prev.map((r) => (r.id === id ? { ...r, ...patch, id: r.id, ownerId: r.ownerId } : r)))));
+  }, [commit, isAdmin]);
 
   // Sensor simulation (kept from the original experience)
   useEffect(() => {
-    const center = userPosition[0] !== DEFAULT_LOCATION[0] ? userPosition : DEFAULT_LOCATION;
+    const center: [number, number] = [latitude, longitude];
     const interval = setInterval(() => {
       const sensor = SENSOR_TYPES[Math.floor(Math.random() * SENSOR_TYPES.length)];
       const [lat, lng] = randomNear(center);
@@ -226,13 +253,15 @@ export function useUrbanReports(userPosition: [number, number]) {
         status: 'aberto',
         region: regionFor(lat, lng),
       };
-      setReports((prev) => [sensorReport, ...prev].slice(0, 200));
+      try {
+        commit((prev) => retainReports([sensorReport, ...prev]));
+      } catch { /* keep the persisted data and show storageError */ }
     }, 15000);
 
     return () => clearInterval(interval);
-  }, [userPosition]);
+  }, [latitude, longitude, commit]);
 
-  const stats = {
+  const stats = useMemo(() => ({
     total: reports.length,
     severe: reports.filter((r) => r.severity === 'severe').length,
     warning: reports.filter((r) => r.severity === 'warning').length,
@@ -247,7 +276,7 @@ export function useUrbanReports(userPosition: [number, number]) {
     baixa: reports.filter((r) => r.priority === 'baixa').length,
     aguardandoConfirmacao: reports.filter((r) => r.confirmation === 'pendente').length,
     contestados: reports.filter((r) => r.confirmation === 'contestado').length,
-  };
+  }), [reports]);
 
-  return { reports, addReport, updateStatus, updatePriority, confirmResolution, patchReport, stats };
+  return { reports, addReport, updateStatus, updatePriority, confirmResolution, patchReport, stats, storageError };
 }

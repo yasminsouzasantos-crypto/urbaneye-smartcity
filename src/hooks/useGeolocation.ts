@@ -15,11 +15,13 @@ export function useGeolocation() {
   });
 
   const updatePosition = useCallback((pos: GeolocationPosition) => {
-    setState({
+    const { latitude, longitude } = pos.coords;
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return;
+    setState((previous) => previous.hasPermission && previous.position[0] === latitude && previous.position[1] === longitude ? previous : ({
       position: [pos.coords.latitude, pos.coords.longitude],
       hasPermission: true,
       loading: false,
-    });
+    }));
   }, []);
 
   useEffect(() => {
@@ -28,17 +30,22 @@ export function useGeolocation() {
       return;
     }
 
+    let active = true;
+    const success = (pos: GeolocationPosition) => { if (active) updatePosition(pos); };
+    const failure = (error: GeolocationPositionError) => {
+      if (active) setState(s => ({ ...s, loading: false, hasPermission: error.code === 1 ? false : s.hasPermission }));
+    };
     navigator.geolocation.getCurrentPosition(
-      updatePosition,
-      () => setState(s => ({ ...s, loading: false })),
+      success,
+      failure,
       { enableHighAccuracy: true, timeout: 8000 }
     );
 
-    const watchId = navigator.geolocation.watchPosition(updatePosition, () => {}, {
+    const watchId = navigator.geolocation.watchPosition(success, failure, {
       enableHighAccuracy: true,
     });
 
-    return () => navigator.geolocation.clearWatch(watchId);
+    return () => { active = false; navigator.geolocation.clearWatch(watchId); };
   }, [updatePosition]);
 
   return state;

@@ -1,1 +1,6 @@
-project_id = "wzlxlhmxebtolurouazo"
+project_id = "yavsfqrbsexjpueritws"
+
+# O app atual ainda usa autenticação local. Antes de produção, migre para
+# Supabase Auth e remova esta exceção para exigir o JWT do cidadão.
+[functions.analyze-urban-image]
+verify_jwt = false

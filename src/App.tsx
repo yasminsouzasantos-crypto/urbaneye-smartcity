@@ -1,14 +1,15 @@
+import { lazy, Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
-import Index from "./pages/Index.tsx";
 import Login from "./pages/Login.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
+const Index = lazy(() => import('./pages/Index.tsx'));
 
 function Protected({ children, adminOnly = false }: { children: React.ReactNode; adminOnly?: boolean }) {
   const { user, ready, isAdmin } = useAuth();
@@ -32,6 +33,7 @@ const App = () => (
       <Sonner position="top-center" offset={72} />
       <BrowserRouter>
         <AuthProvider>
+          <Suspense fallback={<p role="status" className="p-6">Carregando UrbanEye...</p>}>
           <Routes>
             <Route path="/login" element={<LoginRoute />} />
             <Route
@@ -53,6 +55,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

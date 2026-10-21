@@ -2,6 +2,37 @@ export type Severity = 'severe' | 'warning' | 'normal';
 
 export type ProblemType = 'acidente' | 'obra' | 'iluminacao' | 'transito' | 'sensor';
 
+export type CitizenProblemType = Exclude<ProblemType, 'sensor'>;
+
+export type AiProblemType = CitizenProblemType | 'indeterminado';
+
+export type AiSuggestedSeverity = Severity | 'indeterminada';
+
+export type AiRiskFlag =
+  | 'via_bloqueada'
+  | 'fogo_ou_fumaca'
+  | 'pessoa_em_risco'
+  | 'fiacao_exposta'
+  | 'alagamento'
+  | 'dano_estrutural';
+
+/** Resultado auditável da triagem visual; é uma sugestão, nunca uma decisão final. */
+export interface UrbanImageAnalysis {
+  promptVersion: 'urbaneye-image-triage-v1';
+  model: string;
+  analyzedAt: string;
+  hasUrbanIssue: boolean;
+  suggestedType: AiProblemType;
+  suggestedSeverity: AiSuggestedSeverity;
+  confidence: number;
+  title: string;
+  descriptionSuggestion: string;
+  visibleEvidence: string[];
+  riskFlags: AiRiskFlag[];
+  needsHumanReview: boolean;
+  userDecision?: 'accepted' | 'edited' | 'not_applied';
+}
+
 export type ReportStatus = 'aberto' | 'analise' | 'atendimento' | 'resolvido';
 
 export type Priority = 'baixa' | 'media' | 'alta' | 'critica';
@@ -34,6 +65,10 @@ export interface UrbanReport {
   reopened?: boolean;
   /** created by the citizen using this device */
   mine?: boolean;
+  /** Local account that created the report; older reports keep device ownership. */
+  ownerId?: string;
+  /** sugestão de triagem visual confirmada ou revisada pelo cidadão */
+  aiAnalysis?: UrbanImageAnalysis;
 }
 
 export const PROBLEM_LABELS: Record<ProblemType, string> = {
@@ -62,6 +97,22 @@ export const SEVERITY_COLORS: Record<Severity, string> = {
   severe: '#dc2626',
   warning: '#d97706',
   normal: '#16a34a',
+};
+
+export const AI_SEVERITY_LABELS: Record<AiSuggestedSeverity, string> = {
+  severe: 'Risco alto',
+  warning: 'Atenção',
+  normal: 'Risco baixo',
+  indeterminada: 'Não determinada',
+};
+
+export const AI_RISK_LABELS: Record<AiRiskFlag, string> = {
+  via_bloqueada: 'Via bloqueada',
+  fogo_ou_fumaca: 'Fogo ou fumaça',
+  pessoa_em_risco: 'Possível pessoa em risco',
+  fiacao_exposta: 'Fiação exposta',
+  alagamento: 'Alagamento',
+  dano_estrutural: 'Dano estrutural',
 };
 
 export const PRIORITY_LABELS: Record<Priority, string> = {

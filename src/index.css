@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.urban-main-map .leaflet-control-attribution {
+  margin-top: 76px;
+}
+
 
 
 @layer base {
@@ -72,17 +76,17 @@
 
 @layer utilities {
   .urban-glass {
-    background: hsla(var(--urban-glass), 0.85);
+    background: hsl(var(--urban-glass) / 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
   .urban-shadow {
-    box-shadow: 0 4px 24px -4px hsla(var(--urban-navy), 0.12),
-                0 1px 4px -1px hsla(var(--urban-navy), 0.06);
+    box-shadow: 0 4px 24px -4px hsl(var(--urban-navy) / 0.12),
+                0 1px 4px -1px hsl(var(--urban-navy) / 0.06);
   }
   .urban-shadow-lg {
-    box-shadow: 0 12px 40px -8px hsla(var(--urban-navy), 0.18),
-                0 4px 12px -2px hsla(var(--urban-navy), 0.08);
+    box-shadow: 0 12px 40px -8px hsl(var(--urban-navy) / 0.18),
+                0 4px 12px -2px hsl(var(--urban-navy) / 0.08);
   }
 }
 

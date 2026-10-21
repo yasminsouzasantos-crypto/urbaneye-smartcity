@@ -17,18 +17,21 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (busy) return;
     setBusy(true);
-    const result =
-      mode === 'criar' ? signUp({ name, email, password, role }) : signIn({ email, password });
-    setBusy(false);
+    try {
+    const result = await (
+      mode === 'criar' ? signUp({ name, email, password, role }) : signIn({ email, password }));
     if (result.error) {
       setError(result.error);
       return;
     }
     setError(null);
     navigate('/', { replace: true });
+    } catch { setError('Não foi possível entrar. Tente novamente.'); }
+    finally { setBusy(false); }
   };
 
   return (
@@ -75,6 +78,7 @@ export default function Login() {
           onSubmit={submit}
           className="urban-glass urban-shadow-lg rounded-3xl p-5 animate-slide-up-fade"
         >
+          <fieldset disabled={busy} className="contents">
           <div className="grid grid-cols-2 gap-1 p-1 rounded-2xl bg-secondary mb-5">
             {(['entrar', 'criar'] as Mode[]).map((m) => (
               <button
@@ -197,6 +201,7 @@ export default function Login() {
               ? 'As permissões do perfil escolhido são aplicadas em toda a navegação.'
               : 'Ainda não tem conta? Toque em “Criar conta” acima.'}
           </p>
+          </fieldset>
         </form>
       </div>
     </main>
