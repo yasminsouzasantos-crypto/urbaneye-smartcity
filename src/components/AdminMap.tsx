@@ -9,7 +9,8 @@ import {
   PRIORITY_LABELS,
   DEFAULT_LOCATION,
 } from '@/types/urban';
-import { MAP_ATTRIBUTION, WORLD_BOUNDS } from '@/lib/mapConfig';
+import { MAP_TILE_OPTIONS, MAP_TILE_URL, WORLD_BOUNDS } from '@/lib/mapConfig';
+import SourceBadge from './SourceBadge';
 
 /** Grid-based heat aggregation (no extra dependency needed). */
 function heatCells(reports: UrbanReport[]) {
@@ -59,14 +60,11 @@ export default function AdminMap({
       maxBoundsViscosity={1}
     >
       <MapAutoSize active={active} />
-      <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-        subdomains={['a', 'b', 'c', 'd']}
-        maxZoom={19}
-        noWrap
+      {active && <TileLayer
+        url={MAP_TILE_URL}
+        {...MAP_TILE_OPTIONS}
         bounds={WORLD_BOUNDS}
-        attribution={MAP_ATTRIBUTION}
-      />
+      />}
       {heat
         ? cells.map((c) => {
             const t = c.count / max;
@@ -99,6 +97,7 @@ export default function AdminMap({
             >
               <Popup>
                 <span className="text-sm font-medium block">{PROBLEM_SHORT[r.type]}</span>
+                <SourceBadge report={r} />
                 <span
                   className="text-[11px] font-semibold"
                   style={{ color: PRIORITY_COLORS[r.priority] }}

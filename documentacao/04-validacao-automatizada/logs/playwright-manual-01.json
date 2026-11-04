@@ -1,0 +1,195 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "piloto.manual",
+      "--reporter=list,html,json",
+      "--trace=on",
+      "--output=documentacao/04-validacao-automatizada/evidencias/manual-01"
+    ],
+    "configFile": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\playwright.config.ts",
+    "rootDir": "C:/Users/bruno/OneDrive/Documentos/Urbaneye/urbaneye-smartcity/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/bruno/OneDrive/Documentos/Urbaneye/urbaneye-smartcity/documentacao/04-validacao-automatizada/evidencias/manual-01",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/bruno/OneDrive/Documentos/Urbaneye/urbaneye-smartcity/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "html"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 8081 --strictPort",
+      "url": "http://127.0.0.1:8081",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "urbaneye.spec.ts",
+      "file": "urbaneye.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "piloto manual: cadastro → persistência → gestão → contestação",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17803,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "C01 Cadastro cidadão exclusivo",
+                      "duration": 1453
+                    },
+                    {
+                      "title": "C02 Ocorrência manual em Avaliação local",
+                      "duration": 1590
+                    },
+                    {
+                      "title": "C03 Localizar ID e conferir Aberto",
+                      "duration": 2214
+                    },
+                    {
+                      "title": "C04 Logout e login preservam o mesmo chamado",
+                      "duration": 2558
+                    },
+                    {
+                      "title": "C05 F01 administrador atende e resolve",
+                      "duration": 4887
+                    },
+                    {
+                      "title": "C06 Proprietário contesta e reabre",
+                      "duration": 3322
+                    }
+                  ],
+                  "startTime": "2026-11-04T16:06:23.858Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "C02-chamado-manual-local",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\manual-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C02-chamado-manual-local-41de5341b4ff4a82aa6362dc6c22f3910f13f177.png"
+                    },
+                    {
+                      "name": "identidade-ficticia-do-cenario",
+                      "contentType": "application/json",
+                      "body": "ewogICJleGVjdXRpb24iOiAiYXV0b21hdGVkIiwKICAidmFyaWFudCI6ICJtYW51YWwiLAogICJtYXJrZXIiOiAiQVVUT01BVElaQURPLWNiYTU3ZGMyLTNjYWItNDMxMS1iZGQyLTNlY2Y4MDQ5ZGRjMyIsCiAgInJlcG9ydElkIjogInItZDU2NDAwZDEtZGI4Ny00MDg2LTgxMzAtODcyODY4OGM4NWM0IiwKICAib3duZXJJZCI6ICI0YTdlZDczNS02YjAzLTQxZTQtOTg4Ny0wOWQwYmY1YjlhZGQiLAogICJlbWFpbCI6ICJwaWxvdG8tbWFudWFsLWE4MTY4MDU3LWFlNTYtNGMyZi1iYzIxLTVhMmIwOTMwOWMxNEBleGFtcGxlLmNvbSIKfQ=="
+                    },
+                    {
+                      "name": "C04-persistencia-apos-login",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\manual-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C04-persistencia-apos-login-d89e6bd259acb7dcf4b9a9e7c9d5e34b055f293b.png"
+                    },
+                    {
+                      "name": "C05-em-atendimento",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\manual-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C05-em-atendimento-ac7b666bc41d9f30771f60044444340310232f15.png"
+                    },
+                    {
+                      "name": "C05-resolvido-pendente",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\manual-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C05-resolvido-pendente-97d9264aef700ff8789fc355ad24dfdcb3533b85.png"
+                    },
+                    {
+                      "name": "chamado-revisado",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\manual-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\chamado-revisado-21160f1ced96bc57dd24cd86a2df6777e36d3759.png"
+                    },
+                    {
+                      "name": "rede-simulada-e-ambiente",
+                      "contentType": "application/json",
+                      "body": "ewogICJsb2NhbE9yaWdpbiI6ICJodHRwOi8vMTI3LjAuMC4xOjgwODEiLAogICJnZW9sb2NhdGlvbiI6IHsKICAgICJraW5kIjogInNpbXVsYXRlZCIsCiAgICAibGF0aXR1ZGUiOiAtMjMuNTUwNTIsCiAgICAibG9uZ2l0dWRlIjogLTQ2LjYzMzMxCiAgfSwKICAiYWlQb3N0cyI6IDAsCiAgImdlb2NvZGluZ1JlcXVlc3RzIjogMiwKICAidGlsZVJlcXVlc3RzIjogMzM2LAogICJibG9ja2VkIjogW10sCiAgImJyb3dzZXJWZXJzaW9uIjogIjE0Ny4wLjM5MTIuNzIiLAogICJub2RlVmVyc2lvbiI6ICJ2MjQuMTUuMCIsCiAgInBsYXRmb3JtIjogIndpbjMyIiwKICAic2VydmljZVdvcmtlcnMiOiAiYmxvY2siLAogICJyZWFsQWlDYWxscyI6ICJibG9ja2VkX2J5X3JvdXRpbmciCn0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\manual-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f74af2d39a2eee7d9dd3-ea976a7c66df7666330c",
+          "file": "urbaneye.spec.ts",
+          "line": 136,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T16:06:21.886Z",
+    "duration": 21508.566000000003,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

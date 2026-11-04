@@ -1,0 +1,7 @@
+Observacao integrada dos mapas: pendente.
+Inventario CUA: Browsers: Error: The browser access host is unavailable.
+Tentativa de selecionar a janela existente da visualizacao UrbanEye: Computer Use app approval timed out.
+Nenhuma captura valida da aplicacao foi obtida. Nenhuma declaracao de validacao visual integrada.
+Uma imagem real isolada do OSM foi recebida por HTTP e observada; consultar lote-01-mapa-http-real.txt e lote-01-mapa-tile-real.png.
+Testes Vitest de mapas usam componentes simulados, sem acesso ao provedor.
+Playwright nao foi executado e seus relatorios existentes foram preservados.

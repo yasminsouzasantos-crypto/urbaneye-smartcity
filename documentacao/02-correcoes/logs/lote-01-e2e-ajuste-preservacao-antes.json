@@ -1,0 +1,458 @@
+﻿[
+    {
+        "Path":  "documentacao\\01-diagnostico\\diagnostico-codex.md",
+        "Hash":  "F28D3AB9291E7CC1259870B4122910BD7FAF69B5216AE197741D65F4797A638A"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\01-npm-install-inicial.txt",
+        "Hash":  "E009FC12BB7225F06B838AFCA119D4E0A32C08E421844B48EC5508B700441B92"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\02-npm-audit-inicial.txt",
+        "Hash":  "135DF55040659B48382B90BE73BBFDE80AB1EFE569A0C9793D0A20F6930BC950"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\03-npm-install-scripts-inicial.txt",
+        "Hash":  "8348BB79C493282D263BB35F7AA28EB643F330069620FE58FC669E2AA2F4556A"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\04-npm-test-inicial.txt",
+        "Hash":  "EDB09DC70CA85D96B694CB16C44C57ECC99C0C1000B07DC8BF5D2AEA8F1F4610"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\05-npm-typecheck-inicial.txt",
+        "Hash":  "94391472081DA55C7650937970E54D18973072D7EDDE2905F16433E3EBB0129B"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\06-npm-lint-inicial.txt",
+        "Hash":  "1DF5396B22D2D7AABE5775A0B8C684F489628433DB2F1D873BDEC4EF4F7D6DD0"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\07-npm-build-inicial.txt",
+        "Hash":  "5AD4A529CFF3D7A375246D81F907074E1F39280D0F4F49FAF7E59C2411E04DE3"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\08-npm-e2e-inicial.txt",
+        "Hash":  "A690ED310FF003A06FAF47A91C6E360CD6BC59D525192CB205E0A024A78E23DD"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\logs\\09-ambiente-e-versao-inicial.txt",
+        "Hash":  "A0CC27B30F22C3EDAD7955B4C24A0743C84727A721DD6E60EC64F2F0C316F07D"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\playwright-report-inicial\\index.html",
+        "Hash":  "3B77FCB8B7AEB229517BEDF4925F42A49A26A16DA978370B542CE2E24CFB3DE2"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\01-instalacao-inicial.png",
+        "Hash":  "7503E49D21F92BD3195CB6373DE9AC906D102326C50EB5FF585A5883B9B6FA99"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\04-testes-iniciais.png",
+        "Hash":  "F1F0284D6EFC7D7981D5B53132433171DFED3276488D734E001E6362E9DD9089"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\05-typecheck-inicial.png",
+        "Hash":  "4441A98EB3C6C34824D457FBC802A47E7A3DDECCAD52645712FA07C167A28473"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\06-lint-inicial.png",
+        "Hash":  "63C98848333F74A6F92E00EDD73C6047ABD661D2EE4D85DAE289074DD250F3BA"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\07-build-inicial.png",
+        "Hash":  "D1B965AC8E933C1396E186825A01263F5E869313350CD07E72CC4D1815A7CD3C"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\08-playwright-inicial.png",
+        "Hash":  "76EAF5207C5F52C758C6F43A28CCEDFCB6DACE2DDA768A818C09E7A5817735C7"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\09-relatorio-playwright-inicial.png",
+        "Hash":  "25B8E8215AC420D4EF51E23C457E14ACE807ED962B62835CD2A6A410F78E702C"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\10-playwright-teste-1-parte-2.png",
+        "Hash":  "5E888F12887531C9A7770B2B84EA22BB347F7FED16E7B82FBC45A7D06CDA7D25"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\10-playwright-teste-1.png",
+        "Hash":  "751127AA453C58B3ACA95A2604FF9A6880435054A2C806C500162834F46724F1"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\11-playwright-teste-2.png",
+        "Hash":  "D807B7A62624668AB790A573E91A837090810B31331EF2BBDCEE3557A92E81FE"
+    },
+    {
+        "Path":  "documentacao\\01-diagnostico\\prints\\12-playwright-teste-3.png",
+        "Hash":  "8382F88B1FC07BAC31C61FEB96D0F90B283BDED1E1750C0EF9F3166E10F2E763"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\lote-01-ajuste-mapa.md",
+        "Hash":  "82374201BA7766A0F099C3E252976359FA161AF601E2D2AC182BDB2DAC04A9BE"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\lote-01-dados-controlados.md",
+        "Hash":  "83D22241A028E4D44D23361D0E081115894389C587E88AA2DCC3927A31BBE630"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-build-01.txt",
+        "Hash":  "042B6AF3AB9F3FED3DFDBBF5F567AA832B1B394AE1C79DD6679571FE6134FBC9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-build-02.txt",
+        "Hash":  "B4697927DE59A608C5E6590307CFA14B3E9102AAEFBEE06767B52DD65610DF41"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-lint-01.txt",
+        "Hash":  "C040DCA64E03871A883598C971B267DD7A57BF90D596BF4112402B234FF2B141"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-lint-02.txt",
+        "Hash":  "89BAD334975133EEF5F934825241D5E04E4C39B28D52F7ADE5D37B3F8C767703"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-build-01.txt",
+        "Hash":  "93F04F186E9C1D6AB70C710BD3FBFBC6D4EE3829B6273BAFB75C2B4D83CDFFA4"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-http-real.txt",
+        "Hash":  "4F9054DAC3135C9FE15BEDD74FD1B1D1712752817176CB8BC7C1F356000C4F14"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-lint-01.txt",
+        "Hash":  "89BAD334975133EEF5F934825241D5E04E4C39B28D52F7ADE5D37B3F8C767703"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-observacao.txt",
+        "Hash":  "A0FBF40F20FA1150A83BA38CABB15721A545E1536D4828AF8EE4189A7E343629"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-tile-real.png",
+        "Hash":  "B48A471775272D5E0CBFE54CA35E18A89E4712A0F76C62C1D397E45D4A28F4D5"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-typecheck-01.txt",
+        "Hash":  "87C470BAB2F4FB8A0E59F4EA6E6B501A8F9FD492F165D468ACB3D347B1DE04D9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-vitest-01.txt",
+        "Hash":  "D1817AED619A410D0FA229B92072DDFBA7C52147BEF7655E1EF032560A8C7466"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-playwright-01.txt",
+        "Hash":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-typecheck-01.txt",
+        "Hash":  "5D2F3CF5B67BFF9DBCCBF0CB9704643423B6CA7EB3EC2DBF33B7D32254CD6DEA"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-typecheck-02.txt",
+        "Hash":  "87C470BAB2F4FB8A0E59F4EA6E6B501A8F9FD492F165D468ACB3D347B1DE04D9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-vitest-01.txt",
+        "Hash":  "060B17E50E958CDE18D567674BE15E30497C3436BCD03A997B51407D012F92A7"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\logs\\lote-01-vitest-02.txt",
+        "Hash":  "C722FD974D1F3EBCFD5CEAE01D9DA7F48813A9FE8828DB9F709143C1632E2A6B"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\index.html",
+        "Hash":  "9A3AA6F412383EF4014A7A18973BFCBE3F741E73E24EB6041AD49E8CC9091104"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\data\\7dada1f19eabedb646a41fb0077ed758b55bb200.png",
+        "Hash":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\data\\c53049f77319d7489259eb4358141079049b328c.md",
+        "Hash":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\data\\d90c288a2aec6e47b6ce52637eb8a647bd6c3ada.zip",
+        "Hash":  "5EB14F1EB462004F4F51CB8CE5CE6FBE5C224F4F603364CD5E72A0FAE37415A1"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "Hash":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\codicon.DCmgc-ay.ttf",
+        "Hash":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "Hash":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\index.B4cLoZK3.js",
+        "Hash":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\index.B_TqY17P.css",
+        "Hash":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\index.html",
+        "Hash":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\manifest.webmanifest",
+        "Hash":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\playwright-logo.svg",
+        "Hash":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\snapshot.B_Jk1wbt.js",
+        "Hash":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\snapshot.html",
+        "Hash":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\sw.bundle.js",
+        "Hash":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\uiMode.CU5KtEkS.js",
+        "Hash":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\uiMode.CyMfwkXJ.css",
+        "Hash":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\uiMode.html",
+        "Hash":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\xtermModule.kHJ-D0s7.css",
+        "Hash":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "Hash":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "Hash":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\assets\\urlMatch-L3liM589.js",
+        "Hash":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\.last-run.json",
+        "Hash":  "BA1ED425D8DF22D36D01860A1A8BE158D6B2ADFE6DAE5E04F974D419A359E475"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\error-context.md",
+        "Hash":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\test-failed-1.png",
+        "Hash":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip",
+        "Hash":  "5EB14F1EB462004F4F51CB8CE5CE6FBE5C224F4F603364CD5E72A0FAE37415A1"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\index.html",
+        "Hash":  "9A3AA6F412383EF4014A7A18973BFCBE3F741E73E24EB6041AD49E8CC9091104"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\data\\7dada1f19eabedb646a41fb0077ed758b55bb200.png",
+        "Hash":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\data\\c53049f77319d7489259eb4358141079049b328c.md",
+        "Hash":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\data\\d90c288a2aec6e47b6ce52637eb8a647bd6c3ada.zip",
+        "Hash":  "5EB14F1EB462004F4F51CB8CE5CE6FBE5C224F4F603364CD5E72A0FAE37415A1"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "Hash":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\codicon.DCmgc-ay.ttf",
+        "Hash":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "Hash":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\index.B4cLoZK3.js",
+        "Hash":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\index.B_TqY17P.css",
+        "Hash":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\index.html",
+        "Hash":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\manifest.webmanifest",
+        "Hash":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\playwright-logo.svg",
+        "Hash":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\snapshot.B_Jk1wbt.js",
+        "Hash":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\snapshot.html",
+        "Hash":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\sw.bundle.js",
+        "Hash":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\uiMode.CU5KtEkS.js",
+        "Hash":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\uiMode.CyMfwkXJ.css",
+        "Hash":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\uiMode.html",
+        "Hash":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\xtermModule.kHJ-D0s7.css",
+        "Hash":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "Hash":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "Hash":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\assets\\urlMatch-L3liM589.js",
+        "Hash":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\ilote-01-08-mapa-gestao-calor-corrigido.png",
+        "Hash":  "6C29C4A0F20EE8B56A743950A4DF2FD68EDC37199B4664B1C16948107757A186"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\ilote-01-15-playwright-resultado.png",
+        "Hash":  "BD730C1F49616FA094874566CEFCB2180E2F900A5A5528ECF24DE679B027D954"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-01-controles-dos-modos.png",
+        "Hash":  "68F2376C4377E449CB851BA8E52466DCD9B52A5E31A84BDBBC363A816ACF8F4C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-02-demonstracao-sem-carga.png",
+        "Hash":  "D6EFDA7DE07D38C1A435F4BAFEE370A834F89D429329AEA4C0326B2BC97B112A"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-03-confirmacao-de-carga.png",
+        "Hash":  "20D398BD4DFC72A62631C859ACE9E07A20B892077AEC802559156CB2C3184819"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-04-carga-cancelada.png",
+        "Hash":  "7B1620A2022030A9228D3A3828C65F6014F92090979A1058B9AA5B8786499676"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-05-conjunto-carregado.png",
+        "Hash":  "702F4DF1D41E9F36451205916A60FAA4DFD8105FA64B7FCB25A6B895C45CF005"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-1.png",
+        "Hash":  "CF43D1E5CF2E26FFE1D1F512702732662EB44A292AA5988F47BAEB6693BD6DB2"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-2.png",
+        "Hash":  "89EF6C59957C72F049C75F22DA1DC019338D557877D2AD94CAEDBF3FEA20E70B"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-3.png",
+        "Hash":  "A16467AED712AFF5F14C2937CA7D34A992A4F14D172145BFA39A44A5A8B50F9C"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-4.png",
+        "Hash":  "E1B80BC41296CCCDA3E4538059581A1F877FB159FEB9C14DEF998ED3135E3654"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-5.png",
+        "Hash":  "A52625EA9E81FA13F807C28DC9AEEA947F1FA2583907B8E2300E2717664743B0"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-6.png",
+        "Hash":  "4C85685F223DCEC2F2040D9D6EE508B4102E3BF9373A69662C6D9C2FD7CE9F24"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-07-mapa-principal-corrigido.png",
+        "Hash":  "A567191D436FA902C470881B01DC09A569C028654BD5AF1AE9C3C2C41D4D8B24"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-09-mapa-gestao-pontos-corrigido.png",
+        "Hash":  "685255AF5865CC2641EA4424BBA5C430E25126DB0469BB92B1CAAC0850B11105"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-10-recarga-sem-duplicacao.png",
+        "Hash":  "284F2C62B9D1738775031ABB7D80B0D126EFAB01B2DC900257E6E501A71184D9"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-11-status-alterado.png",
+        "Hash":  "7C3005410BF874603110ED0591E35E00182F7B686ADC78783EA70576496AB058"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-12-confirmacao-restauracao.png",
+        "Hash":  "3AA058F64874A58DB165321B0132FD97F5902DB1072DCDD91EAE2F3837FEDD3B"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-13-restauracao-cancelada.png",
+        "Hash":  "E6C7DE960F845B8C88243AB101890D29F4C01C032D421EB3895E7E7D9A9926CF"
+    },
+    {
+        "Path":  "documentacao\\02-correcoes\\prints\\lote-01-14-conjunto-restaurado.png",
+        "Hash":  "68AE6860EE4F31ED9DA72493FBAD47D5AF6A58BA4589372C075A40B33304F3E3"
+    },
+    {
+        "Path":  "package.json",
+        "Hash":  "12B8EDE053997D4BD26EA8530FFD83372EB939001AC7790E92C4CC40FEC69594"
+    },
+    {
+        "Path":  "package-lock.json",
+        "Hash":  "60835EA87C97CAAB995406894353D16C5222DA839E3919A2782A6EA7450BCB5E"
+    },
+    {
+        "Path":  "bun.lock",
+        "Hash":  "7784BE3CB496F2D68746E7F1C033081268BB812FEE13018CD8356D99A354F698"
+    },
+    {
+        "Path":  "bun.lockb",
+        "Hash":  "6015D8BBADCD7AE99A9FB90C58BB9D4DA8F3EB3DE09DA82E53DCB0A4AF93C1E9"
+    },
+    {
+        "Path":  "playwright.config.ts",
+        "Hash":  "77603432CB4CDAC33C0CECEAD59781E8C41DDF63733FCB8BEA2B9CF2FB6C3D4B"
+    },
+    {
+        "Path":  "e2e\\urbaneye.spec.ts",
+        "Hash":  "65FBE70EBFD52B773401269C42322A849291F58FA3D0E942547C60C1B9E128F1"
+    }
+]

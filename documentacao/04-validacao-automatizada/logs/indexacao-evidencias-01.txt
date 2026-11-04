@@ -1,0 +1,3 @@
+Capturas selecionadas: 6; traces completos: 4
+
+EXIT_CODE=0

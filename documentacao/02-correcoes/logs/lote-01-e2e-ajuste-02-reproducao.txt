@@ -1,0 +1,25 @@
+Comando: npm.cmd run test:e2e -- --grep cadastro --reporter=list,html --output=documentacao/02-correcoes/test-results-lote-01-ajuste-reproducao
+npm notice run vite_react_shadcn_ts@0.0.0 test:e2e
+npm notice run npm run build && playwright test --grep cadastro --reporter=list,html --output=documentacao/02-correcoes/test-results-lote-01-ajuste-reproducao
+npm notice run vite_react_shadcn_ts@0.0.0 build
+npm notice run vite build
+X [ERROR] Cannot read directory "../../../..": Acesso negado.
+
+X [ERROR] Could not resolve "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\vite.config.ts"
+
+failed to load config from C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\vite.config.ts
+error during build:
+Error: Build failed with 2 errors:
+error: Cannot read directory "../../../..": Acesso negado.
+error: Could not resolve "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\vite.config.ts"
+    at failureErrorWithLog (C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:1467:15)
+    at C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:926:25
+    at runOnEndCallbacks (C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:1307:45)
+    at buildResponseToResult (C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:924:7)
+    at C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:951:16
+    at responseCallbacks.<computed> (C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:603:9)
+    at handleIncomingPacket (C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:658:12)
+    at Socket.readFromStdout (C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\node_modules\esbuild\lib\main.js:581:7)
+    at Socket.emit (node:events:509:28)
+    at addChunk (node:internal/streams/readable:563:12)
+EXIT_CODE=1

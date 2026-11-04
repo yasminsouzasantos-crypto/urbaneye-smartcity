@@ -1,0 +1,10 @@
+Comando: npm.cmd run typecheck
+npm notice run vite_react_shadcn_ts@0.0.0 typecheck
+npm notice run tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json
+e2e/urbaneye.spec.ts(132,10): error TS18048: 'saved' is possibly 'undefined'.
+e2e/urbaneye.spec.ts(133,10): error TS18048: 'saved' is possibly 'undefined'.
+e2e/urbaneye.spec.ts(134,10): error TS18048: 'saved' is possibly 'undefined'.
+e2e/urbaneye.spec.ts(135,10): error TS18048: 'saved' is possibly 'undefined'.
+e2e/urbaneye.spec.ts(136,10): error TS18048: 'saved' is possibly 'undefined'.
+e2e/urbaneye.spec.ts(137,10): error TS18048: 'saved' is possibly 'undefined'.
+EXIT_CODE=2

@@ -1,0 +1,28 @@
+Comando: npm.cmd run test:e2e -- --grep cadastro --reporter=list,html --trace=on --output=documentacao/02-correcoes/test-results-lote-01-ajuste-afetado-final
+npm notice run vite_react_shadcn_ts@0.0.0 test:e2e
+npm notice run npm run build && playwright test --grep cadastro --reporter=list,html --trace=on --output=documentacao/02-correcoes/test-results-lote-01-ajuste-afetado-final
+npm notice run vite_react_shadcn_ts@0.0.0 build
+npm notice run vite build
+vite v6.4.3 building for production...
+transforming...
+✓ 2446 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           1.55 kB │ gzip:   0.66 kB
+dist/assets/index-BvD_iK9-.css           79.23 kB │ gzip:  17.93 kB
+dist/assets/client-C5bVCgUw.js          229.09 kB │ gzip:  59.69 kB
+dist/assets/Index-wvaPH006.js           307.49 kB │ gzip:  87.15 kB
+dist/assets/index-CX6A5B-P.js           326.03 kB │ gzip: 105.44 kB
+dist/assets/AdminDashboard-BQ9vnGGf.js  437.35 kB │ gzip: 117.87 kB
+✓ built in 7.24s
+[WebServer] npm notice run vite_react_shadcn_ts@0.0.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 8081 --strictPort
+
+Running 1 test using 1 worker
+
+(node:16632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e\urbaneye.spec.ts:66:1 › cadastro → WebP/IA → persistência → gestão → contestação (13.8s)
+
+  1 passed (18.1s)
+EXIT_CODE=0

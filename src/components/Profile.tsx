@@ -1,11 +1,12 @@
 import { LogOut, ShieldCheck, User, ClipboardList, MapPin } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import LocalDataControls, { LocalDataControlsProps } from './LocalDataControls';
 
-export default function Profile({ myCount, total }: { myCount: number; total: number }) {
+export default function Profile({ myCount, total, dataControls }: { myCount: number; total: number; dataControls: LocalDataControlsProps }) {
   const { user, logout, isAdmin } = useAuth();
 
   return (
-    <div className="h-full overflow-y-auto px-4 pt-20 pb-28">
+    <div className="h-full overflow-y-auto px-4 pt-32 pb-28">
       <h2 className="text-xl font-bold mb-4">Perfil</h2>
 
       <section className="urban-glass urban-shadow rounded-2xl p-4 flex items-center gap-3 mb-4">
@@ -38,10 +39,12 @@ export default function Profile({ myCount, total }: { myCount: number; total: nu
           <MapPin className="w-4 h-4 text-primary mb-1" />
           <p className="text-lg font-bold tabular-nums">{total}</p>
           <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
-            Chamados na cidade
+            Chamados neste modo
           </p>
         </div>
       </div>
+
+      <LocalDataControls {...dataControls} />
 
       <button
         onClick={logout}

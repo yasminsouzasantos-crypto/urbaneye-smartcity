@@ -1,0 +1,394 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--reporter=list,html,json",
+      "--trace=on",
+      "--output=documentacao/04-validacao-automatizada/evidencias/suite-01"
+    ],
+    "configFile": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\playwright.config.ts",
+    "rootDir": "C:/Users/bruno/OneDrive/Documentos/Urbaneye/urbaneye-smartcity/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/bruno/OneDrive/Documentos/Urbaneye/urbaneye-smartcity/documentacao/04-validacao-automatizada/evidencias/suite-01",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/bruno/OneDrive/Documentos/Urbaneye/urbaneye-smartcity/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "html"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview -- --host 127.0.0.1 --port 8081 --strictPort",
+      "url": "http://127.0.0.1:8081",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "urbaneye.spec.ts",
+      "file": "urbaneye.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "piloto manual: cadastro → persistência → gestão → contestação",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "C01 Cadastro cidadão exclusivo",
+                      "duration": 1879
+                    },
+                    {
+                      "title": "C02 Ocorrência manual em Avaliação local",
+                      "duration": 1586
+                    },
+                    {
+                      "title": "C03 Localizar ID e conferir Aberto",
+                      "duration": 2195
+                    },
+                    {
+                      "title": "C04 Logout e login preservam o mesmo chamado",
+                      "duration": 2128
+                    },
+                    {
+                      "title": "C05 F01 administrador atende e resolve",
+                      "duration": 4817
+                    },
+                    {
+                      "title": "C06 Proprietário contesta e reabre",
+                      "duration": 3401
+                    }
+                  ],
+                  "startTime": "2026-11-04T16:07:17.174Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "C02-chamado-manual-local",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C02-chamado-manual-local-042d38a0386acc99c8842aef1bea645685739d7e.png"
+                    },
+                    {
+                      "name": "identidade-ficticia-do-cenario",
+                      "contentType": "application/json",
+                      "body": "ewogICJleGVjdXRpb24iOiAiYXV0b21hdGVkIiwKICAidmFyaWFudCI6ICJtYW51YWwiLAogICJtYXJrZXIiOiAiQVVUT01BVElaQURPLTYyYWUwNGRkLWEyMjYtNGQwZC04MWViLWYyYWYzNTA5MDE3OSIsCiAgInJlcG9ydElkIjogInItNWI0MGE0OTItNzRmNC00NjZmLTkzMDEtYjQwMzE1MzdkOTVlIiwKICAib3duZXJJZCI6ICI1ZDQ2YmFlNy1jMjFmLTQxMDYtODE4Yi1hMWIyN2I3YjA0YjkiLAogICJlbWFpbCI6ICJwaWxvdG8tbWFudWFsLWI5ZjFkOGYyLTI5YmMtNDNhYy1iOGJlLTM4NDhmMzczYzU3NEBleGFtcGxlLmNvbSIKfQ=="
+                    },
+                    {
+                      "name": "C04-persistencia-apos-login",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C04-persistencia-apos-login-3a26b6be072132876521a5298fe3aab5bd970de1.png"
+                    },
+                    {
+                      "name": "C05-em-atendimento",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C05-em-atendimento-8bc8aae02541ef344fa25cae2af7762dde7eaf7c.png"
+                    },
+                    {
+                      "name": "C05-resolvido-pendente",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\C05-resolvido-pendente-d056571f163322f44148d1b1706fe4a9618e26d1.png"
+                    },
+                    {
+                      "name": "chamado-revisado",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\attachments\\chamado-revisado-7ef02ef00673d2cb258c2012dc461634efe1c1b6.png"
+                    },
+                    {
+                      "name": "rede-simulada-e-ambiente",
+                      "contentType": "application/json",
+                      "body": "ewogICJsb2NhbE9yaWdpbiI6ICJodHRwOi8vMTI3LjAuMC4xOjgwODEiLAogICJnZW9sb2NhdGlvbiI6IHsKICAgICJraW5kIjogInNpbXVsYXRlZCIsCiAgICAibGF0aXR1ZGUiOiAtMjMuNTUwNTIsCiAgICAibG9uZ2l0dWRlIjogLTQ2LjYzMzMxCiAgfSwKICAiYWlQb3N0cyI6IDAsCiAgImdlb2NvZGluZ1JlcXVlc3RzIjogMiwKICAidGlsZVJlcXVlc3RzIjogMzM2LAogICJibG9ja2VkIjogW10sCiAgImJyb3dzZXJWZXJzaW9uIjogIjE0Ny4wLjM5MTIuNzIiLAogICJub2RlVmVyc2lvbiI6ICJ2MjQuMTUuMCIsCiAgInBsYXRmb3JtIjogIndpbjMyIiwKICAic2VydmljZVdvcmtlcnMiOiAiYmxvY2siLAogICJyZWFsQWlDYWxscyI6ICJibG9ja2VkX2J5X3JvdXRpbmciCn0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-piloto-manual-cad-9f747-ncia-→-gestão-→-contestação\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f74af2d39a2eee7d9dd3-ea976a7c66df7666330c",
+          "file": "urbaneye.spec.ts",
+          "line": 136,
+          "column": 3
+        },
+        {
+          "title": "cadastro → WebP/IA → persistência → gestão → contestação",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18824,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "C01 Cadastro cidadão exclusivo",
+                      "duration": 1727
+                    },
+                    {
+                      "title": "C02 Ocorrência manual em Avaliação local",
+                      "duration": 2109
+                    },
+                    {
+                      "title": "C03 Localizar ID e conferir Aberto",
+                      "duration": 2181
+                    },
+                    {
+                      "title": "C04 Logout e login preservam o mesmo chamado",
+                      "duration": 2591
+                    },
+                    {
+                      "title": "C05 F01 administrador atende e resolve",
+                      "duration": 4924
+                    },
+                    {
+                      "title": "C06 Proprietário contesta e reabre",
+                      "duration": 3522
+                    }
+                  ],
+                  "startTime": "2026-11-04T16:07:36.440Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "C02-chamado-manual-local",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\attachments\\C02-chamado-manual-local-f1facbc9dcea8ec2f303d549128bac8769c8b26f.png"
+                    },
+                    {
+                      "name": "identidade-ficticia-do-cenario",
+                      "contentType": "application/json",
+                      "body": "ewogICJleGVjdXRpb24iOiAiYXV0b21hdGVkIiwKICAidmFyaWFudCI6ICJXZWJQL0lBIiwKICAibWFya2VyIjogIkFVVE9NQVRJWkFETy02ZmNlOGRlZC0wNDk2LTQ5NmItYjgzNS00OTY0ZWM4OGQ0OWEiLAogICJyZXBvcnRJZCI6ICJyLTQ0ZGI4YmUzLTQyNDMtNDEyZS1iODRkLWIzMDQwOTA4YTg0MiIsCiAgIm93bmVySWQiOiAiM2EzMTI2ZWUtOTIxOC00YWY0LTkwNmYtZDFjOGI4YjQzMmFlIiwKICAiZW1haWwiOiAicmVncmVzc2FvLWlhLTMwZjk2Mjg1LTc3NjgtNGU5Yy1hYzZiLWZhYTdlMzNiMTA5YkBleGFtcGxlLmNvbSIKfQ=="
+                    },
+                    {
+                      "name": "C04-persistencia-apos-login",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\attachments\\C04-persistencia-apos-login-ba788a8f2f3d3e4652a185cff2f3fc85a1a7dfd2.png"
+                    },
+                    {
+                      "name": "C05-em-atendimento",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\attachments\\C05-em-atendimento-a47857d243ee6f719fee4c9e3af1deea7da90fda.png"
+                    },
+                    {
+                      "name": "C05-resolvido-pendente",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\attachments\\C05-resolvido-pendente-61563d4038c403438d728955fc478b8728aed0e9.png"
+                    },
+                    {
+                      "name": "chamado-revisado",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\attachments\\chamado-revisado-d082cbe16fa0dd745e0e4cf323daf617f7c22d9a.png"
+                    },
+                    {
+                      "name": "rede-simulada-e-ambiente",
+                      "contentType": "application/json",
+                      "body": "ewogICJsb2NhbE9yaWdpbiI6ICJodHRwOi8vMTI3LjAuMC4xOjgwODEiLAogICJnZW9sb2NhdGlvbiI6IHsKICAgICJraW5kIjogInNpbXVsYXRlZCIsCiAgICAibGF0aXR1ZGUiOiAtMjMuNTUwNTIsCiAgICAibG9uZ2l0dWRlIjogLTQ2LjYzMzMxCiAgfSwKICAiYWlQb3N0cyI6IDEsCiAgImdlb2NvZGluZ1JlcXVlc3RzIjogMiwKICAidGlsZVJlcXVlc3RzIjogMzM2LAogICJibG9ja2VkIjogW10sCiAgImJyb3dzZXJWZXJzaW9uIjogIjE0Ny4wLjM5MTIuNzIiLAogICJub2RlVmVyc2lvbiI6ICJ2MjQuMTUuMCIsCiAgInBsYXRmb3JtIjogIndpbjMyIiwKICAic2VydmljZVdvcmtlcnMiOiAiYmxvY2siLAogICJyZWFsQWlDYWxscyI6ICJibG9ja2VkX2J5X3JvdXRpbmciCn0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f74af2d39a2eee7d9dd3-24427213bb296d05d020",
+          "file": "urbaneye.spec.ts",
+          "line": 136,
+          "column": 3
+        },
+        {
+          "title": "C07 outra conta não recebe os chamados como próprios",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7851,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T16:07:56.368Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "C07-outra-conta-sem-chamado-alheio",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-C07-outra-conta-n-ee573-e-os-chamados-como-próprios\\attachments\\C07-outra-conta-sem-chamado-alheio-a0b973764f559d40ae54e08b529faa79735b185c.png"
+                    },
+                    {
+                      "name": "C07-proprietario-preservado",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-C07-outra-conta-n-ee573-e-os-chamados-como-próprios\\attachments\\C07-proprietario-preservado-44260928bfa2e4af51e88966e6e16b94ac35b52e.png"
+                    },
+                    {
+                      "name": "rede-simulada-e-ambiente",
+                      "contentType": "application/json",
+                      "body": "ewogICJsb2NhbE9yaWdpbiI6ICJodHRwOi8vMTI3LjAuMC4xOjgwODEiLAogICJnZW9sb2NhdGlvbiI6IHsKICAgICJraW5kIjogInNpbXVsYXRlZCIsCiAgICAibGF0aXR1ZGUiOiAtMjMuNTUwNTIsCiAgICAibG9uZ2l0dWRlIjogLTQ2LjYzMzMxCiAgfSwKICAiYWlQb3N0cyI6IDAsCiAgImdlb2NvZGluZ1JlcXVlc3RzIjogMSwKICAidGlsZVJlcXVlc3RzIjogMTYyLAogICJibG9ja2VkIjogW10sCiAgImJyb3dzZXJWZXJzaW9uIjogIjE0Ny4wLjM5MTIuNzIiLAogICJub2RlVmVyc2lvbiI6ICJ2MjQuMTUuMCIsCiAgInBsYXRmb3JtIjogIndpbjMyIiwKICAic2VydmljZVdvcmtlcnMiOiAiYmxvY2siLAogICJyZWFsQWlDYWxscyI6ICJibG9ja2VkX2J5X3JvdXRpbmciCn0="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-C07-outra-conta-n-ee573-e-os-chamados-como-próprios\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f74af2d39a2eee7d9dd3-82138a23641bfc765134",
+          "file": "urbaneye.spec.ts",
+          "line": 301,
+          "column": 1
+        },
+        {
+          "title": "armazenamento cheio mantém o rascunho e as fotos existentes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2794,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T16:08:04.633Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rede-simulada-e-ambiente",
+                      "contentType": "application/json",
+                      "body": "ewogICJsb2NhbE9yaWdpbiI6ICJodHRwOi8vMTI3LjAuMC4xOjgwODEiLAogICJnZW9sb2NhdGlvbiI6IHsKICAgICJraW5kIjogInNpbXVsYXRlZCIsCiAgICAibGF0aXR1ZGUiOiAtMjMuNTUwNTIsCiAgICAibG9uZ2l0dWRlIjogLTQ2LjYzMzMxCiAgfSwKICAiYWlQb3N0cyI6IDAsCiAgImdlb2NvZGluZ1JlcXVlc3RzIjogMSwKICAidGlsZVJlcXVlc3RzIjogNTQsCiAgImJsb2NrZWQiOiBbXSwKICAiYnJvd3NlclZlcnNpb24iOiAiMTQ3LjAuMzkxMi43MiIsCiAgIm5vZGVWZXJzaW9uIjogInYyNC4xNS4wIiwKICAicGxhdGZvcm0iOiAid2luMzIiLAogICJzZXJ2aWNlV29ya2VycyI6ICJibG9jayIsCiAgInJlYWxBaUNhbGxzIjogImJsb2NrZWRfYnlfcm91dGluZyIKfQ=="
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\documentacao\\04-validacao-automatizada\\evidencias\\suite-01\\urbaneye-armazenamento-che-894c6-cunho-e-as-fotos-existentes\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f74af2d39a2eee7d9dd3-674c7b2e2408183ae2fa",
+          "file": "urbaneye.spec.ts",
+          "line": 345,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T16:07:15.087Z",
+    "duration": 64344.286,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

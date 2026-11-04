@@ -1,0 +1,94 @@
+[
+  {
+    "test": "piloto manual: cadastro → persistência → gestão → contestação",
+    "result": "passed",
+    "audit": [
+      {
+        "localOrigin": "http://127.0.0.1:8081",
+        "geolocation": {
+          "kind": "simulated",
+          "latitude": -23.55052,
+          "longitude": -46.63331
+        },
+        "aiPosts": 0,
+        "geocodingRequests": 2,
+        "tileRequests": 336,
+        "blocked": [],
+        "browserVersion": "147.0.3912.72",
+        "nodeVersion": "v24.15.0",
+        "platform": "win32",
+        "serviceWorkers": "block",
+        "realAiCalls": "blocked_by_routing"
+      }
+    ]
+  },
+  {
+    "test": "cadastro → WebP/IA → persistência → gestão → contestação",
+    "result": "passed",
+    "audit": [
+      {
+        "localOrigin": "http://127.0.0.1:8081",
+        "geolocation": {
+          "kind": "simulated",
+          "latitude": -23.55052,
+          "longitude": -46.63331
+        },
+        "aiPosts": 1,
+        "geocodingRequests": 2,
+        "tileRequests": 336,
+        "blocked": [],
+        "browserVersion": "147.0.3912.72",
+        "nodeVersion": "v24.15.0",
+        "platform": "win32",
+        "serviceWorkers": "block",
+        "realAiCalls": "blocked_by_routing"
+      }
+    ]
+  },
+  {
+    "test": "C07 outra conta não recebe os chamados como próprios",
+    "result": "passed",
+    "audit": [
+      {
+        "localOrigin": "http://127.0.0.1:8081",
+        "geolocation": {
+          "kind": "simulated",
+          "latitude": -23.55052,
+          "longitude": -46.63331
+        },
+        "aiPosts": 0,
+        "geocodingRequests": 1,
+        "tileRequests": 162,
+        "blocked": [],
+        "browserVersion": "147.0.3912.72",
+        "nodeVersion": "v24.15.0",
+        "platform": "win32",
+        "serviceWorkers": "block",
+        "realAiCalls": "blocked_by_routing"
+      }
+    ]
+  },
+  {
+    "test": "armazenamento cheio mantém o rascunho e as fotos existentes",
+    "result": "passed",
+    "audit": [
+      {
+        "localOrigin": "http://127.0.0.1:8081",
+        "geolocation": {
+          "kind": "simulated",
+          "latitude": -23.55052,
+          "longitude": -46.63331
+        },
+        "aiPosts": 0,
+        "geocodingRequests": 1,
+        "tileRequests": 54,
+        "blocked": [],
+        "browserVersion": "147.0.3912.72",
+        "nodeVersion": "v24.15.0",
+        "platform": "win32",
+        "serviceWorkers": "block",
+        "realAiCalls": "blocked_by_routing"
+      }
+    ]
+  }
+]

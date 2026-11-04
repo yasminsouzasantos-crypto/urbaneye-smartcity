@@ -1,0 +1,4 @@
+Comando: npm.cmd run typecheck
+npm notice run vite_react_shadcn_ts@0.0.0 typecheck
+npm notice run tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json
+EXIT_CODE=0

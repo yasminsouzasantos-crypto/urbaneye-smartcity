@@ -1,0 +1,55 @@
+{
+  "csvRows": 9,
+  "scenarios": [
+    {
+      "id": "C01",
+      "status": "aprovado",
+      "automatedMs": 1879
+    },
+    {
+      "id": "C02",
+      "status": "aprovado",
+      "automatedMs": 1586
+    },
+    {
+      "id": "C03",
+      "status": "aprovado",
+      "automatedMs": 2195
+    },
+    {
+      "id": "C04",
+      "status": "aprovado",
+      "automatedMs": 2128
+    },
+    {
+      "id": "C05",
+      "status": "aprovado",
+      "automatedMs": 4817
+    },
+    {
+      "id": "C06",
+      "status": "aprovado",
+      "automatedMs": 3401
+    },
+    {
+      "id": "C07",
+      "status": "aprovado",
+      "automatedMs": 7851
+    },
+    {
+      "id": "R01",
+      "status": "aprovado",
+      "automatedMs": 18824
+    },
+    {
+      "id": "R02",
+      "status": "aprovado",
+      "automatedMs": 2794
+    }
+  ],
+  "protectedCount": 330,
+  "changed": [],
+  "snapshotSha256": "E770FA330351E91963C018CE55D7D0CDF530D464385B9FA3E43584ED4A025D93"
+}
+
+EXIT_CODE=0

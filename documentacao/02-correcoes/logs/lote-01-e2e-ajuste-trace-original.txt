@@ -1,0 +1,60 @@
+﻿Arquivo: test.trace
+{
+    "type":  "after",
+    "callId":  "pw:api@272",
+    "endTime":  50043.54,
+    "annotations":  [
+
+                    ],
+    "error":  {
+                  "name":  "",
+                  "message":  "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole(\u0027button\u0027, { name: /Obra Rua de teste/ })\u001b[22m\n",
+                  "stack":  "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole(\u0027button\u0027, { name: /Obra Rua de teste/ })\u001b[22m\n\n    at C:\\Users\\bruno\\OneDrive\\Documentos\\Urbaneye\\urbaneye-smartcity\\e2e\\urbaneye.spec.ts:89:65"
+              }
+}
+Arquivo: 1-trace.trace
+[
+    {
+        "type":  "before",
+        "callId":  "call@439",
+        "startTime":  11834.95,
+        "class":  "Frame",
+        "method":  "click",
+        "params":  {
+                       "selector":  "internal:role=button[name=\"Gestão\"s]",
+                       "strict":  true
+                   },
+        "stepId":  "pw:api@256"
+    },
+    {
+        "type":  "before",
+        "callId":  "call@471",
+        "startTime":  12184.389,
+        "class":  "Frame",
+        "method":  "click",
+        "params":  {
+                       "selector":  "internal:role=button[name=/Obra Rua de teste/]",
+                       "strict":  true
+                   },
+        "stepId":  "pw:api@272"
+    }
+]
+:"min-w-0 flex-1"},["SPAN",{"class":"block text-sm font-medium truncate"},"Obra"],["SPAN",{"class":"block text-[10px] font-medium text-muted-foreground mt-1"},"Manual local · não verificado em campo"],["SPAN",{"class":"block text-[11px] text-muted-foreground truncate"},"Rua de teste, São Paulo"]],["SPAN",{"class":"flex items-center gap-1.5 shrink-0"},["SPAN",{"class":"text-[10px] font-semibold","style":"color: rgb(217, 119, 6);"},"Média"],["SPAN",{"class":"w-2.5 h-2.5 rounded-full","style":"background: rgb(220, 38, 38);"}]]]]]],["SECTION",{"class":"urban-glass urban-shadow rounded-2xl p-4"},["DIV",{"class":"flex 
+Arquivo: 1-trace.network
+[
+    {
+        "url":  "https://nominatim.openstreetmap.org/reverse?format=jsonv2\u0026lat=-23.55052\u0026lon=-46.63331\u0026accept-language=pt-BR",
+        "method":  "GET",
+        "status":  200
+    },
+    {
+        "url":  "https://yavsfqrbsexjpueritws.supabase.co/functions/v1/analyze-urban-image",
+        "method":  "POST",
+        "status":  200
+    },
+    {
+        "url":  "https://nominatim.openstreetmap.org/reverse?format=jsonv2\u0026lat=-23.55052\u0026lon=-46.63331\u0026accept-language=pt-BR",
+        "method":  "GET",
+        "status":  200
+    }
+]

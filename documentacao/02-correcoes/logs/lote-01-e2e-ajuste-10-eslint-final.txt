@@ -1,0 +1,2 @@
+Comando: node node_modules/eslint/bin/eslint.js e2e/urbaneye.spec.ts src/components/MyReports.tsx src/components/AdminDashboard.tsx
+EXIT_CODE=0

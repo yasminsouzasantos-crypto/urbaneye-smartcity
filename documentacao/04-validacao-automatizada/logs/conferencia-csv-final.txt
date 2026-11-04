@@ -1,0 +1,4 @@
+CSV: 9 automated scenarios; all 12 columns match JSON; execution ID preserved as text.
+Protected files unchanged: 330
+No temporary builder directory remains: false
+Final cleanup confirmed: temporary builder directory removed; runtime dependencies preserved.

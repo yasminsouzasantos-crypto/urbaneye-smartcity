@@ -1,0 +1,10 @@
+{
+  "protectedCount": 330,
+  "changed": [],
+  "expectedChanges": [
+    "e2e/urbaneye.spec.ts",
+    "playwright.config.ts"
+  ],
+  "verified": "documentacao preexistente, fontes src, dependências e locks",
+  "snapshotSha256": "E770FA330351E91963C018CE55D7D0CDF530D464385B9FA3E43584ED4A025D93"
+}
