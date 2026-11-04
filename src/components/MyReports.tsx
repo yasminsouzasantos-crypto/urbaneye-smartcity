@@ -3,18 +3,19 @@ import { PROBLEM_SHORT, UrbanReport } from '@/types/urban';
 import { formatDateTime, timeInfo } from '@/lib/urban';
 import StatusBadge from './StatusBadge';
 import PriorityBadge from './PriorityBadge';
+import SourceBadge from './SourceBadge';
 
 interface Props {
   reports: UrbanReport[];
   onSelect: (r: UrbanReport) => void;
-  onCreate: () => void;
+  onCreate?: () => void;
 }
 
 export default function MyReports({ reports, onSelect, onCreate }: Props) {
   const mine = reports.filter((r) => r.mine);
 
   return (
-    <div className="h-full overflow-y-auto px-4 pt-20 pb-28">
+    <div className="h-full overflow-y-auto px-4 pt-32 pb-28">
       <h2 className="text-xl font-bold mb-1">Meus chamados</h2>
       <p className="text-sm text-muted-foreground mb-4">
         {mine.length ? `${mine.length} chamado(s) enviados por você` : 'Você ainda não abriu chamados'}
@@ -24,14 +25,14 @@ export default function MyReports({ reports, onSelect, onCreate }: Props) {
         <div className="urban-glass urban-shadow rounded-2xl p-8 flex flex-col items-center text-center gap-3 animate-slide-up-fade">
           <ClipboardList className="w-10 h-10 text-primary" />
           <p className="text-sm text-muted-foreground">
-            Toque no botão + para reportar um problema perto de você.
+            {onCreate ? 'Toque no botão + para reportar um problema perto de você.' : 'Os cenários fixos não pertencem a uma conta. Selecione Todos os simulados no Perfil para cadastrar um chamado.'}
           </p>
-          <button
+          {onCreate && <button
             onClick={onCreate}
             className="bg-primary text-primary-foreground rounded-xl px-5 py-3 font-semibold active:scale-[0.97] transition-all"
           >
             Abrir chamado
-          </button>
+          </button>}
         </div>
       )}
 
@@ -39,6 +40,7 @@ export default function MyReports({ reports, onSelect, onCreate }: Props) {
         {mine.map((r) => (
           <button
             key={r.id}
+            data-testid={`report-${r.id}`}
             onClick={() => onSelect(r)}
             className="w-full text-left urban-glass urban-shadow rounded-2xl p-3 flex gap-3 items-center active:scale-[0.98] transition-transform animate-slide-up-fade"
           >
@@ -67,6 +69,7 @@ export default function MyReports({ reports, onSelect, onCreate }: Props) {
               </p>
               <div className="mt-1.5">
                 <PriorityBadge priority={r.priority} withLabel={false} />
+                <SourceBadge report={r} />
               </div>
 
             </div>

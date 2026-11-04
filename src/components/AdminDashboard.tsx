@@ -42,21 +42,24 @@ import {
 } from '@/types/urban';
 import { formatDuration, regionFor, resolutionMs } from '@/lib/urban';
 import AdminMap from './AdminMap';
+import SourceBadge from './SourceBadge';
 
 const DAY = 86400000;
 
 export default function AdminDashboard({
   reports,
   onSelect,
+  referenceTime,
 }: {
   reports: UrbanReport[];
   onSelect: (r: UrbanReport) => void;
+  referenceTime?: number;
 }) {
   const [heat, setHeat] = useState(true);
   const [priorityFilter, setPriorityFilter] = useState<Priority | 'todas'>('todas');
 
   const data = useMemo(() => {
-    const now = Date.now();
+    const now = referenceTime ?? Date.now();
     const counts = {
       total: reports.length,
       aberto: reports.filter((r) => r.status === 'aberto').length,
@@ -161,7 +164,7 @@ export default function AdminDashboard({
       aguardando,
       contestados,
     };
-  }, [reports]);
+  }, [reports, referenceTime]);
 
   const kpis = [
     { label: 'Total', value: data.counts.total, icon: Activity, color: 'text-primary' },
@@ -225,10 +228,11 @@ export default function AdminDashboard({
   );
 
   return (
-    <div className="h-full overflow-y-auto px-4 pt-20 pb-28 space-y-4">
+    <div className="h-full overflow-y-auto px-4 pt-32 pb-28 space-y-4">
       <div>
         <h2 className="text-xl font-bold">Gestão urbana</h2>
-        <p className="text-sm text-muted-foreground">Análise dos chamados da cidade</p>
+        <p className="text-sm text-muted-foreground">Análise dos chamados do modo selecionado · uso local</p>
+        {referenceTime !== undefined && <p className="text-xs text-muted-foreground mt-1">Referência temporal da demonstração: 08/09/2026, 18:00 UTC.</p>}
       </div>
 
       {/* Alerts */}
@@ -457,6 +461,7 @@ export default function AdminDashboard({
           {recent.map((r) => (
             <li key={r.id}>
               <button
+                data-testid={`report-${r.id}`}
                 onClick={() => onSelect(r)}
                 className="w-full text-left flex items-center gap-3 rounded-xl p-2 hover:bg-secondary active:scale-[0.99] transition-all"
               >
@@ -469,6 +474,7 @@ export default function AdminDashboard({
                 )}
                 <span className="min-w-0 flex-1">
                   <span className="block text-sm font-medium truncate">{PROBLEM_SHORT[r.type]}</span>
+                  <SourceBadge report={r} />
                   <span className="block text-[11px] text-muted-foreground truncate">
                     {r.address ?? r.region ?? 'Local registrado'}
                   </span>

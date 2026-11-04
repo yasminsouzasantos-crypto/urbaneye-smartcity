@@ -3,7 +3,8 @@ import { AttributionControl, MapContainer, TileLayer, CircleMarker, Popup, useMa
 import { LocateFixed } from 'lucide-react';
 import MapAutoSize from '@/components/map/MapAutoSize';
 import { UrbanReport, PROBLEM_LABELS, SEVERITY_LABELS, SEVERITY_COLORS, STATUS_COLORS, STATUS_LABELS, PRIORITY_LABELS, PRIORITY_COLORS } from '@/types/urban';
-import { MAP_ATTRIBUTION, WORLD_BOUNDS } from '@/lib/mapConfig';
+import { MAP_TILE_OPTIONS, MAP_TILE_URL, WORLD_BOUNDS } from '@/lib/mapConfig';
+import SourceBadge from './SourceBadge';
 
 function UserMarker({ position, hasPermission }: { position: [number, number]; hasPermission: boolean }) {
   const map = useMap();
@@ -41,7 +42,7 @@ function RecenterButton({ position }: { position: [number, number] }) {
   return (
     <button
       onClick={() => map.setView(position, 15, { animate: true })}
-      className="absolute right-3 top-20 z-[500] w-11 h-11 rounded-xl bg-card text-foreground urban-shadow flex items-center justify-center active:scale-[0.94] transition-transform"
+      className="absolute right-3 top-32 z-[500] w-11 h-11 rounded-xl bg-card text-foreground urban-shadow flex items-center justify-center active:scale-[0.94] transition-transform"
       aria-label="Centralizar no meu local"
     >
       <LocateFixed className="w-5 h-5 text-primary" />
@@ -67,6 +68,7 @@ const ReportMarker = memo(function ReportMarker({ report, onClick }: { report: U
         <div className="min-w-[180px]">
           <p className="font-semibold text-sm mb-1">{PROBLEM_LABELS[report.type]}</p>
           <p className="text-xs text-muted-foreground mb-1">{report.description}</p>
+          <SourceBadge report={report} />
           <div className="flex items-center gap-2 text-xs">
             <span
               className="inline-block w-2 h-2 rounded-full"
@@ -85,7 +87,7 @@ const ReportMarker = memo(function ReportMarker({ report, onClick }: { report: U
           </div>
 
           {report.isSensor && (
-            <span className="text-[10px] text-muted-foreground mt-1 block">Detectado por sensor</span>
+            <span className="text-[10px] text-muted-foreground mt-1 block">Sensor simulado · sem medição real</span>
           )}
         </div>
       </Popup>
@@ -122,14 +124,11 @@ export default function UrbanMap({ position, reports, onReportClick, active = tr
     >
       <MapAutoSize active={active} />
       <AttributionControl position="topleft" prefix={false} />
-      <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-        subdomains={['a', 'b', 'c', 'd']}
-        maxZoom={19}
-        noWrap
+      {active && <TileLayer
+        url={MAP_TILE_URL}
+        {...MAP_TILE_OPTIONS}
         bounds={WORLD_BOUNDS}
-        attribution={MAP_ATTRIBUTION}
-      />
+      />}
       <UserMarker position={position} hasPermission={hasPermission} />
       <RecenterButton position={position} />
       {markers}

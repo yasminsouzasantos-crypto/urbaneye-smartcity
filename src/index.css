@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .urban-main-map .leaflet-control-attribution {
-  margin-top: 76px;
+  margin-top: 128px;
 }
 
 

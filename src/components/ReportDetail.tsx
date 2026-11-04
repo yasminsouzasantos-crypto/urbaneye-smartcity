@@ -34,6 +34,7 @@ import {
 import { formatDateTime, formatDuration, timeInfo } from '@/lib/urban';
 import StatusBadge from './StatusBadge';
 import PriorityBadge from './PriorityBadge';
+import SourceBadge from './SourceBadge';
 
 interface Props {
   report: UrbanReport | null;
@@ -117,6 +118,7 @@ export default function ReportDetail({
             <div>
               <h2 className="text-lg font-bold leading-tight">{PROBLEM_LABELS[report.type]}</h2>
               <p className="text-sm text-muted-foreground mt-0.5">{report.description}</p>
+              <SourceBadge report={report} />
             </div>
             <button
               onClick={onClose}
@@ -141,7 +143,7 @@ export default function ReportDetail({
             </span>
             {report.isSensor && (
               <span className="inline-flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-full bg-secondary text-muted-foreground font-semibold">
-                <Radio className="w-3 h-3" /> Sensor
+                <Radio className="w-3 h-3" /> Sensor simulado
               </span>
             )}
           </div>

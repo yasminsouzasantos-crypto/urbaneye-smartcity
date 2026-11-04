@@ -7,6 +7,8 @@ export const REPORTS_STORAGE_KEY = 'urbaneye.reports.v2';
 const dateSchema = z.string().refine((value) => Number.isFinite(Date.parse(value))).transform((value) => new Date(value));
 const reportSchema = z.object({
   id: z.string().min(1),
+  source: z.enum(['manual_local', 'demo_manual', 'fixture', 'legacy_simulated', 'legacy_unknown']).optional(),
+  datasetVersion: z.string().optional(),
   type: z.enum(['acidente', 'obra', 'iluminacao', 'transito', 'sensor']),
   description: z.string(),
   severity: z.enum(['severe', 'warning', 'normal']),

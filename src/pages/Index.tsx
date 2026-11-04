@@ -13,13 +13,15 @@ import BottomNav, { TabKey } from '@/components/BottomNav';
 import { Priority, ProblemType, ReportStatus, UrbanImageAnalysis, UrbanReport } from '@/types/urban';
 import { reverseGeocode } from '@/lib/urban';
 import { toast } from 'sonner';
+import { DATA_MODE_LABELS, DEMO_REFERENCE_TIME } from '@/lib/reportData';
 
 const AdminDashboard = lazy(() => import('@/components/AdminDashboard'));
 
 export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
   const { position, hasPermission, loading } = useGeolocation();
   const { isAdmin, user } = useAuth();
-  const { reports, addReport, updateStatus, updatePriority, confirmResolution, stats, storageError } =
+  const { reports, addReport, updateStatus, updatePriority, confirmResolution, stats, storageError,
+    mode, changeMode, loadFixedReports, hiddenCount, fixedOnly, setFixedOnly } =
     useUrbanReports(position, { userId: user.id, isAdmin });
   const [tab, setTab] = useState<TabKey>(initialTab);
   const [modalOpen, setModalOpen] = useState(false);
@@ -101,6 +103,7 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
   // keep selected report fresh after updates
   const selectedLive = selected ? reports.find((r) => r.id === selected.id) ?? null : null;
   const mineCount = reports.filter((r) => r.mine).length;
+  const canCreate = mode !== 'demonstracao' || !fixedOnly;
 
   return (
     <div className="h-[100dvh] w-full relative overflow-hidden bg-background">
@@ -125,10 +128,13 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
             </span>
           </div>
         </div>
+        <button type="button" onClick={() => setTab('profile')} className="block w-full border-t border-border px-4 py-2 text-left text-[11px] font-medium text-primary">
+          {DATA_MODE_LABELS[mode]}{mode === 'demonstracao' && fixedOnly ? ' · conjunto fixo v1' : ''} · {reports.length} registro(s) · {mode === 'demonstracao' ? 'Dados simulados' : 'Dados não verificados em campo'} · Configurar no Perfil
+        </button>
       </header>
 
       {storageError && (
-        <div role="alert" className="absolute top-20 inset-x-4 z-[600] rounded-xl bg-destructive p-3 text-sm text-destructive-foreground">
+        <div role="alert" className="absolute top-32 inset-x-4 z-[600] rounded-xl bg-destructive p-3 text-sm text-destructive-foreground">
           {storageError}
         </div>
       )}
@@ -151,26 +157,29 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
 
       {tab === 'mine' && (
         <div className="absolute inset-0 bg-background">
-          <MyReports reports={reports} onSelect={setSelected} onCreate={() => setModalOpen(true)} />
+          <MyReports reports={reports} onSelect={setSelected} onCreate={canCreate ? () => setModalOpen(true) : undefined} />
         </div>
       )}
 
       {tab === 'admin' && isAdmin && (
         <div className="absolute inset-0 bg-background">
-          <Suspense fallback={<p role="status" className="pt-20 px-4">Carregando gestão urbana...</p>}>
-            <AdminDashboard reports={reports} onSelect={setSelected} />
+          <Suspense fallback={<p role="status" className="pt-32 px-4">Carregando gestão urbana...</p>}>
+            <AdminDashboard reports={reports} onSelect={setSelected} referenceTime={mode === 'demonstracao' ? DEMO_REFERENCE_TIME : undefined} />
           </Suspense>
         </div>
       )}
 
       {tab === 'profile' && (
         <div className="absolute inset-0 bg-background">
-          <Profile myCount={mineCount} total={reports.length} />
+          <Profile myCount={mineCount} total={reports.length} dataControls={{
+            mode, hiddenCount, onModeChange: changeMode, onLoadFixed: loadFixedReports,
+            fixedOnly, onFixedOnlyChange: setFixedOnly,
+          }} />
         </div>
       )}
 
       {/* FAB */}
-      {(tab === 'map' || tab === 'mine') && (
+      {canCreate && (tab === 'map' || tab === 'mine') && (
         <button
           onClick={() => setModalOpen(true)}
           className="fixed bottom-36 right-4 z-[600] w-14 h-14 rounded-2xl bg-primary text-primary-foreground urban-shadow-lg flex items-center justify-center active:scale-[0.92] transition-transform hover:opacity-90"
@@ -183,7 +192,7 @@ export default function Index({ initialTab = 'map' }: { initialTab?: TabKey }) {
       <BottomNav active={tab} onChange={setTab} isAdmin={isAdmin} />
 
       <ReportModal
-        key={user.id}
+        key={`${user.id}-${mode}`}
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         onSubmit={handleSubmitReport}

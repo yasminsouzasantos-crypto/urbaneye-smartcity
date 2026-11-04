@@ -9,6 +9,7 @@ export default defineConfig({
     channel: process.env.PLAYWRIGHT_CHANNEL || (process.platform === 'win32' ? 'msedge' : undefined),
     headless: true,
     viewport: { width: 1280, height: 900 },
+    serviceWorkers: 'block',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },

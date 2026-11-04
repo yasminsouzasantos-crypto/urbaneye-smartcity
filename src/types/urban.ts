@@ -40,8 +40,14 @@ export type Priority = 'baixa' | 'media' | 'alta' | 'critica';
 /** confirmação do cidadão após o administrador marcar como resolvido */
 export type Confirmation = 'pendente' | 'confirmado' | 'contestado';
 
+export type DataMode = 'avaliacao' | 'demonstracao';
+export type ReportSource = 'manual_local' | 'demo_manual' | 'fixture' | 'legacy_simulated' | 'legacy_unknown';
+
 export interface UrbanReport {
   id: string;
+  /** Procedência local; não comprova ocorrência real ou autenticação. */
+  source?: ReportSource;
+  datasetVersion?: string;
   type: ProblemType;
   description: string;
   severity: Severity;
