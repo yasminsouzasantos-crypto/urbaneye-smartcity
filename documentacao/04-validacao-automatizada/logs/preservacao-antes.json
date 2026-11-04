@@ -1,0 +1,1330 @@
+﻿[
+    {
+        "path":  "documentacao\\01-diagnostico\\diagnostico-codex.md",
+        "sha256":  "F28D3AB9291E7CC1259870B4122910BD7FAF69B5216AE197741D65F4797A638A"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\01-npm-install-inicial.txt",
+        "sha256":  "E009FC12BB7225F06B838AFCA119D4E0A32C08E421844B48EC5508B700441B92"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\02-npm-audit-inicial.txt",
+        "sha256":  "135DF55040659B48382B90BE73BBFDE80AB1EFE569A0C9793D0A20F6930BC950"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\03-npm-install-scripts-inicial.txt",
+        "sha256":  "8348BB79C493282D263BB35F7AA28EB643F330069620FE58FC669E2AA2F4556A"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\04-npm-test-inicial.txt",
+        "sha256":  "EDB09DC70CA85D96B694CB16C44C57ECC99C0C1000B07DC8BF5D2AEA8F1F4610"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\05-npm-typecheck-inicial.txt",
+        "sha256":  "94391472081DA55C7650937970E54D18973072D7EDDE2905F16433E3EBB0129B"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\06-npm-lint-inicial.txt",
+        "sha256":  "1DF5396B22D2D7AABE5775A0B8C684F489628433DB2F1D873BDEC4EF4F7D6DD0"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\07-npm-build-inicial.txt",
+        "sha256":  "5AD4A529CFF3D7A375246D81F907074E1F39280D0F4F49FAF7E59C2411E04DE3"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\08-npm-e2e-inicial.txt",
+        "sha256":  "A690ED310FF003A06FAF47A91C6E360CD6BC59D525192CB205E0A024A78E23DD"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\logs\\09-ambiente-e-versao-inicial.txt",
+        "sha256":  "A0CC27B30F22C3EDAD7955B4C24A0743C84727A721DD6E60EC64F2F0C316F07D"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\playwright-report-inicial\\index.html",
+        "sha256":  "3B77FCB8B7AEB229517BEDF4925F42A49A26A16DA978370B542CE2E24CFB3DE2"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\01-instalacao-inicial.png",
+        "sha256":  "7503E49D21F92BD3195CB6373DE9AC906D102326C50EB5FF585A5883B9B6FA99"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\04-testes-iniciais.png",
+        "sha256":  "F1F0284D6EFC7D7981D5B53132433171DFED3276488D734E001E6362E9DD9089"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\05-typecheck-inicial.png",
+        "sha256":  "4441A98EB3C6C34824D457FBC802A47E7A3DDECCAD52645712FA07C167A28473"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\06-lint-inicial.png",
+        "sha256":  "63C98848333F74A6F92E00EDD73C6047ABD661D2EE4D85DAE289074DD250F3BA"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\07-build-inicial.png",
+        "sha256":  "D1B965AC8E933C1396E186825A01263F5E869313350CD07E72CC4D1815A7CD3C"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\08-playwright-inicial.png",
+        "sha256":  "76EAF5207C5F52C758C6F43A28CCEDFCB6DACE2DDA768A818C09E7A5817735C7"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\09-relatorio-playwright-inicial.png",
+        "sha256":  "25B8E8215AC420D4EF51E23C457E14ACE807ED962B62835CD2A6A410F78E702C"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\10-playwright-teste-1-parte-2.png",
+        "sha256":  "5E888F12887531C9A7770B2B84EA22BB347F7FED16E7B82FBC45A7D06CDA7D25"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\10-playwright-teste-1.png",
+        "sha256":  "751127AA453C58B3ACA95A2604FF9A6880435054A2C806C500162834F46724F1"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\11-playwright-teste-2.png",
+        "sha256":  "D807B7A62624668AB790A573E91A837090810B31331EF2BBDCEE3557A92E81FE"
+    },
+    {
+        "path":  "documentacao\\01-diagnostico\\prints\\12-playwright-teste-3.png",
+        "sha256":  "8382F88B1FC07BAC31C61FEB96D0F90B283BDED1E1750C0EF9F3166E10F2E763"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\lote-01-ajuste-e2e.md",
+        "sha256":  "61E9A53D6565732B19CB45156B4D7AA6B77775AA53BC244D2F6F789B4618A57F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\lote-01-ajuste-mapa.md",
+        "sha256":  "82374201BA7766A0F099C3E252976359FA161AF601E2D2AC182BDB2DAC04A9BE"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\lote-01-dados-controlados.md",
+        "sha256":  "83D22241A028E4D44D23361D0E081115894389C587E88AA2DCC3927A31BBE630"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-build-01.txt",
+        "sha256":  "042B6AF3AB9F3FED3DFDBBF5F567AA832B1B394AE1C79DD6679571FE6134FBC9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-build-02.txt",
+        "sha256":  "B4697927DE59A608C5E6590307CFA14B3E9102AAEFBEE06767B52DD65610DF41"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-01-reproducao.txt",
+        "sha256":  "4FD4957B3CA2AE0660D399BFFB7B9086FBA602154929E076AE8C0E3DB35E8A8C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-02-reproducao.txt",
+        "sha256":  "D69967EC599B582EF8A7D9F664E26565E57798CF776469E3BEB1DF70849ECE71"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-03-reproducao.txt",
+        "sha256":  "495585658080051E6FD638D284FAB9288A0435A957FB35FF4156607511E3EC3C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-04-afetado.txt",
+        "sha256":  "C6F93F29B5A39F6335EDC4DF0C55970C3F09F126B892C86D663D053EA3A6E473"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-05-typecheck.txt",
+        "sha256":  "281C96213A72DF89E804B1A24E1DFAA795E3645C0A9BBCABD19BFC438A0BBC16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-06-eslint.txt",
+        "sha256":  "BAC6B16268250E415F7FBF8738395433E23DDDE858C6AE9F2F33A1B592CC3C79"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-07-typecheck-spec.txt",
+        "sha256":  "B05E1A3A55ED1FE9EA73DD85B71E18E691036514B8725A96BAFA3C08D324D76F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-08-afetado-final.txt",
+        "sha256":  "2C9CD36AE0EFD3ABAB6D509996B184053C8097860FA4BA097ADB99DEEF2B5F57"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-09-typecheck-final.txt",
+        "sha256":  "CD36BCEFAE9BDECDB77E484EA4877CF4425C9692E70B92FF54506442EB834B83"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-10-eslint-final.txt",
+        "sha256":  "BAC6B16268250E415F7FBF8738395433E23DDDE858C6AE9F2F33A1B592CC3C79"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-11-suite-completa.txt",
+        "sha256":  "071FACB3A7F01120493DF48A2E302824876544D723FF7CAF44313763DF04F506"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-12-preservacao-final.txt",
+        "sha256":  "50C18E7788E0D2828A883EE9EEA42AE70207D9EB5B7818FB020A1E15398EBDB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-preservacao-antes.json",
+        "sha256":  "0C63F6EA2F852FE0B448BC49EC28AAAAA7F2F18CB0599AAE486E97C7BA554E81"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-e2e-ajuste-trace-original.txt",
+        "sha256":  "DB91855FA786B95C902859CBE01A4CEDC7B90EFCA97855B3A8D494112321F7CE"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-lint-01.txt",
+        "sha256":  "C040DCA64E03871A883598C971B267DD7A57BF90D596BF4112402B234FF2B141"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-lint-02.txt",
+        "sha256":  "89BAD334975133EEF5F934825241D5E04E4C39B28D52F7ADE5D37B3F8C767703"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-build-01.txt",
+        "sha256":  "93F04F186E9C1D6AB70C710BD3FBFBC6D4EE3829B6273BAFB75C2B4D83CDFFA4"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-http-real.txt",
+        "sha256":  "4F9054DAC3135C9FE15BEDD74FD1B1D1712752817176CB8BC7C1F356000C4F14"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-lint-01.txt",
+        "sha256":  "89BAD334975133EEF5F934825241D5E04E4C39B28D52F7ADE5D37B3F8C767703"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-observacao.txt",
+        "sha256":  "A0FBF40F20FA1150A83BA38CABB15721A545E1536D4828AF8EE4189A7E343629"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-tile-real.png",
+        "sha256":  "B48A471775272D5E0CBFE54CA35E18A89E4712A0F76C62C1D397E45D4A28F4D5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-typecheck-01.txt",
+        "sha256":  "87C470BAB2F4FB8A0E59F4EA6E6B501A8F9FD492F165D468ACB3D347B1DE04D9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-mapa-vitest-01.txt",
+        "sha256":  "D1817AED619A410D0FA229B92072DDFBA7C52147BEF7655E1EF032560A8C7466"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-playwright-01.txt",
+        "sha256":  "B5265927A57FC323121C906D705127F4D51D634780D4FE9D21C1F3D542EE0C0E"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-typecheck-01.txt",
+        "sha256":  "5D2F3CF5B67BFF9DBCCBF0CB9704643423B6CA7EB3EC2DBF33B7D32254CD6DEA"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-typecheck-02.txt",
+        "sha256":  "87C470BAB2F4FB8A0E59F4EA6E6B501A8F9FD492F165D468ACB3D347B1DE04D9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-vitest-01.txt",
+        "sha256":  "060B17E50E958CDE18D567674BE15E30497C3436BCD03A997B51407D012F92A7"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\logs\\lote-01-vitest-02.txt",
+        "sha256":  "C722FD974D1F3EBCFD5CEAE01D9DA7F48813A9FE8828DB9F709143C1632E2A6B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\index.html",
+        "sha256":  "9A3AA6F412383EF4014A7A18973BFCBE3F741E73E24EB6041AD49E8CC9091104"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\data\\7dada1f19eabedb646a41fb0077ed758b55bb200.png",
+        "sha256":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\data\\c53049f77319d7489259eb4358141079049b328c.md",
+        "sha256":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\data\\d90c288a2aec6e47b6ce52637eb8a647bd6c3ada.zip",
+        "sha256":  "5EB14F1EB462004F4F51CB8CE5CE6FBE5C224F4F603364CD5E72A0FAE37415A1"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "sha256":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\codicon.DCmgc-ay.ttf",
+        "sha256":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "sha256":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\index.B4cLoZK3.js",
+        "sha256":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\index.B_TqY17P.css",
+        "sha256":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\index.html",
+        "sha256":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\manifest.webmanifest",
+        "sha256":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\playwright-logo.svg",
+        "sha256":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\snapshot.B_Jk1wbt.js",
+        "sha256":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\snapshot.html",
+        "sha256":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\sw.bundle.js",
+        "sha256":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\uiMode.CU5KtEkS.js",
+        "sha256":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\uiMode.CyMfwkXJ.css",
+        "sha256":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\uiMode.html",
+        "sha256":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\xtermModule.kHJ-D0s7.css",
+        "sha256":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "sha256":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "sha256":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\playwright-report-lote-01\\trace\\assets\\urlMatch-L3liM589.js",
+        "sha256":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\.last-run.json",
+        "sha256":  "BA1ED425D8DF22D36D01860A1A8BE158D6B2ADFE6DAE5E04F974D419A359E475"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\error-context.md",
+        "sha256":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\test-failed-1.png",
+        "sha256":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-falha-01\\test-results\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip",
+        "sha256":  "5EB14F1EB462004F4F51CB8CE5CE6FBE5C224F4F603364CD5E72A0FAE37415A1"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\index.html",
+        "sha256":  "9A3AA6F412383EF4014A7A18973BFCBE3F741E73E24EB6041AD49E8CC9091104"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\data\\7dada1f19eabedb646a41fb0077ed758b55bb200.png",
+        "sha256":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\data\\c53049f77319d7489259eb4358141079049b328c.md",
+        "sha256":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\data\\d90c288a2aec6e47b6ce52637eb8a647bd6c3ada.zip",
+        "sha256":  "5EB14F1EB462004F4F51CB8CE5CE6FBE5C224F4F603364CD5E72A0FAE37415A1"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "sha256":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\codicon.DCmgc-ay.ttf",
+        "sha256":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "sha256":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\index.B4cLoZK3.js",
+        "sha256":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\index.B_TqY17P.css",
+        "sha256":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\index.html",
+        "sha256":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\manifest.webmanifest",
+        "sha256":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\playwright-logo.svg",
+        "sha256":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\snapshot.B_Jk1wbt.js",
+        "sha256":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\snapshot.html",
+        "sha256":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\sw.bundle.js",
+        "sha256":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\uiMode.CU5KtEkS.js",
+        "sha256":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\uiMode.CyMfwkXJ.css",
+        "sha256":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\uiMode.html",
+        "sha256":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\xtermModule.kHJ-D0s7.css",
+        "sha256":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "sha256":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "sha256":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01\\trace\\assets\\urlMatch-L3liM589.js",
+        "sha256":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\index.html",
+        "sha256":  "D6FAFF5504C3B45DB783C0B48307765EFF23F4BBC342252AD62DA08AE7414220"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\data\\23b0acdc397872f0f4d05f35e408ff33113c3897.zip",
+        "sha256":  "E7484C3DF2E638B98F387B56EE1E4B6DA3F346CA884F8F210CCA7843FF8DC781"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\data\\35aa255da67c90caf86c83c7dedbe8ed0a536c67.zip",
+        "sha256":  "F8B5F3862DC7A653C06B31AA3A1F6878A0F2768D1F4BD9A87A31BD11D8538641"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\data\\e5897c0c835395b616d01a67d99439a5e2e0d2f1.zip",
+        "sha256":  "97FC9AF6E709C0ECC871FBC293BA191411E4C5D6E5FB58B740F851AC53A62BBC"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "sha256":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\codicon.DCmgc-ay.ttf",
+        "sha256":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "sha256":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\index.B4cLoZK3.js",
+        "sha256":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\index.B_TqY17P.css",
+        "sha256":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\index.html",
+        "sha256":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\manifest.webmanifest",
+        "sha256":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\playwright-logo.svg",
+        "sha256":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\snapshot.B_Jk1wbt.js",
+        "sha256":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\snapshot.html",
+        "sha256":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\sw.bundle.js",
+        "sha256":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\uiMode.CU5KtEkS.js",
+        "sha256":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\uiMode.CyMfwkXJ.css",
+        "sha256":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\uiMode.html",
+        "sha256":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\xtermModule.kHJ-D0s7.css",
+        "sha256":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "sha256":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "sha256":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste\\trace\\assets\\urlMatch-L3liM589.js",
+        "sha256":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\index.html",
+        "sha256":  "25231C462293993B8BB9C42A72762D9B8F551EFA3A3EC037B007BC949F828996"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\data\\02ce87f7c83e811505fb5cc6319308c803b5d58b.zip",
+        "sha256":  "E9A65BFFB4F5E661BD9CE5FDF3B497A406A6B310886DB9229C59F33A5FC7ACF9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "sha256":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\codicon.DCmgc-ay.ttf",
+        "sha256":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "sha256":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\index.B4cLoZK3.js",
+        "sha256":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\index.B_TqY17P.css",
+        "sha256":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\index.html",
+        "sha256":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\manifest.webmanifest",
+        "sha256":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\playwright-logo.svg",
+        "sha256":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\snapshot.B_Jk1wbt.js",
+        "sha256":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\snapshot.html",
+        "sha256":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\sw.bundle.js",
+        "sha256":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\uiMode.CU5KtEkS.js",
+        "sha256":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\uiMode.CyMfwkXJ.css",
+        "sha256":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\uiMode.html",
+        "sha256":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\xtermModule.kHJ-D0s7.css",
+        "sha256":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "sha256":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "sha256":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado\\trace\\assets\\urlMatch-L3liM589.js",
+        "sha256":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\index.html",
+        "sha256":  "5E7D213225A0DD310211B731E0AE585D07577532F96B8D23C702CDF6643F55CD"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\data\\9ad3dcf74771d786875718e4b126106fe88e1732.zip",
+        "sha256":  "4585307E2AF9CDCD273AF5690A322F9B462C442AD23DEA6EE79BCF5089136CF6"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "sha256":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\codicon.DCmgc-ay.ttf",
+        "sha256":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "sha256":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\index.B4cLoZK3.js",
+        "sha256":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\index.B_TqY17P.css",
+        "sha256":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\index.html",
+        "sha256":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\manifest.webmanifest",
+        "sha256":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\playwright-logo.svg",
+        "sha256":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\snapshot.B_Jk1wbt.js",
+        "sha256":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\snapshot.html",
+        "sha256":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\sw.bundle.js",
+        "sha256":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\uiMode.CU5KtEkS.js",
+        "sha256":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\uiMode.CyMfwkXJ.css",
+        "sha256":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\uiMode.html",
+        "sha256":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\xtermModule.kHJ-D0s7.css",
+        "sha256":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "sha256":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "sha256":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-afetado-final\\trace\\assets\\urlMatch-L3liM589.js",
+        "sha256":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\index.html",
+        "sha256":  "140CE9FED3B0DA589F8D13F1260362C975EFBE897391CD1BBA36084353916AFF"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\data\\7dada1f19eabedb646a41fb0077ed758b55bb200.png",
+        "sha256":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\data\\c53049f77319d7489259eb4358141079049b328c.md",
+        "sha256":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\data\\c7e5b5d600c95700cf4c18dc36b4efbdaafa268a.zip",
+        "sha256":  "075E456822FB7CAC322E7DF2CFB346311E9CEB2CADD457D27B06AE47DA447CB5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\codeMirrorModule.-QdMvsKi.css",
+        "sha256":  "20BE824A82832B62CC04642D31DA3C609FD280B23F1CDCB1E622C4F40AAC5AB8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\codicon.DCmgc-ay.ttf",
+        "sha256":  "0F1D5219934E96E83B8DB162D60B4D8C09B5DE1E7D38031CBAFE4A3C0F2889C9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\defaultSettingsView.Bqk9acqE.css",
+        "sha256":  "CD1D3C277D4962246ED92D7D42734C5FFED6BAC5C499232693F9C8331B71801F"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\index.B4cLoZK3.js",
+        "sha256":  "7B96EFD541639738A8D46E4B6BA9780FFAF57A5C104DB66764E0CEC46D9F64E8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\index.B_TqY17P.css",
+        "sha256":  "08A212FCACAE1866F44F065654AFCC4C7D03409C68C74B3315C5BDA17A0CA003"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\index.html",
+        "sha256":  "139AC80123FB450CFC0631296E9F01463313CA2FEC961B3A247EC6C9528447A2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\manifest.webmanifest",
+        "sha256":  "D8540500603A32A39FE7E5A0375DC0F9EBAFD11118E06A846DB7EFC608223AB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\playwright-logo.svg",
+        "sha256":  "6B0A4367BDEAB10995BC239278F04C68C10E48ADBEC15E799E01909A0D66DCB9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\snapshot.B_Jk1wbt.js",
+        "sha256":  "D4D09E05451D107D8E1A6BBD041405FE518B9FD2833890E4EBAAAD83B7F554F5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\snapshot.html",
+        "sha256":  "C608C8899C95C5A74D3F556E20146C3D852B9DF85AE2854C659A7CC773C9B727"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\sw.bundle.js",
+        "sha256":  "37B230329280E28E32B03DF20738D2ED3BFD0EA45B408A69213158BB8400ADB3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\uiMode.CU5KtEkS.js",
+        "sha256":  "0C0DC5E0C822C27E60420A5C1659683FDA89398F1561E43608F9D829EAFDC197"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\uiMode.CyMfwkXJ.css",
+        "sha256":  "FB403CF0B07007BC1D771E29737F7408924DA300E2FAB8B289A3EF2E8FC08D7B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\uiMode.html",
+        "sha256":  "C6E92923EA7F2B617DB3A2128AC8889C6C1461A77764651588E0111B729C3A3D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\xtermModule.kHJ-D0s7.css",
+        "sha256":  "0DD60056134E6A2994A86B59A1E9789B9F04E92924DA109AEF8C923ACAF08CE5"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\assets\\codeMirrorModule-BbkfBe3n.js",
+        "sha256":  "274B964242426BF4E1C662A84F6345D8A99F67821CAA508FB12C52E2D1DFD48C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\assets\\defaultSettingsView-Ds6CBOo0.js",
+        "sha256":  "0B48F13034CFA075338CC0839F212297D22CADAB9219D9699D161D2B18C79019"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\playwright-report-lote-01-ajuste-reproducao\\trace\\assets\\urlMatch-L3liM589.js",
+        "sha256":  "1BC6321E32D11C31A452BC75896F0B344E6153321854D9F1658818BE7F845C16"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\ilote-01-08-mapa-gestao-calor-corrigido.png",
+        "sha256":  "6C29C4A0F20EE8B56A743950A4DF2FD68EDC37199B4664B1C16948107757A186"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\ilote-01-15-playwright-resultado.png",
+        "sha256":  "BD730C1F49616FA094874566CEFCB2180E2F900A5A5528ECF24DE679B027D954"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-01-controles-dos-modos.png",
+        "sha256":  "68F2376C4377E449CB851BA8E52466DCD9B52A5E31A84BDBBC363A816ACF8F4C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-02-demonstracao-sem-carga.png",
+        "sha256":  "D6EFDA7DE07D38C1A435F4BAFEE370A834F89D429329AEA4C0326B2BC97B112A"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-03-confirmacao-de-carga.png",
+        "sha256":  "20D398BD4DFC72A62631C859ACE9E07A20B892077AEC802559156CB2C3184819"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-04-carga-cancelada.png",
+        "sha256":  "7B1620A2022030A9228D3A3828C65F6014F92090979A1058B9AA5B8786499676"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-05-conjunto-carregado.png",
+        "sha256":  "702F4DF1D41E9F36451205916A60FAA4DFD8105FA64B7FCB25A6B895C45CF005"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-1.png",
+        "sha256":  "CF43D1E5CF2E26FFE1D1F512702732662EB44A292AA5988F47BAEB6693BD6DB2"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-2.png",
+        "sha256":  "89EF6C59957C72F049C75F22DA1DC019338D557877D2AD94CAEDBF3FEA20E70B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-3.png",
+        "sha256":  "A16467AED712AFF5F14C2937CA7D34A992A4F14D172145BFA39A44A5A8B50F9C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-4.png",
+        "sha256":  "E1B80BC41296CCCDA3E4538059581A1F877FB159FEB9C14DEF998ED3135E3654"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-5.png",
+        "sha256":  "A52625EA9E81FA13F807C28DC9AEEA947F1FA2583907B8E2300E2717664743B0"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-06-indicadores-parte-6.png",
+        "sha256":  "4C85685F223DCEC2F2040D9D6EE508B4102E3BF9373A69662C6D9C2FD7CE9F24"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-07-mapa-principal-corrigido.png",
+        "sha256":  "A567191D436FA902C470881B01DC09A569C028654BD5AF1AE9C3C2C41D4D8B24"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-09-mapa-gestao-pontos-corrigido.png",
+        "sha256":  "685255AF5865CC2641EA4424BBA5C430E25126DB0469BB92B1CAAC0850B11105"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-10-recarga-sem-duplicacao.png",
+        "sha256":  "284F2C62B9D1738775031ABB7D80B0D126EFAB01B2DC900257E6E501A71184D9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-11-status-alterado.png",
+        "sha256":  "7C3005410BF874603110ED0591E35E00182F7B686ADC78783EA70576496AB058"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-12-confirmacao-restauracao.png",
+        "sha256":  "3AA058F64874A58DB165321B0132FD97F5902DB1072DCDD91EAE2F3837FEDD3B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-13-restauracao-cancelada.png",
+        "sha256":  "E6C7DE960F845B8C88243AB101890D29F4C01C032D421EB3895E7E7D9A9926CF"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-14-conjunto-restaurado.png",
+        "sha256":  "68AE6860EE4F31ED9DA72493FBAD47D5AF6A58BA4589372C075A40B33304F3E3"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\prints\\lote-01-16-playwright-corrigido.png",
+        "sha256":  "8A60D829631381160571828877233F91FC9BDE015C61629B517A3840F619830B"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste\\.last-run.json",
+        "sha256":  "91D1C43004802CD49950D78EB11C8FA7D05DA8FFFFE219A8B13B2F561BC00903"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste\\urbaneye-armazenamento-che-894c6-cunho-e-as-fotos-existentes\\trace.zip",
+        "sha256":  "F8B5F3862DC7A653C06B31AA3A1F6878A0F2768D1F4BD9A87A31BD11D8538641"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\chamado-revisado.png",
+        "sha256":  "423F13488DF461E76498C56C56B8A7254DE0A15B48604E7F806F4F603CA2C0F9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip",
+        "sha256":  "97FC9AF6E709C0ECC871FBC293BA191411E4C5D6E5FB58B740F851AC53A62BBC"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste\\urbaneye-outra-conta-não-recebe-os-chamados-como-próprios\\trace.zip",
+        "sha256":  "E7484C3DF2E638B98F387B56EE1E4B6DA3F346CA884F8F210CCA7843FF8DC781"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-afetado\\.last-run.json",
+        "sha256":  "91D1C43004802CD49950D78EB11C8FA7D05DA8FFFFE219A8B13B2F561BC00903"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-afetado\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\chamado-revisado.png",
+        "sha256":  "996369EFBA1CB13CD58E629B467CF08B1642716C9AB1BE41D645CFB8277CBC0A"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-afetado\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip",
+        "sha256":  "E9A65BFFB4F5E661BD9CE5FDF3B497A406A6B310886DB9229C59F33A5FC7ACF9"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-afetado-final\\.last-run.json",
+        "sha256":  "91D1C43004802CD49950D78EB11C8FA7D05DA8FFFFE219A8B13B2F561BC00903"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-afetado-final\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\chamado-revisado.png",
+        "sha256":  "59B7E750E134F5CE6A6F63BA65A72083BDB24D2E142684B32CFC6E6578E0D7F8"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-afetado-final\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip",
+        "sha256":  "4585307E2AF9CDCD273AF5690A322F9B462C442AD23DEA6EE79BCF5089136CF6"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-reproducao\\.last-run.json",
+        "sha256":  "BA1ED425D8DF22D36D01860A1A8BE158D6B2ADFE6DAE5E04F974D419A359E475"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-reproducao\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\error-context.md",
+        "sha256":  "7470B08246546A7A0B0618D3F4F9137B15E7B84BCDFA4CD3E7AB0BF9652E191C"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-reproducao\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\test-failed-1.png",
+        "sha256":  "9466189D7C666A3F9207AA94BF03318A3BC32EB23D8AF02FD982DA2F34E3998D"
+    },
+    {
+        "path":  "documentacao\\02-correcoes\\test-results-lote-01-ajuste-reproducao\\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\\trace.zip",
+        "sha256":  "075E456822FB7CAC322E7DF2CFB346311E9CEB2CADD457D27B06AE47DA447CB5"
+    },
+    {
+        "path":  "documentacao\\03-avaliacao-usuarios\\feedback.md",
+        "sha256":  "55F57B5F411363168011A0EB96CB39BD7AD57EF0729FB4056052365935208FF2"
+    },
+    {
+        "path":  "documentacao\\03-avaliacao-usuarios\\notas-piloto.md",
+        "sha256":  "ED9F5B44AE4A76EADF12BEF249C0FA10A071CADA7E499F7A79406D2D1474527A"
+    },
+    {
+        "path":  "documentacao\\03-avaliacao-usuarios\\resultados.csv",
+        "sha256":  "A5A94DA70D6EC6954D3D23FB775A9C333351214D3D3ABC1521A248EBE093C1A0"
+    },
+    {
+        "path":  "documentacao\\03-avaliacao-usuarios\\roteiro.md",
+        "sha256":  "418F9B8FAE3351D994655151412088BA42A96272A14804E002B3F6B8509244C9"
+    },
+    {
+        "path":  "src\\App.css",
+        "sha256":  "1B75716B5511AD178574CD3E3656E5E8DD94544456944B4FF1D253C9ECC614D4"
+    },
+    {
+        "path":  "src\\App.tsx",
+        "sha256":  "0B9DA487C15064BEA33A7D49EC19C7785DD6D8D490B14B262DA9A70932164620"
+    },
+    {
+        "path":  "src\\index.css",
+        "sha256":  "F23F9014E9494151CE825B3113714AACF22218837B95CFCB81DB9A5D3174E2FC"
+    },
+    {
+        "path":  "src\\main.tsx",
+        "sha256":  "33975DC2A3C0B4713ADB530B920688B6F2B2C74B80E3AE5861BC3BC28F119829"
+    },
+    {
+        "path":  "src\\vite-env.d.ts",
+        "sha256":  "424FAF9241DD699DDA995B367ED36665732DA1E6EC1F33B2FD40394488ECAC92"
+    },
+    {
+        "path":  "src\\components\\AdminDashboard.tsx",
+        "sha256":  "B84D517850FE6D7EF24AD5C52BB55DFFAA1802B97238C966C4426A9BCD1D474D"
+    },
+    {
+        "path":  "src\\components\\AdminMap.tsx",
+        "sha256":  "54D287E3E02C941AB041A71ABC1F2F91EF5C47B638535A4D4C3642A484EA4E2B"
+    },
+    {
+        "path":  "src\\components\\BottomNav.tsx",
+        "sha256":  "706925ED329F4A277F0C9E983373D9F6C4DE7CD7B1250605F0CB433BDA91FCA2"
+    },
+    {
+        "path":  "src\\components\\Dashboard.tsx",
+        "sha256":  "C42087AEE8B21AC082D06EEE59570F3C3E6C86857ACC5156B6068F121E7CF6CC"
+    },
+    {
+        "path":  "src\\components\\LocalDataControls.test.tsx",
+        "sha256":  "AA15B198CF697FEE853E60FB9E3187C37F0A2BD812B6C1257B11912BE7F2563D"
+    },
+    {
+        "path":  "src\\components\\LocalDataControls.tsx",
+        "sha256":  "863D9798CD22DBDFB25B69DF0F5A71831587A4FF89397E831301F84D2EB0F6A6"
+    },
+    {
+        "path":  "src\\components\\MyReports.tsx",
+        "sha256":  "BEE44FD5528993F09779A26502AFF240C28987ADFB74C612CA028BB88969EA41"
+    },
+    {
+        "path":  "src\\components\\NavLink.tsx",
+        "sha256":  "AE74980E699AF0C3CD0AD42663626CF49C543CED33C81423BD345AC307B3C13A"
+    },
+    {
+        "path":  "src\\components\\PriorityBadge.tsx",
+        "sha256":  "3DF56F93FFC1AC406C042377C53F44756A1E1B5D31E334094D7278A92A6BD2B1"
+    },
+    {
+        "path":  "src\\components\\Profile.tsx",
+        "sha256":  "880A87F1C8302BECA8D92B926D6DACB5997AEDD0E20FE5A5C1EC51E0602F1973"
+    },
+    {
+        "path":  "src\\components\\ReportDetail.tsx",
+        "sha256":  "F2612D3EE9DFC418B81ED101B377974AE71CBEC00BAE50474D1A8823B4B25767"
+    },
+    {
+        "path":  "src\\components\\ReportModal.test.tsx",
+        "sha256":  "43C27FED38336F48FCC40521E2EDD7075E80AFF1A5A4FCE3662044BFDCAB5C8F"
+    },
+    {
+        "path":  "src\\components\\ReportModal.tsx",
+        "sha256":  "E0A548611D332CC67BF4C7084C8C113D77F9EA14D4984266379E0B1B7480B93F"
+    },
+    {
+        "path":  "src\\components\\SourceBadge.tsx",
+        "sha256":  "75B1C0B87AD0B0F98E8931958680A0922EE8390D51A2B14DDA668D67927206C8"
+    },
+    {
+        "path":  "src\\components\\StatusBadge.tsx",
+        "sha256":  "F586859E6D8C34C107117A22FF7581A693AE7289BA4B8874DB94CD7F359ADB88"
+    },
+    {
+        "path":  "src\\components\\UrbanMap.tsx",
+        "sha256":  "8DF6A1043CA35E71A9D08F936402D9A90422631F47A9879E948C857DB8472CBA"
+    },
+    {
+        "path":  "src\\components\\map\\basemaps.test.tsx",
+        "sha256":  "1C022865622386DED4C68595F5B9578F806F81C70C49151DCB54379027289721"
+    },
+    {
+        "path":  "src\\components\\map\\MapAutoSize.tsx",
+        "sha256":  "2D9DDE23B5ED91899642F5F9CDE52351EA7FB344CF6B1A88963E2C42A26EF2E7"
+    },
+    {
+        "path":  "src\\components\\ui\\accordion.tsx",
+        "sha256":  "DEDB1E79E973F5BE7BBE9149C56E6DE293E3C831269192084A664CB40EB9EA49"
+    },
+    {
+        "path":  "src\\components\\ui\\alert-dialog.tsx",
+        "sha256":  "8DBFB9D9A88975C42E94E8CA8EAD8398E08A0EB75F3464D6961B7CF1CD6E1BC5"
+    },
+    {
+        "path":  "src\\components\\ui\\alert.tsx",
+        "sha256":  "F6E25204C7DBE2D52BCA2D8FA6BA2B770CD92FC6B6182B24B8504CD2CFA14235"
+    },
+    {
+        "path":  "src\\components\\ui\\aspect-ratio.tsx",
+        "sha256":  "67C60B91DF6DC9FC729390742B04C02D40C19F51F7A2D4F79110911A061266BB"
+    },
+    {
+        "path":  "src\\components\\ui\\avatar.tsx",
+        "sha256":  "FB40D976244FD1053055B2C01BF8789AABCA8299D2B6383C5D23C15ED06DD961"
+    },
+    {
+        "path":  "src\\components\\ui\\badge.tsx",
+        "sha256":  "B82F8DFEDD3C17C96D5660D4B2B83DEC832B1C72631919DD1FF595B62086D7C5"
+    },
+    {
+        "path":  "src\\components\\ui\\breadcrumb.tsx",
+        "sha256":  "CDB4909B5375A2B2E3B6613A217B1B357E6FE1BAC86A98E0BA9A55ED8A96101D"
+    },
+    {
+        "path":  "src\\components\\ui\\button.tsx",
+        "sha256":  "4DB26751EB4C3EF04638436EC125D034A6611CDDCBEEAD3A57775DAE9C46A45F"
+    },
+    {
+        "path":  "src\\components\\ui\\calendar.tsx",
+        "sha256":  "A52D8AEED9DF4B5EEFC45E489B488923F036CA7EA08BC73530256FE317A93B99"
+    },
+    {
+        "path":  "src\\components\\ui\\card.tsx",
+        "sha256":  "88E728BD33911310F5E8018409448CEF61147C841683BB0ED243BAC2E2C96895"
+    },
+    {
+        "path":  "src\\components\\ui\\carousel.tsx",
+        "sha256":  "B6CC2145CEAE0AD822D8C51F25E4DF947338249112EA2552ACB08C9AF69AEFF9"
+    },
+    {
+        "path":  "src\\components\\ui\\chart.tsx",
+        "sha256":  "01D05066C8C4E1CDCCE6525407EB8344433009A6E65BDB350ECEE27FED1BE532"
+    },
+    {
+        "path":  "src\\components\\ui\\checkbox.tsx",
+        "sha256":  "DBE4C3E16B760CCADCC654E7F69D5ED95621CB88909E83DC7D50015F694F8B8D"
+    },
+    {
+        "path":  "src\\components\\ui\\collapsible.tsx",
+        "sha256":  "F375E9BB056882208FC140C8F65D8878398C891351D369950BF4CD431E4A98E6"
+    },
+    {
+        "path":  "src\\components\\ui\\command.tsx",
+        "sha256":  "171A983EA517287297899315C884EB89EDDD0C4A189C3A38949EE2CD8A9C2FC5"
+    },
+    {
+        "path":  "src\\components\\ui\\context-menu.tsx",
+        "sha256":  "44641F2907E8B225C250BF2F5DF28461400B3A1CE30BCDEE113A8E3B662F2C92"
+    },
+    {
+        "path":  "src\\components\\ui\\dialog.tsx",
+        "sha256":  "137F3E8FA158010E1B113034D89EF3F808F4EAAE4D9555F6C281AE003680BEFB"
+    },
+    {
+        "path":  "src\\components\\ui\\drawer.tsx",
+        "sha256":  "173E0D771230A244C5899EC6AC8E162E38AC551E00CD43EA50AF2DFDF96538E9"
+    },
+    {
+        "path":  "src\\components\\ui\\dropdown-menu.tsx",
+        "sha256":  "3C031A123DBB144A925D2720EC43B5FAB495EE0F52CE62DBE7FBFDD17194B729"
+    },
+    {
+        "path":  "src\\components\\ui\\form.tsx",
+        "sha256":  "109F343145AAD66795974ECD8F53646C09D02760F66E8BAB81E539D12BD41D57"
+    },
+    {
+        "path":  "src\\components\\ui\\hover-card.tsx",
+        "sha256":  "643DC4BB95E37A4C8244C9B00F6042AD52AD8DEEB44EB212C7E6AADCE0662350"
+    },
+    {
+        "path":  "src\\components\\ui\\input-otp.tsx",
+        "sha256":  "832723E92321AE391222DF9C83D60C405F15EC54AD61B8C954B14B4B74243D5A"
+    },
+    {
+        "path":  "src\\components\\ui\\input.tsx",
+        "sha256":  "3B09EE25C1C65E8890236EB3DF0BB7B664F21CA694481815B955CBE6FDF25B22"
+    },
+    {
+        "path":  "src\\components\\ui\\label.tsx",
+        "sha256":  "9365711E408FC8ADD0E7A7FE4DDF513EE346B98A54AA1DE131F34A9AFEDC753D"
+    },
+    {
+        "path":  "src\\components\\ui\\menubar.tsx",
+        "sha256":  "1E9B2239E995D7A1FE6DFEA7CF4EF571658EB99C8B744F540853350D1CBB1B7F"
+    },
+    {
+        "path":  "src\\components\\ui\\navigation-menu.tsx",
+        "sha256":  "4E3CB2BF59E67F930F395C94CABFC63C03C4D6B0D86DC5735FA666852F8022CD"
+    },
+    {
+        "path":  "src\\components\\ui\\pagination.tsx",
+        "sha256":  "8FA329509F89EBFCE9CB4FDB5FD57E7BC595724831485D9C24DFA6A755E17A66"
+    },
+    {
+        "path":  "src\\components\\ui\\popover.tsx",
+        "sha256":  "3C3C138C4CA584E2449599FA87467CF96085FE6518D03645B3ADFC83F118202B"
+    },
+    {
+        "path":  "src\\components\\ui\\progress.tsx",
+        "sha256":  "AA219168FEA49B768544E7DA6D6B6776D97DF6F499FEFD69E9CCA69E80E38D61"
+    },
+    {
+        "path":  "src\\components\\ui\\radio-group.tsx",
+        "sha256":  "E7BCB8238A536581930A50E37912B11003A4E5F9B2E0A5E17AEFFC024EDD1394"
+    },
+    {
+        "path":  "src\\components\\ui\\resizable.tsx",
+        "sha256":  "649C0537BD8F0784F11A5E7666284AD42A0665A0525B93E69F0287C7BF1F000D"
+    },
+    {
+        "path":  "src\\components\\ui\\scroll-area.tsx",
+        "sha256":  "3D5021162483838DAB258477D4752E6194428424FC74D75A30EFA30D83200B59"
+    },
+    {
+        "path":  "src\\components\\ui\\select.tsx",
+        "sha256":  "37EAF6E792144F80187DF0E3A6314246B2BD3C61FA401A78BF6C3FDD49D7A210"
+    },
+    {
+        "path":  "src\\components\\ui\\separator.tsx",
+        "sha256":  "8EC59E1C43CA286A97E5CED3A3473352DBDAF4F0B1CADE910C95DFDF251AE209"
+    },
+    {
+        "path":  "src\\components\\ui\\sheet.tsx",
+        "sha256":  "3CE2628215CC3742C53BAA6D5A0C4CA39EF63DB33027CF57B5B159949CEBEFDA"
+    },
+    {
+        "path":  "src\\components\\ui\\sidebar.tsx",
+        "sha256":  "4D898B00C646352CF4AC4241A288D36D72833FDDA1BE588578C2109E140A4D43"
+    },
+    {
+        "path":  "src\\components\\ui\\skeleton.tsx",
+        "sha256":  "1911C26C08ED186E51EF65279BFF95EAE5F3BF6D237BCA0018B10F1E70BA6D7B"
+    },
+    {
+        "path":  "src\\components\\ui\\slider.tsx",
+        "sha256":  "527BB9CFEA006F3B70EECBDD40C1AC2FF1B7E687014B4112863BCCABDE3BE735"
+    },
+    {
+        "path":  "src\\components\\ui\\sonner.tsx",
+        "sha256":  "B945AD2BE234FB2971BEBB4BB41608F203DC40E1E8E4586827B00A601826F711"
+    },
+    {
+        "path":  "src\\components\\ui\\switch.tsx",
+        "sha256":  "82D20B0BBE0880E62AB6471E3BA5F1F5A5F8337E1A5420420380314A653CFEA7"
+    },
+    {
+        "path":  "src\\components\\ui\\table.tsx",
+        "sha256":  "5CEE937C372BCE9AF767F5D87E57C3220694D0C29B682BB6F1C834C4FFF888EC"
+    },
+    {
+        "path":  "src\\components\\ui\\tabs.tsx",
+        "sha256":  "EA49795AB5CC253C7D2AB1138F27CB7807B19E254C5E661141CDE7AA8C4187D4"
+    },
+    {
+        "path":  "src\\components\\ui\\textarea.tsx",
+        "sha256":  "47D2DE58203523F15F1E516EED197A34CD9BF350A7F025D3C7E28CBFF1FB65A7"
+    },
+    {
+        "path":  "src\\components\\ui\\toast.tsx",
+        "sha256":  "87AB93DB171BE019C37982E95B47732C0FE58592AA26998EF62B9CA8362FF8CA"
+    },
+    {
+        "path":  "src\\components\\ui\\toaster.tsx",
+        "sha256":  "6CCE09CCC4CECBD88E2B249C7D60FF87D7D7CA6271906C80F281050668AA93C0"
+    },
+    {
+        "path":  "src\\components\\ui\\toggle-group.tsx",
+        "sha256":  "80CA2245A6104B972681FF574543FBBD076142361DB9370E8B70AB349AA1C537"
+    },
+    {
+        "path":  "src\\components\\ui\\toggle.tsx",
+        "sha256":  "834FECDF28ECCF12796FDB428C249947D21F4DB4941FE8B7F07FBBCF379F17CF"
+    },
+    {
+        "path":  "src\\components\\ui\\tooltip.tsx",
+        "sha256":  "0D43EC6DA30BA92A66C6B098A5123563EBD4153C8D53983F105109B8DA7031C4"
+    },
+    {
+        "path":  "src\\components\\ui\\use-toast.ts",
+        "sha256":  "3FBE3B856AFFDF39F3EB2A82C898B96D44560D93D05674AB2FD6105825CA78D1"
+    },
+    {
+        "path":  "src\\hooks\\use-mobile.tsx",
+        "sha256":  "F6F7A7643D4607721C57E2B8C4081A8F84AEFBB0A240F4B9DD1FC20D8D7A61E6"
+    },
+    {
+        "path":  "src\\hooks\\use-toast.ts",
+        "sha256":  "6BF9E146F489A0C63DE9C7E52C2C4D94D2C4618214B106CF3B871F02CA9B5925"
+    },
+    {
+        "path":  "src\\hooks\\useAuth.test.tsx",
+        "sha256":  "0D97AF03BB2FE1D122C2555EE9AFAFAB6CF0E9AA4C2FEA80D00DAD41B59B8EF9"
+    },
+    {
+        "path":  "src\\hooks\\useAuth.tsx",
+        "sha256":  "CF9E959885099A1CAC731C90DB2333A372DFAD43FFC95AB4A62ED7E70FC6787C"
+    },
+    {
+        "path":  "src\\hooks\\useGeolocation.ts",
+        "sha256":  "16E980B3E71A5F6B1126A88BCA3A7673B6BC3CC48CBD48AF27CA5361707E74EE"
+    },
+    {
+        "path":  "src\\hooks\\useUrbanReports.test.tsx",
+        "sha256":  "76CB5CE0D1E3900BA30CE1FD346397A5FBDA737A895D3E5DC71262A22AFC8EAC"
+    },
+    {
+        "path":  "src\\hooks\\useUrbanReports.ts",
+        "sha256":  "5CC6D7FD4A02F50F77EB4B44DD1066D9AA7D30015F8D14BAF7A8E1CB27CB3924"
+    },
+    {
+        "path":  "src\\integrations\\supabase\\client.ts",
+        "sha256":  "BF618A8C73FECA51866E84B7256D97FA277E3EB4BFB3EBC85D49D93E625A7783"
+    },
+    {
+        "path":  "src\\integrations\\supabase\\previewAuthStorage.ts",
+        "sha256":  "7C34446792E12C2406F3ECBC3659F47D934E936369BEC00C71852E51547C0389"
+    },
+    {
+        "path":  "src\\integrations\\supabase\\types.ts",
+        "sha256":  "898F847CCC7B6F2C64A22727D0ABB6045742185E5A82B8CBE05DB796E4508BFA"
+    },
+    {
+        "path":  "src\\lib\\aiAnalysis.test.ts",
+        "sha256":  "CAC0B0DD347BB4D7C31148C89445AE3D3A26A78A8583EFBA7C9635AB3CA76C60"
+    },
+    {
+        "path":  "src\\lib\\aiAnalysis.ts",
+        "sha256":  "CF947CEB02021E629AEFB4BF3F877F7B146607516AA58B22AC04F59DB0735815"
+    },
+    {
+        "path":  "src\\lib\\edgeAnalysis.test.ts",
+        "sha256":  "B885D9286B096AAA4DDAB4941294E4B3EE18C63F01BBB156AADA977621FD9F78"
+    },
+    {
+        "path":  "src\\lib\\mapConfig.ts",
+        "sha256":  "1A3775E7E708A5BE5EFE11DFE85932C79CE142DDA48DA52CC9F5E8408F29284C"
+    },
+    {
+        "path":  "src\\lib\\password.ts",
+        "sha256":  "B2B429FC3C087996FA2EFCF431DE7150D257CBB46F2931B7BDCBFEE8039F04A2"
+    },
+    {
+        "path":  "src\\lib\\reportData.test.ts",
+        "sha256":  "D929F527FFD73BDEE990E5DA19D573AF31C7E3484DFAFBA09BEE446B65F3FB15"
+    },
+    {
+        "path":  "src\\lib\\reportData.ts",
+        "sha256":  "352A997439300C169468371A84342F5E0F50C2A5F96AF5F2C7C31EBEEAFB1154"
+    },
+    {
+        "path":  "src\\lib\\reportStorage.ts",
+        "sha256":  "85F15F9B6F277EEEF2EFBD862C1B5173A7D22B67D41891195B431E3FB2527F8B"
+    },
+    {
+        "path":  "src\\lib\\urban.test.ts",
+        "sha256":  "1A0C0CDEABADD3A40EBFAB0B3D0D292AC080BC2098F8A669D35A6AB4AF9A3BF2"
+    },
+    {
+        "path":  "src\\lib\\urban.ts",
+        "sha256":  "F0D95A0FD275AED6E912CC3890FCB4352C295418228DE35D8E4BD96C2549D108"
+    },
+    {
+        "path":  "src\\lib\\utils.ts",
+        "sha256":  "C0ADF27EFBFA148D5ABCF99E860F8E3E6C8FC77A1F99E023C08EF4F12E6ECE29"
+    },
+    {
+        "path":  "src\\pages\\Index.tsx",
+        "sha256":  "3E79E1377876F6DFF6E7B7625DCB61C7B5F0DE343CD49EE468D7A47881B3AD4C"
+    },
+    {
+        "path":  "src\\pages\\Login.tsx",
+        "sha256":  "CB6D7A7B52796BD375832F3FBF958FEC93383F77FCDFCA3160E6B728F8469B33"
+    },
+    {
+        "path":  "src\\pages\\NotFound.tsx",
+        "sha256":  "2881988C57FB19591A837FC53CBA6843B142B285F03F2CF8B92D3C9C1C27775B"
+    },
+    {
+        "path":  "src\\test\\example.test.ts",
+        "sha256":  "59E65DFA496976F02D41B5B54CD30CC8BB0A5EDD46879A1A419A87051821D0A2"
+    },
+    {
+        "path":  "src\\test\\setup.ts",
+        "sha256":  "9F2B6009FE898EFA772B53A8DFB42CF20E464BE3107059EBE7F7176E5372AB48"
+    },
+    {
+        "path":  "src\\types\\urban.ts",
+        "sha256":  "867EB4016FE5525908473A0C103CCD4A97011BA4D96F6870A7F337718A01F85B"
+    },
+    {
+        "path":  "package.json",
+        "sha256":  "12B8EDE053997D4BD26EA8530FFD83372EB939001AC7790E92C4CC40FEC69594"
+    },
+    {
+        "path":  "package-lock.json",
+        "sha256":  "60835EA87C97CAAB995406894353D16C5222DA839E3919A2782A6EA7450BCB5E"
+    },
+    {
+        "path":  "bun.lock",
+        "sha256":  "7784BE3CB496F2D68746E7F1C033081268BB812FEE13018CD8356D99A354F698"
+    },
+    {
+        "path":  "bun.lockb",
+        "sha256":  "6015D8BBADCD7AE99A9FB90C58BB9D4DA8F3EB3DE09DA82E53DCB0A4AF93C1E9"
+    },
+    {
+        "path":  "playwright.config.ts",
+        "sha256":  "77603432CB4CDAC33C0CECEAD59781E8C41DDF63733FCB8BEA2B9CF2FB6C3D4B"
+    },
+    {
+        "path":  "e2e\\urbaneye.spec.ts",
+        "sha256":  "A72EA6BBBA685C423A591E4C6F341D9BDF1ADD21383960456D764D343737C8B5"
+    }
+]

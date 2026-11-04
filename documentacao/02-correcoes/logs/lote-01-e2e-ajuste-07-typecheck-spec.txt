@@ -1,0 +1,2 @@
+Comando: node node_modules/typescript/bin/tsc --noEmit --skipLibCheck --target ES2020 --module ESNext --moduleResolution bundler e2e/urbaneye.spec.ts
+EXIT_CODE=0

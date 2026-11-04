@@ -1,0 +1,10 @@
+{
+  "automatedScenarioRows": 9,
+  "csvMatchesJson": true,
+  "localLinksVerified": 39,
+  "protectedFilesUnchanged": 330,
+  "testedVersionUnchanged": true,
+  "htmlReportBytes": 548055
+}
+
+EXIT_CODE=0

@@ -1,0 +1,2 @@
+Comando: npm.cmd run test:e2e -- --grep cadastro --reporter=list,html --output=documentacao/02-correcoes/test-results-lote-01-ajuste-reproducao
+Execução não iniciada: Tee-Object -LiteralPath com -Append causou AmbiguousParameterSet no PowerShell. Captura corrigida para -FilePath nas execuções seguintes. Nenhum resultado de teste é atribuído a esta tentativa.

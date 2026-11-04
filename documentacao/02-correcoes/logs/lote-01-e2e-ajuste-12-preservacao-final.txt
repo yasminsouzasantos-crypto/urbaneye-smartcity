@@ -1,0 +1,17 @@
+Verificação SHA-256 das evidências preexistentes, dependências e configuração Playwright.
+Arquivos protegidos: 113
+Arquivos modificados ou ausentes: 0
+Comando: git diff --check
+warning: in the working copy of 'e2e/urbaneye.spec.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/AdminDashboard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/AdminMap.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ReportDetail.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/UrbanMap.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/hooks/useUrbanReports.test.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/hooks/useUrbanReports.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/mapConfig.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/lib/reportStorage.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/Index.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/types/urban.ts', LF will be replaced by CRLF the next time Git touches it
+EXIT_CODE=0

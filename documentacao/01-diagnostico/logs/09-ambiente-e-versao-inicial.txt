@@ -1,0 +1,13 @@
+PS C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity> git rev-parse HEAD
+e2b857554605d2f6848c6c0227e6a9e64c980efd
+
+PS C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity> git branch --show-current
+validacao-academica
+
+PS C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity> git status --short
+
+PS C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity> node --version
+v24.15.0
+
+PS C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity> npm --version
+12.0.2

@@ -1,0 +1,62 @@
+Comando: npm.cmd run test:e2e -- --grep cadastro --reporter=list,html --output=documentacao/02-correcoes/test-results-lote-01-ajuste-reproducao
+npm notice run vite_react_shadcn_ts@0.0.0 test:e2e
+npm notice run npm run build && playwright test --grep cadastro --reporter=list,html --output=documentacao/02-correcoes/test-results-lote-01-ajuste-reproducao
+npm notice run vite_react_shadcn_ts@0.0.0 build
+npm notice run vite build
+vite v6.4.3 building for production...
+transforming...
+✓ 2446 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           1.55 kB │ gzip:   0.65 kB
+dist/assets/index-BvD_iK9-.css           79.23 kB │ gzip:  17.93 kB
+dist/assets/client-Cd4GIdrC.js          229.09 kB │ gzip:  59.69 kB
+dist/assets/Index-CvgNxP56.js           307.46 kB │ gzip:  87.12 kB
+dist/assets/index-B5Y9rnhp.js           326.03 kB │ gzip: 105.44 kB
+dist/assets/AdminDashboard-Dqkwy5We.js  437.32 kB │ gzip: 117.85 kB
+✓ built in 7.25s
+[WebServer] npm notice run vite_react_shadcn_ts@0.0.0 preview
+[WebServer] npm notice run vite preview --host 127.0.0.1 --port 8081 --strictPort
+
+Running 1 test using 1 worker
+
+(node:7704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e\urbaneye.spec.ts:61:1 › cadastro → WebP/IA → persistência → gestão → contestação (45.7s)
+
+
+  1) e2e\urbaneye.spec.ts:61:1 › cadastro → WebP/IA → persistência → gestão → contestação ──────────
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /Obra Rua de teste/ })
+
+
+      87 |   await expect(page.getByText('Chamados por prioridade', { exact: true })).toBeVisible();
+      88 |   await expect(page.locator('.recharts-wrapper').first()).toBeVisible();
+    > 89 |   await page.getByRole('button', { name: /Obra Rua de teste/ }).click();
+         |                                                                 ^
+      90 |   await page.getByRole('dialog', { name: 'Detalhes do chamado' }).getByRole('button', { name: 'Crítica', exact: true }).click();
+      91 |   await page.getByRole('button', { name: 'Marcar como resolvido' }).click();
+      92 |   await expect(page.getByText('Aguardando confirmação do cidadão.', { exact: true })).toBeVisible();
+        at C:\Users\bruno\OneDrive\Documentos\Urbaneye\urbaneye-smartcity\e2e\urbaneye.spec.ts:89:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    documentacao\02-correcoes\test-results-lote-01-ajuste-reproducao\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: documentacao\02-correcoes\test-results-lote-01-ajuste-reproducao\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    documentacao\02-correcoes\test-results-lote-01-ajuste-reproducao\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\trace.zip
+    Usage:
+
+        npx playwright show-trace documentacao\02-correcoes\test-results-lote-01-ajuste-reproducao\urbaneye-cadastro-→-WebP-I-24446-ncia-→-gestão-→-contestação\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    e2e\urbaneye.spec.ts:61:1 › cadastro → WebP/IA → persistência → gestão → contestação ───────────
+EXIT_CODE=1
